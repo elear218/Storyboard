@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  StoryBoardTest
+//
+//  Created by eall on 2018/3/1.
+//  Copyright © 2018年 eall. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <MJRefresh.h>
+#import <YYModel.h>
+
+#import "CustomNaviViewController.h"
+#import "StoryBoardTest-Swift.h" //导入此头文件之后OC就可以使用swift文件了
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

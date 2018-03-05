@@ -1,0 +1,25 @@
+[
+ {"time":"8年",
+ "item":"台球",
+ "level":"非常热爱",
+ "action":"snooker"
+ },
+ 
+ {"time":"5年",
+ "item":"羽毛球",
+ "level":"热爱",
+ "action":"badminton"
+ },
+ 
+ {"time":"2年",
+ "item":"滑雪",
+ "level":"非常热爱",
+ "action":"skiing"
+ },
+ 
+ {"time":"2年",
+ "item":"轮滑",
+ "level":"一般",
+ "action":"skidding"
+ }
+ ]
