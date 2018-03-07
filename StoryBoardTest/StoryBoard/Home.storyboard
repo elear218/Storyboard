@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfd-Qz-Dk7">
-                                <rect key="frame" x="167" y="83" width="40" height="34"/>
+                                <rect key="frame" x="167" y="30" width="40" height="34"/>
                                 <state key="normal" title="push">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9O7-z6-CPs">
-                                <rect key="frame" x="156" y="186" width="62" height="34"/>
+                                <rect key="frame" x="156" y="94" width="62" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="present">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,12 +56,22 @@
                                     <segue destination="jYn-nO-BYq" kind="presentation" id="8hi-9P-eQn"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZB-hT-4cK" customClass="CustomXibView">
+                                <rect key="frame" x="120" y="165" width="195" height="80"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="6jY-h2-QRU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NZB-hT-4cK" secondAttribute="trailing" constant="60" id="7l2-wQ-ijJ"/>
                             <constraint firstItem="Qfd-Qz-Dk7" firstAttribute="centerX" secondItem="Nh2-mf-nHN" secondAttribute="centerX" id="EcL-ct-m7l"/>
-                            <constraint firstItem="9O7-z6-CPs" firstAttribute="top" secondItem="Qfd-Qz-Dk7" secondAttribute="bottom" constant="69" id="FPx-xM-syD"/>
-                            <constraint firstItem="Qfd-Qz-Dk7" firstAttribute="top" secondItem="Mg3-Yd-Xni" secondAttribute="bottom" constant="83" id="eoa-2J-sUf"/>
+                            <constraint firstItem="9O7-z6-CPs" firstAttribute="top" secondItem="Qfd-Qz-Dk7" secondAttribute="bottom" constant="30" id="FPx-xM-syD"/>
+                            <constraint firstItem="NZB-hT-4cK" firstAttribute="top" secondItem="9O7-z6-CPs" secondAttribute="bottom" constant="37" id="KAv-Yf-a6q"/>
+                            <constraint firstItem="Qfd-Qz-Dk7" firstAttribute="top" secondItem="Mg3-Yd-Xni" secondAttribute="bottom" constant="30" id="eoa-2J-sUf"/>
+                            <constraint firstItem="NZB-hT-4cK" firstAttribute="leading" secondItem="Nh2-mf-nHN" secondAttribute="leading" constant="120" id="qAH-HF-pFr"/>
                             <constraint firstItem="9O7-z6-CPs" firstAttribute="centerX" secondItem="Qfd-Qz-Dk7" secondAttribute="centerX" id="v5Y-5H-SNU"/>
                         </constraints>
                     </view>

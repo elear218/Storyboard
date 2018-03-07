@@ -39,7 +39,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="登录" id="nQq-Rs-a5q">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Aap-A0-ga5">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="Aap-A0-ga5">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DDt-uZ-22N">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

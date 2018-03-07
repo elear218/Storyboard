@@ -8,6 +8,7 @@ target 'StoryBoardTest' do
 
   pod 'MJRefresh'
   pod 'YYModel'
+  pod 'Masonry'
 
   target 'StoryBoardTestTests' do
     inherit! :search_paths

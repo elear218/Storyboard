@@ -8,6 +8,8 @@
 
 #import "HomeViewController.h"
 
+#import "CustomXibView.h"
+
 @interface HomeViewController ()
 
 @end
@@ -17,7 +19,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"11111");
+    CGFloat navigationHeight = self.navigationController.navigationBar.frame.size.height;
+    CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
+    NSLog(@"navigationHeight:%f\ntabBarHeight:%f",navigationHeight,tabBarHeight);
+    
+    CustomXibView *view = [[CustomXibView alloc] init];
+    view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:view];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.bottom.mas_equalTo(-20);
+        make.centerX.mas_equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(200, 200));
+    }];
     // Do any additional setup after loading the view.
 }
 

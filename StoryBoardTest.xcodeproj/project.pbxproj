@@ -40,6 +40,8 @@
 		AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E4BC920493B3B00027C7B /* LinePushViewController.m */; };
 		AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4E4BCB20494A3800027C7B /* TaskViewController.swift */; };
 		AD4E4BCE204CE5F300027C7B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4E4BCD204CE5F300027C7B /* Login.storyboard */; };
+		AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD995FB6204FBF5100B74D28 /* CustomXibView.m */; };
+		AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */; };
 		B455D359508109B9225D746C /* libPods-StoryBoardTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FB15284CFF59F9D244560A /* libPods-StoryBoardTestTests.a */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +125,9 @@
 		AD4E4BC920493B3B00027C7B /* LinePushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinePushViewController.m; sourceTree = "<group>"; };
 		AD4E4BCB20494A3800027C7B /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		AD4E4BCD204CE5F300027C7B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		AD995FB5204FBF5100B74D28 /* CustomXibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomXibView.h; sourceTree = "<group>"; };
+		AD995FB6204FBF5100B74D28 /* CustomXibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomXibView.m; sourceTree = "<group>"; };
+		AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomXibView.xib; sourceTree = "<group>"; };
 		C3653FAEEF308E72059A4771 /* Pods-StoryBoardTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTest/Pods-StoryBoardTest.release.xcconfig"; sourceTree = "<group>"; };
 		ED0C2E2CCA482B2BE46C52F9 /* Pods-StoryBoardTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTestUITests/Pods-StoryBoardTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FF6BB2134173BD9155ACAA58 /* libPods-StoryBoardTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,6 +265,7 @@
 		AD37BE5620463502002D59CD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AD995FB4204FBF3200B74D28 /* View */,
 				AD37BE592046352A002D59CD /* HomeViewController.h */,
 				AD37BE5A2046352A002D59CD /* HomeViewController.m */,
 				AD37BE62204638E7002D59CD /* PresentViewController.h */,
@@ -351,6 +357,16 @@
 				AD4E4BC12048FAA600027C7B /* RegisterViewController.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		AD995FB4204FBF3200B74D28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD995FB5204FBF5100B74D28 /* CustomXibView.h */,
+				AD995FB6204FBF5100B74D28 /* CustomXibView.m */,
+				AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EFC7CA91ED9B46CE03BF8542 /* Frameworks */ = {
@@ -486,6 +502,7 @@
 				AD37BE5520456303002D59CD /* Mine.storyboard in Resources */,
 				AD37BE15204552BF002D59CD /* Main.storyboard in Resources */,
 				AD4E4BB62048D97300027C7B /* Hobby.json in Resources */,
+				AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */,
 				AD37BE51204562ED002D59CD /* Home.storyboard in Resources */,
 				AD4E4BCE204CE5F300027C7B /* Login.storyboard in Resources */,
 			);
@@ -671,6 +688,7 @@
 				AD37BE1D204552BF002D59CD /* main.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
 				AD4E4BC22048FAA600027C7B /* RegisterViewController.m in Sources */,
+				AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */,
 				AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */,
 				AD37BE4D20455FC6002D59CD /* CustomTabBarController.m in Sources */,
 				AD37BE612046358A002D59CD /* MineTableViewController.m in Sources */,
