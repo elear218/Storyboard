@@ -9,6 +9,7 @@ target 'StoryBoardTest' do
   pod 'MJRefresh'
   pod 'YYModel'
   pod 'Masonry'
+  pod 'UITableView+FDTemplateLayoutCell'
 
   target 'StoryBoardTestTests' do
     inherit! :search_paths

@@ -42,6 +42,14 @@
 		AD4E4BCE204CE5F300027C7B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4E4BCD204CE5F300027C7B /* Login.storyboard */; };
 		AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD995FB6204FBF5100B74D28 /* CustomXibView.m */; };
 		AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */; };
+		AD996010204FEE1100B74D28 /* SelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD99600E204FEE1100B74D28 /* SelectTableViewCell.m */; };
+		AD996011204FEE1100B74D28 /* SelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD99600F204FEE1100B74D28 /* SelectTableViewCell.xib */; };
+		AD996014204FEE3E00B74D28 /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD996013204FEE3E00B74D28 /* PushViewController.m */; };
+		AD99601B2050D77800B74D28 /* UIViewController+ContentInset.m in Sources */ = {isa = PBXBuildFile; fileRef = AD99601A2050D77800B74D28 /* UIViewController+ContentInset.m */; };
+		AD99601E2050DC4300B74D28 /* CheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD99601D2050DC4300B74D28 /* CheckModel.m */; };
+		AD9960222050DE1700B74D28 /* CheckTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9960202050DE1700B74D28 /* CheckTableViewCell.m */; };
+		AD9960232050DE1700B74D28 /* CheckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD9960212050DE1700B74D28 /* CheckTableViewCell.xib */; };
+		AD9960252050E17A00B74D28 /* Check.json in Resources */ = {isa = PBXBuildFile; fileRef = AD9960242050E17900B74D28 /* Check.json */; };
 		B455D359508109B9225D746C /* libPods-StoryBoardTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FB15284CFF59F9D244560A /* libPods-StoryBoardTestTests.a */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +136,19 @@
 		AD995FB5204FBF5100B74D28 /* CustomXibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomXibView.h; sourceTree = "<group>"; };
 		AD995FB6204FBF5100B74D28 /* CustomXibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomXibView.m; sourceTree = "<group>"; };
 		AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomXibView.xib; sourceTree = "<group>"; };
+		AD99600D204FEE1100B74D28 /* SelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectTableViewCell.h; sourceTree = "<group>"; };
+		AD99600E204FEE1100B74D28 /* SelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectTableViewCell.m; sourceTree = "<group>"; };
+		AD99600F204FEE1100B74D28 /* SelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTableViewCell.xib; sourceTree = "<group>"; };
+		AD996012204FEE3E00B74D28 /* PushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
+		AD996013204FEE3E00B74D28 /* PushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
+		AD9960192050D77800B74D28 /* UIViewController+ContentInset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ContentInset.h"; sourceTree = "<group>"; };
+		AD99601A2050D77800B74D28 /* UIViewController+ContentInset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ContentInset.m"; sourceTree = "<group>"; };
+		AD99601C2050DC4300B74D28 /* CheckModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckModel.h; sourceTree = "<group>"; };
+		AD99601D2050DC4300B74D28 /* CheckModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckModel.m; sourceTree = "<group>"; };
+		AD99601F2050DE1700B74D28 /* CheckTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckTableViewCell.h; sourceTree = "<group>"; };
+		AD9960202050DE1700B74D28 /* CheckTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckTableViewCell.m; sourceTree = "<group>"; };
+		AD9960212050DE1700B74D28 /* CheckTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckTableViewCell.xib; sourceTree = "<group>"; };
+		AD9960242050E17900B74D28 /* Check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Check.json; sourceTree = "<group>"; };
 		C3653FAEEF308E72059A4771 /* Pods-StoryBoardTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTest/Pods-StoryBoardTest.release.xcconfig"; sourceTree = "<group>"; };
 		ED0C2E2CCA482B2BE46C52F9 /* Pods-StoryBoardTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTestUITests/Pods-StoryBoardTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FF6BB2134173BD9155ACAA58 /* libPods-StoryBoardTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,11 +286,14 @@
 		AD37BE5620463502002D59CD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AD99600C204FEDEE00B74D28 /* Model */,
 				AD995FB4204FBF3200B74D28 /* View */,
 				AD37BE592046352A002D59CD /* HomeViewController.h */,
 				AD37BE5A2046352A002D59CD /* HomeViewController.m */,
 				AD37BE62204638E7002D59CD /* PresentViewController.h */,
 				AD37BE63204638E7002D59CD /* PresentViewController.m */,
+				AD996012204FEE3E00B74D28 /* PushViewController.h */,
+				AD996013204FEE3E00B74D28 /* PushViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -308,6 +332,8 @@
 			children = (
 				AD37BE6920478F6D002D59CD /* UITableViewCell+Action.h */,
 				AD37BE6A20478F6D002D59CD /* UITableViewCell+Action.m */,
+				AD9960192050D77800B74D28 /* UIViewController+ContentInset.h */,
+				AD99601A2050D77800B74D28 /* UIViewController+ContentInset.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -334,6 +360,7 @@
 		AD4E4BB42048D96600027C7B /* Local Data */ = {
 			isa = PBXGroup;
 			children = (
+				AD9960242050E17900B74D28 /* Check.json */,
 				AD4E4BB52048D97300027C7B /* Hobby.json */,
 			);
 			path = "Local Data";
@@ -365,8 +392,23 @@
 				AD995FB5204FBF5100B74D28 /* CustomXibView.h */,
 				AD995FB6204FBF5100B74D28 /* CustomXibView.m */,
 				AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */,
+				AD99600D204FEE1100B74D28 /* SelectTableViewCell.h */,
+				AD99600E204FEE1100B74D28 /* SelectTableViewCell.m */,
+				AD99600F204FEE1100B74D28 /* SelectTableViewCell.xib */,
+				AD99601F2050DE1700B74D28 /* CheckTableViewCell.h */,
+				AD9960202050DE1700B74D28 /* CheckTableViewCell.m */,
+				AD9960212050DE1700B74D28 /* CheckTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AD99600C204FEDEE00B74D28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD99601C2050DC4300B74D28 /* CheckModel.h */,
+				AD99601D2050DC4300B74D28 /* CheckModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EFC7CA91ED9B46CE03BF8542 /* Frameworks */ = {
@@ -501,7 +543,10 @@
 				AD4E4BAF2048085B00027C7B /* HobbyTableViewCell.xib in Resources */,
 				AD37BE5520456303002D59CD /* Mine.storyboard in Resources */,
 				AD37BE15204552BF002D59CD /* Main.storyboard in Resources */,
+				AD9960252050E17A00B74D28 /* Check.json in Resources */,
 				AD4E4BB62048D97300027C7B /* Hobby.json in Resources */,
+				AD996011204FEE1100B74D28 /* SelectTableViewCell.xib in Resources */,
+				AD9960232050DE1700B74D28 /* CheckTableViewCell.xib in Resources */,
 				AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */,
 				AD37BE51204562ED002D59CD /* Home.storyboard in Resources */,
 				AD4E4BCE204CE5F300027C7B /* Login.storyboard in Resources */,
@@ -679,6 +724,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD99601B2050D77800B74D28 /* UIViewController+ContentInset.m in Sources */,
 				AD37BE12204552BF002D59CD /* ViewController.m in Sources */,
 				AD4E4BC720493B2800027C7B /* CodePushViewController.m in Sources */,
 				AD37BE412045569E002D59CD /* CustomNaviViewController.m in Sources */,
@@ -690,11 +736,15 @@
 				AD4E4BC22048FAA600027C7B /* RegisterViewController.m in Sources */,
 				AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */,
 				AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */,
+				AD9960222050DE1700B74D28 /* CheckTableViewCell.m in Sources */,
 				AD37BE4D20455FC6002D59CD /* CustomTabBarController.m in Sources */,
 				AD37BE612046358A002D59CD /* MineTableViewController.m in Sources */,
+				AD996010204FEE1100B74D28 /* SelectTableViewCell.m in Sources */,
 				AD37BE6720464CD7002D59CD /* DetailViewController.m in Sources */,
+				AD996014204FEE3E00B74D28 /* PushViewController.m in Sources */,
 				AD37BE0F204552BF002D59CD /* AppDelegate.m in Sources */,
 				AD37BE6E204792A7002D59CD /* LoginViewController.m in Sources */,
+				AD99601E2050DC4300B74D28 /* CheckModel.m in Sources */,
 				AD37BE5B2046352A002D59CD /* HomeViewController.m in Sources */,
 				AD37BE5E2046356F002D59CD /* MessageViewController.m in Sources */,
 				AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */,
@@ -854,6 +904,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -869,6 +920,7 @@
 				INFOPLIST_FILE = StoryBoardTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = eall.StoryBoardTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "StoryBoardTest/StoryBoardTest-Bridging-Header.h";
@@ -889,6 +941,7 @@
 				INFOPLIST_FILE = StoryBoardTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = eall.StoryBoardTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "StoryBoardTest/StoryBoardTest-Bridging-Header.h";

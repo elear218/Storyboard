@@ -12,6 +12,7 @@
 #import <MJRefresh.h>
 #import <YYModel.h>
 #import <Masonry.h>
+#import <UITableView+FDTemplateLayoutCell.h>
 
 #import "UIViewController+ContentInset.h"
 
