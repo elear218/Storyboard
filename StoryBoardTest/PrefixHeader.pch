@@ -13,6 +13,8 @@
 #import <YYModel.h>
 #import <Masonry.h>
 
+#import "UIViewController+ContentInset.h"
+
 #import "CustomNaviViewController.h"
 #import "StoryBoardTest-Swift.h" //导入此头文件之后OC就可以使用swift文件了
 // Include any system framework and library headers here that should be included in all compilation units.

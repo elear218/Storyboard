@@ -1,29 +1,24 @@
 //
-//  PresentViewController.m
+//  PushViewController.m
 //  StoryBoardTest
 //
-//  Created by eall on 2018/2/28.
+//  Created by eall on 2018/3/7.
 //  Copyright © 2018年 eall. All rights reserved.
 //
 
-#import "PresentViewController.h"
+#import "PushViewController.h"
 
-@interface PresentViewController ()
+@interface PushViewController ()
 
 @end
 
-@implementation PresentViewController
+@implementation PushViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self contentInsetAdjustment];
     // Do any additional setup after loading the view.
-}
-
-- (IBAction)dismiss:(UIButton *)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

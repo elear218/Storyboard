@@ -51,12 +51,7 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (@available(iOS 11.0, *)) {
-        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        self.tableView.estimatedRowHeight = 0;
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    [self contentInsetAdjustment];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HobbyTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"hobbyCellIdentifer"];
 
