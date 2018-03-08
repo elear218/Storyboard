@@ -39,7 +39,7 @@ static NSString *const cellId = @"CheckCellIdentifer";
     [self contentInsetAdjustment];
     
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 50.f;
+//    self.tableView.estimatedRowHeight = 50.f;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CheckTableViewCell class]) bundle:nil] forCellReuseIdentifier:cellId];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -116,6 +116,13 @@ static NSString *const cellId = @"CheckCellIdentifer";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.model = self.dataMutArr[indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return [tableView fd_heightForCellWithIdentifier:cellId cacheByIndexPath:indexPath configuration:^(CheckTableViewCell *cell) {
+        cell.model = self.dataMutArr[indexPath.row];
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

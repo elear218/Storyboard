@@ -177,28 +177,17 @@
                                     <state key="normal" title="全选">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <state key="selected" title="反选"/>
+                                    <connections>
+                                        <action selector="selectBtnClick:" destination="ctK-KQ-smz" eventType="touchUpInside" id="Ozz-sA-SiQ"/>
+                                    </connections>
                                 </button>
-                                <connections>
-                                    <action selector="chooseAllClick:" destination="ctK-KQ-smz" id="5yY-bm-KT0"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem style="done" id="atB-wg-4ya">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0XC-vU-77f">
-                                    <rect key="frame" x="246" y="5" width="37" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="反选">
-                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                </button>
-                                <connections>
-                                    <action selector="unChooseClick:" destination="ctK-KQ-smz" id="245-US-90n"/>
-                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="editBtn" destination="ezo-jO-B0V" id="myy-7z-lfH"/>
+                        <outlet property="selectBtn" destination="WuW-wE-YBl" id="Fs6-fW-64p"/>
                         <outlet property="tableView" destination="BIK-Pu-mZp" id="Lg9-K0-tRU"/>
                     </connections>
                 </viewController>
