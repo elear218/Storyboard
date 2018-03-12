@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0917B06AF86FA2C20BBE7BB9BF499184'
-               BlueprintName = 'UITableView+FDTemplateLayoutCell'
+               BlueprintIdentifier = '27AF071DE9ADB7BFE8E70D5AEE70E086'
+               BlueprintName = 'TTGTagCollectionView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libUITableView+FDTemplateLayoutCell.a'>
+               BuildableName = 'libTTGTagCollectionView.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
