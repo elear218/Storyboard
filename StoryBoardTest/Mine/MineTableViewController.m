@@ -36,14 +36,13 @@
     
     [self contentInsetAdjustment];
     
-    __weak __typeof(self) weakSelf = self;
+    WeakSelf(self);
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         NSLog(@"refreshing");
-        
-        __strong __typeof(self) strongSelf = weakSelf;
+        StrongSelf(self);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             NSLog(@"end");
-            [strongSelf.tableView.mj_header endRefreshing];
+            [self.tableView.mj_header endRefreshing];
         });
     }];
     self.tableView.mj_header = header;

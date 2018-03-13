@@ -201,6 +201,10 @@ static NSString *const cellId = @"SelectCellIdentifer";
     }
 }
 
+- (void)dealloc {
+    NSLog(@"Dealloc");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

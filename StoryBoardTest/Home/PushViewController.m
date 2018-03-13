@@ -132,6 +132,10 @@ static NSString *const cellId = @"CheckCellIdentifer";
     [tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
+- (void)dealloc {
+    NSLog(@"Dealloc");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

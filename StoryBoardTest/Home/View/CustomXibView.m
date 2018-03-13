@@ -12,6 +12,7 @@
     
     UIView *xibView;
 }
+
 @end
 
 @implementation CustomXibView
@@ -19,7 +20,7 @@
 /**
  XIB创建会掉用
  */
-- (instancetype)initWithCoder:(NSCoder *)coder{
+- (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
         [self setUI];
@@ -30,7 +31,7 @@
 /**
  代码创建会掉用
  */
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self setUI];
@@ -41,7 +42,7 @@
 /**
  初始化
  */
-- (void)setUI{
+- (void)setUI {
     xibView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
     xibView.frame = self.bounds;
     [self addSubview:xibView];
