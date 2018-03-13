@@ -9,6 +9,27 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+//自定义的NSLog
+#ifdef DEBUG
+#define NSLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define NSLog(...)
+#endif
+
+//弱引用/强引用
+#define WeakSelf(type)  __weak typeof(type) weak##type = type;
+#define StrongSelf(type)  __strong typeof(type) type = weak##type;
+
+//UIColor生成
+#define kRGBColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+//16进制颜色
+#define kHexColor(hexValue) \
+[UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 \
+green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 \
+blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0]
+
+
 #import <MJRefresh.h>
 #import <YYModel.h>
 #import <Masonry.h>

@@ -126,7 +126,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"TagDealloc");
+    NSLog(@"Dealloc");
 }
 
 /*

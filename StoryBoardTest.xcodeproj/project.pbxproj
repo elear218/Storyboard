@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		58BACBA0A723A738F2152071 /* libPods-StoryBoardTestUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7736243FB129DD16176BBC05 /* libPods-StoryBoardTestUITests.a */; };
 		6D0996298B28BEB9706AA1C0 /* libPods-StoryBoardTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6BB2134173BD9155ACAA58 /* libPods-StoryBoardTest.a */; };
+		AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */ = {isa = PBXBuildFile; fileRef = AD00C11820577CCF00F6C4A0 /* Fold.json */; };
+		AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00C11B20577E1C00F6C4A0 /* FoldModel.m */; };
 		AD37BE0F204552BF002D59CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37BE0E204552BF002D59CD /* AppDelegate.m */; };
 		AD37BE12204552BF002D59CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37BE11204552BF002D59CD /* ViewController.m */; };
 		AD37BE15204552BF002D59CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD37BE13204552BF002D59CD /* Main.storyboard */; };
@@ -40,6 +42,10 @@
 		AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E4BC920493B3B00027C7B /* LinePushViewController.m */; };
 		AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4E4BCB20494A3800027C7B /* TaskViewController.swift */; };
 		AD4E4BCE204CE5F300027C7B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4E4BCD204CE5F300027C7B /* Login.storyboard */; };
+		AD7848542057667800FAF340 /* Fold1TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7848532057667800FAF340 /* Fold1TableViewController.m */; };
+		AD784857205768D700FAF340 /* FoldSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD784856205768D700FAF340 /* FoldSectionView.m */; };
+		AD784859205768EB00FAF340 /* FoldSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD784858205768EB00FAF340 /* FoldSectionView.xib */; };
+		AD84C95D2057B6D500043B6C /* FoldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD84C95C2057B6D500043B6C /* FoldTableViewCell.m */; };
 		AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD995FB6204FBF5100B74D28 /* CustomXibView.m */; };
 		AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */; };
 		AD996010204FEE1100B74D28 /* SelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD99600E204FEE1100B74D28 /* SelectTableViewCell.m */; };
@@ -79,6 +85,9 @@
 		38FB15284CFF59F9D244560A /* libPods-StoryBoardTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4188BBCB631E605574223272 /* Pods-StoryBoardTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTestTests/Pods-StoryBoardTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		7736243FB129DD16176BBC05 /* libPods-StoryBoardTestUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTestUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD00C11820577CCF00F6C4A0 /* Fold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Fold.json; sourceTree = "<group>"; };
+		AD00C11A20577E1C00F6C4A0 /* FoldModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldModel.h; sourceTree = "<group>"; };
+		AD00C11B20577E1C00F6C4A0 /* FoldModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldModel.m; sourceTree = "<group>"; };
 		AD37BE0A204552BF002D59CD /* StoryBoardTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryBoardTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD37BE0D204552BF002D59CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD37BE0E204552BF002D59CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -135,6 +144,13 @@
 		AD4E4BC920493B3B00027C7B /* LinePushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinePushViewController.m; sourceTree = "<group>"; };
 		AD4E4BCB20494A3800027C7B /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		AD4E4BCD204CE5F300027C7B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		AD7848522057667800FAF340 /* Fold1TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fold1TableViewController.h; sourceTree = "<group>"; };
+		AD7848532057667800FAF340 /* Fold1TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fold1TableViewController.m; sourceTree = "<group>"; };
+		AD784855205768D700FAF340 /* FoldSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldSectionView.h; sourceTree = "<group>"; };
+		AD784856205768D700FAF340 /* FoldSectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldSectionView.m; sourceTree = "<group>"; };
+		AD784858205768EB00FAF340 /* FoldSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoldSectionView.xib; sourceTree = "<group>"; };
+		AD84C95B2057B6D500043B6C /* FoldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldTableViewCell.h; sourceTree = "<group>"; };
+		AD84C95C2057B6D500043B6C /* FoldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldTableViewCell.m; sourceTree = "<group>"; };
 		AD995FB5204FBF5100B74D28 /* CustomXibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomXibView.h; sourceTree = "<group>"; };
 		AD995FB6204FBF5100B74D28 /* CustomXibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomXibView.m; sourceTree = "<group>"; };
 		AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomXibView.xib; sourceTree = "<group>"; };
@@ -319,6 +335,8 @@
 				AD4E4BC920493B3B00027C7B /* LinePushViewController.m */,
 				ADF183F220560E36003F9818 /* TagTableViewController.h */,
 				ADF183F320560E36003F9818 /* TagTableViewController.m */,
+				AD7848522057667800FAF340 /* Fold1TableViewController.h */,
+				AD7848532057667800FAF340 /* Fold1TableViewController.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -354,6 +372,11 @@
 				AD4E4BAD2048085B00027C7B /* HobbyTableViewCell.xib */,
 				ADF183EF20560B94003F9818 /* TagTableViewCell.h */,
 				ADF183F020560B94003F9818 /* TagTableViewCell.m */,
+				AD784855205768D700FAF340 /* FoldSectionView.h */,
+				AD784856205768D700FAF340 /* FoldSectionView.m */,
+				AD784858205768EB00FAF340 /* FoldSectionView.xib */,
+				AD84C95B2057B6D500043B6C /* FoldTableViewCell.h */,
+				AD84C95C2057B6D500043B6C /* FoldTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,6 +386,8 @@
 			children = (
 				AD4E4BB12048D7B700027C7B /* HobbyModel.h */,
 				AD4E4BB22048D7B700027C7B /* HobbyModel.m */,
+				AD00C11A20577E1C00F6C4A0 /* FoldModel.h */,
+				AD00C11B20577E1C00F6C4A0 /* FoldModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -370,6 +395,7 @@
 		AD4E4BB42048D96600027C7B /* Local Data */ = {
 			isa = PBXGroup;
 			children = (
+				AD00C11820577CCF00F6C4A0 /* Fold.json */,
 				AD9960242050E17900B74D28 /* Check.json */,
 				AD4E4BB52048D97300027C7B /* Hobby.json */,
 			);
@@ -551,11 +577,13 @@
 				AD37BE17204552BF002D59CD /* Assets.xcassets in Resources */,
 				AD37BE53204562F7002D59CD /* Message.storyboard in Resources */,
 				AD4E4BAF2048085B00027C7B /* HobbyTableViewCell.xib in Resources */,
+				AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */,
 				AD37BE5520456303002D59CD /* Mine.storyboard in Resources */,
 				AD37BE15204552BF002D59CD /* Main.storyboard in Resources */,
 				AD9960252050E17A00B74D28 /* Check.json in Resources */,
 				AD4E4BB62048D97300027C7B /* Hobby.json in Resources */,
 				AD996011204FEE1100B74D28 /* SelectTableViewCell.xib in Resources */,
+				AD784859205768EB00FAF340 /* FoldSectionView.xib in Resources */,
 				AD9960232050DE1700B74D28 /* CheckTableViewCell.xib in Resources */,
 				AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */,
 				AD37BE51204562ED002D59CD /* Home.storyboard in Resources */,
@@ -741,6 +769,7 @@
 				AD4E4BAE2048085B00027C7B /* HobbyTableViewCell.m in Sources */,
 				ADF183F120560B94003F9818 /* TagTableViewCell.m in Sources */,
 				AD37BE722047DE2C002D59CD /* TestTableViewController.m in Sources */,
+				AD784857205768D700FAF340 /* FoldSectionView.m in Sources */,
 				AD4E4BB32048D7B700027C7B /* HobbyModel.m in Sources */,
 				AD37BE1D204552BF002D59CD /* main.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
@@ -750,10 +779,13 @@
 				AD9960222050DE1700B74D28 /* CheckTableViewCell.m in Sources */,
 				AD37BE4D20455FC6002D59CD /* CustomTabBarController.m in Sources */,
 				AD37BE612046358A002D59CD /* MineTableViewController.m in Sources */,
+				AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */,
 				AD996010204FEE1100B74D28 /* SelectTableViewCell.m in Sources */,
 				AD37BE6720464CD7002D59CD /* DetailViewController.m in Sources */,
 				AD996014204FEE3E00B74D28 /* PushViewController.m in Sources */,
 				AD37BE0F204552BF002D59CD /* AppDelegate.m in Sources */,
+				AD84C95D2057B6D500043B6C /* FoldTableViewCell.m in Sources */,
+				AD7848542057667800FAF340 /* Fold1TableViewController.m in Sources */,
 				AD37BE6E204792A7002D59CD /* LoginViewController.m in Sources */,
 				AD99601E2050DC4300B74D28 /* CheckModel.m in Sources */,
 				ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */,
