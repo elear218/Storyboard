@@ -11,7 +11,7 @@
 #import "TagTableViewCell.h"
 
 @interface TagTableViewController ()<TagSelectDelegate>
-@property (nonatomic, strong) NSArray *allTags;
+@property (nonatomic, copy) NSArray *allTags;
 @property (nonatomic, strong) NSMutableArray *cellInfos;
 @property (nonatomic, strong) NSMutableDictionary *tagDic;
 
@@ -53,6 +53,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (IBAction)logAllSelectedTag:(id)sender {
+    NSMutableString *logStr = [NSMutableString stringWithString:@"选中了第:\n\n"];
+    [self.tagDic enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, NSArray *obj, BOOL * _Nonnull stop) {
+        if (obj.count) {
+            NSString *str = [NSString stringWithFormat:@"%@行,第%@个tag\n",key.stringValue,[obj componentsJoinedByString:@","]];
+            [logStr appendString:str];
+        }
+    }];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:[logStr substringToIndex:logStr.length-1] preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

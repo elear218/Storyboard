@@ -81,10 +81,10 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     FoldSectionView *view = [[FoldSectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(tableView.frame), tableView.sectionHeaderHeight)];
     WeakSelf(self);
-    BOOL status = [self.sectionStatusArr[section] boolValue];
     view.block = ^{
         NSLog(@"section:%ld",(long)section);
         StrongSelf(self);
+        BOOL status = [self.sectionStatusArr[section] boolValue];
         NSNumber *num = status? @0 :@1;
         [self.sectionStatusArr replaceObjectAtIndex:section withObject:num];
         //重新加载当前区

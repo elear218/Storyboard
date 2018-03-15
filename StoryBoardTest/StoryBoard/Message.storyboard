@@ -83,6 +83,9 @@
                                 <state key="normal" title="fold ②">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="U7q-Oz-Ydw" kind="show" id="Uim-G4-Cz1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -168,7 +171,71 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRF-Wl-Dhu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-511.19999999999999" y="895.50224887556226"/>
+            <point key="canvasLocation" x="-815" y="869"/>
+        </scene>
+        <!--Fold ②-->
+        <scene sceneID="g2S-2W-y0g">
+            <objects>
+                <tableViewController title="Fold ②" id="U7q-Oz-Ydw" customClass="Fold2TableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="85" sectionHeaderHeight="1" sectionFooterHeight="1" id="ztk-vU-ZvW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldTagTableViewCell" rowHeight="85" id="8Yf-XJ-Yjw" customClass="FoldTagTableViewCell">
+                                <rect key="frame" x="0.0" y="1" width="375" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Yf-XJ-Yjw" id="80Z-Jt-nBb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lw-88-MUN">
+                                            <rect key="frame" x="20" y="15" width="335" height="35"/>
+                                            <color key="backgroundColor" red="0.94509803920000002" green="0.3803921569" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="V8a-hl-b8t"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onClick:" destination="8Yf-XJ-Yjw" eventType="touchUpInside" id="fiI-hj-q01"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ifc-tH-NBg" customClass="TTGTextTagCollectionView">
+                                            <rect key="frame" x="20" y="60" width="335" height="5"/>
+                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Ifc-tH-NBg" secondAttribute="bottom" constant="20" id="5YO-Z2-l76"/>
+                                        <constraint firstItem="5Lw-88-MUN" firstAttribute="top" secondItem="80Z-Jt-nBb" secondAttribute="top" constant="15" id="5dY-yh-q2R"/>
+                                        <constraint firstItem="Ifc-tH-NBg" firstAttribute="trailing" secondItem="5Lw-88-MUN" secondAttribute="trailing" id="BNY-AY-xTa"/>
+                                        <constraint firstAttribute="trailing" secondItem="5Lw-88-MUN" secondAttribute="trailing" constant="20" id="Hht-ju-R4Y"/>
+                                        <constraint firstItem="Ifc-tH-NBg" firstAttribute="top" secondItem="5Lw-88-MUN" secondAttribute="bottom" constant="10" id="OUY-rQ-Q2t"/>
+                                        <constraint firstItem="Ifc-tH-NBg" firstAttribute="leading" secondItem="5Lw-88-MUN" secondAttribute="leading" id="dNz-Dw-Jqk"/>
+                                        <constraint firstItem="5Lw-88-MUN" firstAttribute="leading" secondItem="80Z-Jt-nBb" secondAttribute="leading" constant="20" id="hyz-Zk-dbK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="button" destination="5Lw-88-MUN" id="7Ce-43-mc8"/>
+                                    <outlet property="buttonLeadingCons" destination="hyz-Zk-dbK" id="OBp-up-grJ"/>
+                                    <outlet property="tagView" destination="Ifc-tH-NBg" id="NaW-TB-GEC"/>
+                                    <outlet property="tagViewBottomCons" destination="5YO-Z2-l76" id="J4y-R3-IpH"/>
+                                    <outlet property="tagViewTopCons" destination="OUY-rQ-Q2t" id="lIB-Kz-PEu"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="U7q-Oz-Ydw" id="Y0p-1u-XwM"/>
+                            <outlet property="delegate" destination="U7q-Oz-Ydw" id="Dq5-Fk-c5s"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tqY-P5-16F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57" y="869"/>
         </scene>
         <!--Test Table View Controller-->
         <scene sceneID="zfe-Vy-VPt">
@@ -461,6 +528,13 @@
                             <outlet property="delegate" destination="kSl-Ii-wC2" id="0Z3-WH-bNd"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Tag" id="bhk-ou-XTh">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="ppn-At-Wxu">
+                            <connections>
+                                <action selector="logAllSelectedTag:" destination="kSl-Ii-wC2" id="tKV-pX-FLy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEV-Mo-AeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -45,6 +45,10 @@
 		AD7848542057667800FAF340 /* Fold1TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7848532057667800FAF340 /* Fold1TableViewController.m */; };
 		AD784857205768D700FAF340 /* FoldSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD784856205768D700FAF340 /* FoldSectionView.m */; };
 		AD784859205768EB00FAF340 /* FoldSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD784858205768EB00FAF340 /* FoldSectionView.xib */; };
+		AD82D9EE2058B1BF004D08C7 /* Fold2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD82D9ED2058B1BF004D08C7 /* Fold2TableViewController.m */; };
+		AD82D9F32058FF0B004D08C7 /* FoldTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD82D9F22058FF0B004D08C7 /* FoldTagTableViewCell.m */; };
+		AD82D9FA20590BA2004D08C7 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD82D9F620590BA2004D08C7 /* YYWeakProxy.m */; };
+		AD82D9FB20590BA2004D08C7 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD82D9F820590BA2004D08C7 /* YYFPSLabel.m */; };
 		AD84C95D2057B6D500043B6C /* FoldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD84C95C2057B6D500043B6C /* FoldTableViewCell.m */; };
 		AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD995FB6204FBF5100B74D28 /* CustomXibView.m */; };
 		AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */; };
@@ -149,6 +153,14 @@
 		AD784855205768D700FAF340 /* FoldSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldSectionView.h; sourceTree = "<group>"; };
 		AD784856205768D700FAF340 /* FoldSectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldSectionView.m; sourceTree = "<group>"; };
 		AD784858205768EB00FAF340 /* FoldSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoldSectionView.xib; sourceTree = "<group>"; };
+		AD82D9EC2058B1BF004D08C7 /* Fold2TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fold2TableViewController.h; sourceTree = "<group>"; };
+		AD82D9ED2058B1BF004D08C7 /* Fold2TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fold2TableViewController.m; sourceTree = "<group>"; };
+		AD82D9F12058FF0B004D08C7 /* FoldTagTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldTagTableViewCell.h; sourceTree = "<group>"; };
+		AD82D9F22058FF0B004D08C7 /* FoldTagTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldTagTableViewCell.m; sourceTree = "<group>"; };
+		AD82D9F620590BA2004D08C7 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
+		AD82D9F720590BA2004D08C7 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
+		AD82D9F820590BA2004D08C7 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
+		AD82D9F920590BA2004D08C7 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
 		AD84C95B2057B6D500043B6C /* FoldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldTableViewCell.h; sourceTree = "<group>"; };
 		AD84C95C2057B6D500043B6C /* FoldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldTableViewCell.m; sourceTree = "<group>"; };
 		AD995FB5204FBF5100B74D28 /* CustomXibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomXibView.h; sourceTree = "<group>"; };
@@ -242,6 +254,7 @@
 		AD37BE0C204552BF002D59CD /* StoryBoardTest */ = {
 			isa = PBXGroup;
 			children = (
+				AD82D9F420590B90004D08C7 /* Tool */,
 				AD4E4BB42048D96600027C7B /* Local Data */,
 				AD37BE4F204562CE002D59CD /* Custom */,
 				AD37BE6820478ED8002D59CD /* Category */,
@@ -337,6 +350,8 @@
 				ADF183F320560E36003F9818 /* TagTableViewController.m */,
 				AD7848522057667800FAF340 /* Fold1TableViewController.h */,
 				AD7848532057667800FAF340 /* Fold1TableViewController.m */,
+				AD82D9EC2058B1BF004D08C7 /* Fold2TableViewController.h */,
+				AD82D9ED2058B1BF004D08C7 /* Fold2TableViewController.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -377,6 +392,8 @@
 				AD784858205768EB00FAF340 /* FoldSectionView.xib */,
 				AD84C95B2057B6D500043B6C /* FoldTableViewCell.h */,
 				AD84C95C2057B6D500043B6C /* FoldTableViewCell.m */,
+				AD82D9F12058FF0B004D08C7 /* FoldTagTableViewCell.h */,
+				AD82D9F22058FF0B004D08C7 /* FoldTagTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -420,6 +437,25 @@
 				AD4E4BC12048FAA600027C7B /* RegisterViewController.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		AD82D9F420590B90004D08C7 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				AD82D9F520590BA2004D08C7 /* YYFPSLabel */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		AD82D9F520590BA2004D08C7 /* YYFPSLabel */ = {
+			isa = PBXGroup;
+			children = (
+				AD82D9F720590BA2004D08C7 /* YYFPSLabel.h */,
+				AD82D9F820590BA2004D08C7 /* YYFPSLabel.m */,
+				AD82D9F920590BA2004D08C7 /* YYWeakProxy.h */,
+				AD82D9F620590BA2004D08C7 /* YYWeakProxy.m */,
+			);
+			path = YYFPSLabel;
 			sourceTree = "<group>";
 		};
 		AD995FB4204FBF3200B74D28 /* View */ = {
@@ -765,11 +801,13 @@
 				AD99601B2050D77800B74D28 /* UIViewController+ContentInset.m in Sources */,
 				AD37BE12204552BF002D59CD /* ViewController.m in Sources */,
 				AD4E4BC720493B2800027C7B /* CodePushViewController.m in Sources */,
+				AD82D9F32058FF0B004D08C7 /* FoldTagTableViewCell.m in Sources */,
 				AD37BE412045569E002D59CD /* CustomNaviViewController.m in Sources */,
 				AD4E4BAE2048085B00027C7B /* HobbyTableViewCell.m in Sources */,
 				ADF183F120560B94003F9818 /* TagTableViewCell.m in Sources */,
 				AD37BE722047DE2C002D59CD /* TestTableViewController.m in Sources */,
 				AD784857205768D700FAF340 /* FoldSectionView.m in Sources */,
+				AD82D9EE2058B1BF004D08C7 /* Fold2TableViewController.m in Sources */,
 				AD4E4BB32048D7B700027C7B /* HobbyModel.m in Sources */,
 				AD37BE1D204552BF002D59CD /* main.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
@@ -778,6 +816,7 @@
 				AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */,
 				AD9960222050DE1700B74D28 /* CheckTableViewCell.m in Sources */,
 				AD37BE4D20455FC6002D59CD /* CustomTabBarController.m in Sources */,
+				AD82D9FB20590BA2004D08C7 /* YYFPSLabel.m in Sources */,
 				AD37BE612046358A002D59CD /* MineTableViewController.m in Sources */,
 				AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */,
 				AD996010204FEE1100B74D28 /* SelectTableViewCell.m in Sources */,
@@ -789,6 +828,7 @@
 				AD37BE6E204792A7002D59CD /* LoginViewController.m in Sources */,
 				AD99601E2050DC4300B74D28 /* CheckModel.m in Sources */,
 				ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */,
+				AD82D9FA20590BA2004D08C7 /* YYWeakProxy.m in Sources */,
 				AD37BE5B2046352A002D59CD /* HomeViewController.m in Sources */,
 				AD37BE5E2046356F002D59CD /* MessageViewController.m in Sources */,
 				AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */,
