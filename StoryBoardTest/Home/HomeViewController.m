@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "YYFPSLabel.h"
 
 #import "CustomXibView.h"
 
@@ -32,6 +33,13 @@
         make.bottom.mas_equalTo(-20);
         make.centerX.mas_equalTo(self.view);
         make.size.mas_equalTo(CGSizeMake(200, 200));
+    }];
+    
+    YYFPSLabel *fpsLab = [YYFPSLabel new];
+    [[UIApplication sharedApplication].keyWindow addSubview:fpsLab];
+    [fpsLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(20);
+        make.centerX.mas_equalTo(0);
     }];
     // Do any additional setup after loading the view.
 }
