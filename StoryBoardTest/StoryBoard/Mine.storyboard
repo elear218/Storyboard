@@ -527,7 +527,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2k-bX-6Jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="693" y="115"/>
+            <point key="canvasLocation" x="622" y="352"/>
         </scene>
         <!--新手任务-->
         <scene sceneID="2jM-O3-g6P">
@@ -560,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="joa-YH-qY0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1490" y="-165"/>
+            <point key="canvasLocation" x="1406" y="98"/>
         </scene>
         <!--更多-->
         <scene sceneID="dP2-nf-PXj">
@@ -579,7 +579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6P-HZ-w8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1474" y="731"/>
+            <point key="canvasLocation" x="1406" y="779"/>
         </scene>
     </scenes>
     <resources>

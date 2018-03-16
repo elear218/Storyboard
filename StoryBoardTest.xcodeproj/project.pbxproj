@@ -60,6 +60,8 @@
 		AD9960222050DE1700B74D28 /* CheckTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9960202050DE1700B74D28 /* CheckTableViewCell.m */; };
 		AD9960232050DE1700B74D28 /* CheckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD9960212050DE1700B74D28 /* CheckTableViewCell.xib */; };
 		AD9960252050E17A00B74D28 /* Check.json in Resources */ = {isa = PBXBuildFile; fileRef = AD9960242050E17900B74D28 /* Check.json */; };
+		ADD9247D205A6765000636F9 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD9247C205A6765000636F9 /* SlideViewController.m */; };
+		ADD9247F205B7509000636F9 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADD9247E205B7508000636F9 /* 0.jpg */; };
 		ADF183F120560B94003F9818 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF183F020560B94003F9818 /* TagTableViewCell.m */; };
 		ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF183F320560E36003F9818 /* TagTableViewController.m */; };
 		B455D359508109B9225D746C /* libPods-StoryBoardTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FB15284CFF59F9D244560A /* libPods-StoryBoardTestTests.a */; };
@@ -179,6 +181,9 @@
 		AD9960202050DE1700B74D28 /* CheckTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckTableViewCell.m; sourceTree = "<group>"; };
 		AD9960212050DE1700B74D28 /* CheckTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckTableViewCell.xib; sourceTree = "<group>"; };
 		AD9960242050E17900B74D28 /* Check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Check.json; sourceTree = "<group>"; };
+		ADD9247B205A6765000636F9 /* SlideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideViewController.h; sourceTree = "<group>"; };
+		ADD9247C205A6765000636F9 /* SlideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
+		ADD9247E205B7508000636F9 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
 		ADF183EF20560B94003F9818 /* TagTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagTableViewCell.h; sourceTree = "<group>"; };
 		ADF183F020560B94003F9818 /* TagTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagTableViewCell.m; sourceTree = "<group>"; };
 		ADF183F220560E36003F9818 /* TagTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagTableViewController.h; sourceTree = "<group>"; };
@@ -254,6 +259,7 @@
 		AD37BE0C204552BF002D59CD /* StoryBoardTest */ = {
 			isa = PBXGroup;
 			children = (
+				ADD9247E205B7508000636F9 /* 0.jpg */,
 				AD82D9F420590B90004D08C7 /* Tool */,
 				AD4E4BB42048D96600027C7B /* Local Data */,
 				AD37BE4F204562CE002D59CD /* Custom */,
@@ -329,6 +335,8 @@
 				AD37BE63204638E7002D59CD /* PresentViewController.m */,
 				AD996012204FEE3E00B74D28 /* PushViewController.h */,
 				AD996013204FEE3E00B74D28 /* PushViewController.m */,
+				ADD9247B205A6765000636F9 /* SlideViewController.h */,
+				ADD9247C205A6765000636F9 /* SlideViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -613,6 +621,7 @@
 				AD37BE17204552BF002D59CD /* Assets.xcassets in Resources */,
 				AD37BE53204562F7002D59CD /* Message.storyboard in Resources */,
 				AD4E4BAF2048085B00027C7B /* HobbyTableViewCell.xib in Resources */,
+				ADD9247F205B7509000636F9 /* 0.jpg in Resources */,
 				AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */,
 				AD37BE5520456303002D59CD /* Mine.storyboard in Resources */,
 				AD37BE15204552BF002D59CD /* Main.storyboard in Resources */,
@@ -812,6 +821,7 @@
 				AD37BE1D204552BF002D59CD /* main.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
 				AD4E4BC22048FAA600027C7B /* RegisterViewController.m in Sources */,
+				ADD9247D205A6765000636F9 /* SlideViewController.m in Sources */,
 				AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */,
 				AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */,
 				AD9960222050DE1700B74D28 /* CheckTableViewCell.m in Sources */,

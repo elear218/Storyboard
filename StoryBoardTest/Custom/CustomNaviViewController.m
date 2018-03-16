@@ -14,21 +14,31 @@
 
 @implementation CustomNaviViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
++ (void)initialize {
     
-    self.navigationBar.translucent = NO;
+    UINavigationBar *naviBar = [UINavigationBar appearance];
+    
+//    [naviBar setTranslucent:NO];
     //导航条前景色
-//    [self.navigationBar setBarTintColor:[UIColor redColor]];
+//    [naviBar setBarTintColor:[UIColor whiteColor]];
+    
+    //解决iOS11界面缩放后导航栏空出状态栏的空隙的问题
+    [naviBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
     
     //左右按钮颜色
-    [self.navigationBar setTintColor:[UIColor blackColor]];
+    [naviBar setTintColor:[UIColor blackColor]];
     
     //导航栏文字属性
-//    NSMutableDictionary *barAttrs = [NSMutableDictionary dictionary];
-//    [barAttrs setObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
-//    [barAttrs setObject:[UIFont systemFontOfSize:16.f] forKey:NSFontAttributeName];
-//    [self.navigationBar setTitleTextAttributes:barAttrs];
+    //    NSMutableDictionary *barAttrs = [NSMutableDictionary dictionary];
+    //    [barAttrs setObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
+    //    [barAttrs setObject:[UIFont systemFontOfSize:16.f] forKey:NSFontAttributeName];
+    //    [naviBar setTitleTextAttributes:barAttrs];
+    
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     // 手势代理
     self.interactivePopGestureRecognizer.delegate = self;

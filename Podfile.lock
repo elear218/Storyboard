@@ -1,4 +1,6 @@
 PODS:
+  - Aspects (1.4.1)
+  - CWLateralSlide (1.5.8)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
   - TTGTagCollectionView (1.8.2)
@@ -6,6 +8,8 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - Aspects
+  - CWLateralSlide
   - Masonry
   - MJRefresh
   - TTGTagCollectionView
@@ -13,12 +17,14 @@ DEPENDENCIES:
   - YYModel
 
 SPEC CHECKSUMS:
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  CWLateralSlide: 3af190c8ffa08040abfd9780f279dac94d531f8b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   TTGTagCollectionView: 20cf236b538ea9a17d1f0538968148c8d304414a
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 66454c14ea4f45c69a6a6598601f8c8fd3e485fe
+PODFILE CHECKSUM: 59e72f32b4a2358a172ccdfc80c5fa50919b74b1
 
 COCOAPODS: 1.3.1

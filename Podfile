@@ -11,6 +11,8 @@ target 'StoryBoardTest' do
   pod 'Masonry'
   pod 'UITableView+FDTemplateLayoutCell'
   pod 'TTGTagCollectionView'
+  pod 'CWLateralSlide'
+  pod 'Aspects'
 
   target 'StoryBoardTestTests' do
     inherit! :search_paths
