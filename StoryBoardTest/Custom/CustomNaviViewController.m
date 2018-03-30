@@ -18,12 +18,13 @@
     
     UINavigationBar *naviBar = [UINavigationBar appearance];
     
-//    [naviBar setTranslucent:NO];
+    [naviBar setTranslucent:NO]; //1️⃣
     //导航条前景色
-//    [naviBar setBarTintColor:[UIColor whiteColor]];
+    [naviBar setBarTintColor:[UIColor whiteColor]];  //2️⃣
     
-    //解决iOS11界面缩放后导航栏空出状态栏的空隙的问题
-    [naviBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
+    //解决iOS11界面缩放后导航栏空出状态栏的空隙的问题（不使用此方法 改用实现viewWillLayoutSubviews和viewDidLayoutSubviews手动修改高度  原因：设置图片要取消设置1️⃣2️⃣，导航栏颜色不易修改）
+    //方案链接：https://juejin.im/post/5a6bf18ff265da3e5859947f
+//    [naviBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
     
     //左右按钮颜色
     [naviBar setTintColor:[UIColor blackColor]];
@@ -33,8 +34,38 @@
     //    [barAttrs setObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
     //    [barAttrs setObject:[UIFont systemFontOfSize:16.f] forKey:NSFontAttributeName];
     //    [naviBar setTitleTextAttributes:barAttrs];
-    
-    
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    if (@available(iOS 11, *)) { // xcode9新特性 可以这样判断，xcode9以下只能用UIDevice systemVersion 来判断
+        UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+        CGFloat statusH = CGRectGetHeight(statusBar.frame);
+        for (UIView *view in self.navigationBar.subviews) {
+            if ([NSStringFromClass([view class]) isEqualToString:@"_UIBarBackground"]) {
+                NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:44 + statusH];
+                heightConstraint.priority = UILayoutPriorityDefaultHigh;
+                [view addConstraint:heightConstraint];
+            }
+        }
+    }
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    if (@available(iOS 11, *)) { // xcode9新特性 可以这样判断，xcode9以下只能用UIDevice systemVersion 来判断
+        UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+        CGFloat statusH = CGRectGetHeight(statusBar.frame);
+        for (UIView *view in self.navigationBar.subviews) {
+            // 通过遍历获取到_UIBarBackground图层
+            if ([NSStringFromClass([view class]) isEqualToString:@"_UIBarBackground"]) {
+                CGRect frame = view.frame;
+                frame.size.height = 44 + statusH;
+                frame.origin.y = -statusH;
+                view.frame = frame;
+            }
+        }
+    }
 }
 
 - (void)viewDidLoad {

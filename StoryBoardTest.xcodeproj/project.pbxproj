@@ -42,6 +42,12 @@
 		AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E4BC920493B3B00027C7B /* LinePushViewController.m */; };
 		AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4E4BCB20494A3800027C7B /* TaskViewController.swift */; };
 		AD4E4BCE204CE5F300027C7B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4E4BCD204CE5F300027C7B /* Login.storyboard */; };
+		AD70DC3C206E066600561710 /* CombineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC3B206E066600561710 /* CombineCollectionViewController.m */; };
+		AD70DC41206E06F500561710 /* ProductFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC40206E06F500561710 /* ProductFormModel.m */; };
+		AD70DC44206E095400561710 /* InputTFCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC43206E095400561710 /* InputTFCell.m */; };
+		AD70DC47206E096500561710 /* InputTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC46206E096500561710 /* InputTVCell.m */; };
+		AD70DC4A206E098A00561710 /* ImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC49206E098A00561710 /* ImagePickerCell.m */; };
+		AD70DC4D206E09B400561710 /* ImageSectionHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC4C206E09B400561710 /* ImageSectionHeaderReusableView.m */; };
 		AD7848542057667800FAF340 /* Fold1TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7848532057667800FAF340 /* Fold1TableViewController.m */; };
 		AD784857205768D700FAF340 /* FoldSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD784856205768D700FAF340 /* FoldSectionView.m */; };
 		AD784859205768EB00FAF340 /* FoldSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD784858205768EB00FAF340 /* FoldSectionView.xib */; };
@@ -150,6 +156,18 @@
 		AD4E4BC920493B3B00027C7B /* LinePushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinePushViewController.m; sourceTree = "<group>"; };
 		AD4E4BCB20494A3800027C7B /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		AD4E4BCD204CE5F300027C7B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		AD70DC3A206E066600561710 /* CombineCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombineCollectionViewController.h; sourceTree = "<group>"; };
+		AD70DC3B206E066600561710 /* CombineCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombineCollectionViewController.m; sourceTree = "<group>"; };
+		AD70DC3F206E06F500561710 /* ProductFormModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductFormModel.h; sourceTree = "<group>"; };
+		AD70DC40206E06F500561710 /* ProductFormModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductFormModel.m; sourceTree = "<group>"; };
+		AD70DC42206E095400561710 /* InputTFCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputTFCell.h; sourceTree = "<group>"; };
+		AD70DC43206E095400561710 /* InputTFCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputTFCell.m; sourceTree = "<group>"; };
+		AD70DC45206E096500561710 /* InputTVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputTVCell.h; sourceTree = "<group>"; };
+		AD70DC46206E096500561710 /* InputTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputTVCell.m; sourceTree = "<group>"; };
+		AD70DC48206E098A00561710 /* ImagePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerCell.h; sourceTree = "<group>"; };
+		AD70DC49206E098A00561710 /* ImagePickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerCell.m; sourceTree = "<group>"; };
+		AD70DC4B206E09B400561710 /* ImageSectionHeaderReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSectionHeaderReusableView.h; sourceTree = "<group>"; };
+		AD70DC4C206E09B400561710 /* ImageSectionHeaderReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSectionHeaderReusableView.m; sourceTree = "<group>"; };
 		AD7848522057667800FAF340 /* Fold1TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fold1TableViewController.h; sourceTree = "<group>"; };
 		AD7848532057667800FAF340 /* Fold1TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fold1TableViewController.m; sourceTree = "<group>"; };
 		AD784855205768D700FAF340 /* FoldSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldSectionView.h; sourceTree = "<group>"; };
@@ -367,11 +385,15 @@
 		AD37BE5820463512002D59CD /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				AD70DC3E206E06A600561710 /* Model */,
+				AD70DC3D206E069B00561710 /* View */,
 				AD4E4BB72048F59200027C7B /* Swift */,
 				AD37BE5F2046358A002D59CD /* MineTableViewController.h */,
 				AD37BE602046358A002D59CD /* MineTableViewController.m */,
 				AD37BE6520464CD7002D59CD /* DetailViewController.h */,
 				AD37BE6620464CD7002D59CD /* DetailViewController.m */,
+				AD70DC3A206E066600561710 /* CombineCollectionViewController.h */,
+				AD70DC3B206E066600561710 /* CombineCollectionViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -445,6 +467,30 @@
 				AD4E4BC12048FAA600027C7B /* RegisterViewController.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		AD70DC3D206E069B00561710 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD70DC42206E095400561710 /* InputTFCell.h */,
+				AD70DC43206E095400561710 /* InputTFCell.m */,
+				AD70DC45206E096500561710 /* InputTVCell.h */,
+				AD70DC46206E096500561710 /* InputTVCell.m */,
+				AD70DC48206E098A00561710 /* ImagePickerCell.h */,
+				AD70DC49206E098A00561710 /* ImagePickerCell.m */,
+				AD70DC4B206E09B400561710 /* ImageSectionHeaderReusableView.h */,
+				AD70DC4C206E09B400561710 /* ImageSectionHeaderReusableView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD70DC3E206E06A600561710 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD70DC3F206E06F500561710 /* ProductFormModel.h */,
+				AD70DC40206E06F500561710 /* ProductFormModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AD82D9F420590B90004D08C7 /* Tool */ = {
@@ -711,7 +757,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StoryBoardTest/Pods-StoryBoardTest-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -819,8 +867,10 @@
 				AD82D9EE2058B1BF004D08C7 /* Fold2TableViewController.m in Sources */,
 				AD4E4BB32048D7B700027C7B /* HobbyModel.m in Sources */,
 				AD37BE1D204552BF002D59CD /* main.m in Sources */,
+				AD70DC3C206E066600561710 /* CombineCollectionViewController.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
 				AD4E4BC22048FAA600027C7B /* RegisterViewController.m in Sources */,
+				AD70DC4D206E09B400561710 /* ImageSectionHeaderReusableView.m in Sources */,
 				ADD9247D205A6765000636F9 /* SlideViewController.m in Sources */,
 				AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */,
 				AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */,
@@ -828,10 +878,12 @@
 				AD37BE4D20455FC6002D59CD /* CustomTabBarController.m in Sources */,
 				AD82D9FB20590BA2004D08C7 /* YYFPSLabel.m in Sources */,
 				AD37BE612046358A002D59CD /* MineTableViewController.m in Sources */,
+				AD70DC41206E06F500561710 /* ProductFormModel.m in Sources */,
 				AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */,
 				AD996010204FEE1100B74D28 /* SelectTableViewCell.m in Sources */,
 				AD37BE6720464CD7002D59CD /* DetailViewController.m in Sources */,
 				AD996014204FEE3E00B74D28 /* PushViewController.m in Sources */,
+				AD70DC4A206E098A00561710 /* ImagePickerCell.m in Sources */,
 				AD37BE0F204552BF002D59CD /* AppDelegate.m in Sources */,
 				AD84C95D2057B6D500043B6C /* FoldTableViewCell.m in Sources */,
 				AD7848542057667800FAF340 /* Fold1TableViewController.m in Sources */,
@@ -839,8 +891,10 @@
 				AD99601E2050DC4300B74D28 /* CheckModel.m in Sources */,
 				ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */,
 				AD82D9FA20590BA2004D08C7 /* YYWeakProxy.m in Sources */,
+				AD70DC44206E095400561710 /* InputTFCell.m in Sources */,
 				AD37BE5B2046352A002D59CD /* HomeViewController.m in Sources */,
 				AD37BE5E2046356F002D59CD /* MessageViewController.m in Sources */,
+				AD70DC47206E096500561710 /* InputTVCell.m in Sources */,
 				AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */,
 				AD4E4BC42048FB2100027C7B /* AcountTableViewController.swift in Sources */,
 				AD37BE64204638E7002D59CD /* PresentViewController.m in Sources */,

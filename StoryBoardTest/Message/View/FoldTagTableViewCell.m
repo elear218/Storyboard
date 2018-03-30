@@ -56,7 +56,7 @@
     _tagView.manualCalculateHeight = YES;
     
     // Use manual height, update preferredMaxLayoutWidth
-    _tagView.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - 2*buttonLeadingCons.constant;
+    _tagView.preferredMaxLayoutWidth = ScreenWidth - 2*buttonLeadingCons.constant;
 }
 
 - (IBAction)onClick:(UIButton *)sender {

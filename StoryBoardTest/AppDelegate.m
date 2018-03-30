@@ -10,6 +10,7 @@
 
 #import "CustomTabBarController.h"
 //#import "CustomNaviViewController.h"
+#import <IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -20,6 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     
     //创建TabBarController
     CustomTabBarController *tabVC = [[CustomTabBarController alloc] init];

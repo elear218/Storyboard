@@ -11,6 +11,7 @@ import UIKit
 enum ActionIdentifier: String {
     case MyFriends
     case NewTask
+    case NewPublish
     case MyFollowing
     case MyFans
     case Feedback
@@ -48,7 +49,10 @@ class AcountTableViewController: UITableViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
-        let taskVC: TaskViewController = segue.destination as! TaskViewController
+        
+        guard let taskVC = segue.destination as? TaskViewController else { return }
+        
+//        let taskVC: TaskViewController = segue.destination as! TaskViewController
         let cell: UITableViewCell = sender as! UITableViewCell
         
         //taskVC回调
@@ -76,6 +80,9 @@ class AcountTableViewController: UITableViewController {
             
         case .NewTask:
             print(222)
+            
+        case .NewPublish:
+            print(333)
             
 //        case .MyFollowing:
 //            print(333)

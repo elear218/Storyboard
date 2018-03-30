@@ -47,10 +47,10 @@
     }];
     self.tableView.mj_header = header;
     
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60)];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 60)];
 //    footerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.0f];
     
-    UILabel *copyRightLab = [[UILabel alloc] initWithFrame:CGRectMake(0, -5, [UIScreen mainScreen].bounds.size.width, 65)];
+    UILabel *copyRightLab = [[UILabel alloc] initWithFrame:CGRectMake(0, -5, ScreenWidth, 65)];
     copyRightLab.backgroundColor = [UIColor colorWithRed:250/255.f green:250/255.f blue:250/255.f alpha:1];
     copyRightLab.textColor = [UIColor colorWithRed:177/255.f green:177/255.f blue:177/255.f alpha:1];
     copyRightLab.textAlignment = NSTextAlignmentCenter;

@@ -26,7 +26,7 @@
     _tagView.manualCalculateHeight = YES;
     
     // Use manual height, update preferredMaxLayoutWidth
-    _tagView.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - 16;
+    _tagView.preferredMaxLayoutWidth = ScreenWidth - 16;
 }
 
 - (void)setTagsArr:(NSArray<NSString *> *)tagsArr selectedArr:(NSArray<NSNumber *> *)selectedArr {

@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tabBar.tintColor = [UIColor colorWithRed:241/255.f green:97/255.f blue:95/255.f alpha:1];
+    self.tabBar.tintColor = [UIColor colorWithRed:241/255.f green:97/255.f blue:95/255.f alpha:1]; //选中文字颜色
     self.tabBar.translucent = NO;
     
     //创建并将Storyboard添加到TabBarController中

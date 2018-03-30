@@ -16,6 +16,10 @@
 #define NSLog(...)
 #endif
 
+//屏幕宽高
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
 //弱引用/强引用
 #define WeakSelf(type)  __weak typeof(type) weak##type = type;
 #define StrongSelf(type)  __strong typeof(type) type = weak##type;

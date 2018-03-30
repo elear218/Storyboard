@@ -13,6 +13,8 @@ target 'StoryBoardTest' do
   pod 'TTGTagCollectionView'
   pod 'CWLateralSlide'
   pod 'Aspects'
+  pod 'TZImagePickerController'
+  pod 'IQKeyboardManager'
 
   target 'StoryBoardTestTests' do
     inherit! :search_paths
