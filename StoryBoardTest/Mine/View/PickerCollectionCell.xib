@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PickerCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="117" height="108"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="117" height="108"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo_add" translatesAutoresizingMaskIntoConstraints="NO" id="XJg-oT-B9t">
+                        <rect key="frame" x="0.0" y="0.0" width="117" height="108"/>
+                    </imageView>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0V-o3-BbA">
+                        <rect key="frame" x="97" y="0.0" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="m0V-o3-BbA" secondAttribute="height" multiplier="1:1" id="9Cu-DP-trO"/>
+                            <constraint firstAttribute="width" constant="20" id="i8C-vP-QMY"/>
+                        </constraints>
+                        <state key="normal" image="photo_delete"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="m0V-o3-BbA" firstAttribute="trailing" secondItem="XJg-oT-B9t" secondAttribute="trailing" id="03f-jZ-rcn"/>
+                <constraint firstItem="m0V-o3-BbA" firstAttribute="top" secondItem="XJg-oT-B9t" secondAttribute="top" id="BgA-EM-4ZS"/>
+                <constraint firstAttribute="trailing" secondItem="XJg-oT-B9t" secondAttribute="trailing" id="KgL-3F-B1r"/>
+                <constraint firstItem="m0V-o3-BbA" firstAttribute="width" secondItem="m0V-o3-BbA" secondAttribute="height" multiplier="1:1" id="PH3-xY-3XN"/>
+                <constraint firstItem="XJg-oT-B9t" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TcX-Dw-Tlx"/>
+                <constraint firstItem="XJg-oT-B9t" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="koG-ed-mft"/>
+                <constraint firstAttribute="bottom" secondItem="XJg-oT-B9t" secondAttribute="bottom" id="uyb-DA-lMV"/>
+            </constraints>
+            <size key="customSize" width="117" height="108"/>
+            <connections>
+                <outlet property="deleteBtn" destination="m0V-o3-BbA" id="DBR-EA-MAg"/>
+                <outlet property="imageV" destination="XJg-oT-B9t" id="xsp-kq-tYW"/>
+            </connections>
+            <point key="canvasLocation" x="65.5" y="119"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="photo_add" width="65" height="65"/>
+        <image name="photo_delete" width="26" height="26"/>
+    </resources>
+</document>

@@ -68,6 +68,11 @@
 		AD9960252050E17A00B74D28 /* Check.json in Resources */ = {isa = PBXBuildFile; fileRef = AD9960242050E17900B74D28 /* Check.json */; };
 		ADD9247D205A6765000636F9 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD9247C205A6765000636F9 /* SlideViewController.m */; };
 		ADD9247F205B7509000636F9 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADD9247E205B7508000636F9 /* 0.jpg */; };
+		ADED1507207470FD001A747B /* PublishTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADED1505207470FC001A747B /* PublishTableViewController.m */; };
+		ADED150E20747108001A747B /* PickerCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADED150820747107001A747B /* PickerCollectionCell.m */; };
+		ADED150F20747108001A747B /* ProductImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADED150920747107001A747B /* ProductImageCell.xib */; };
+		ADED151020747108001A747B /* ProductImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADED150C20747107001A747B /* ProductImageCell.m */; };
+		ADED151120747108001A747B /* PickerCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADED150D20747108001A747B /* PickerCollectionCell.xib */; };
 		ADF183F120560B94003F9818 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF183F020560B94003F9818 /* TagTableViewCell.m */; };
 		ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF183F320560E36003F9818 /* TagTableViewController.m */; };
 		B455D359508109B9225D746C /* libPods-StoryBoardTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FB15284CFF59F9D244560A /* libPods-StoryBoardTestTests.a */; };
@@ -202,6 +207,14 @@
 		ADD9247B205A6765000636F9 /* SlideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideViewController.h; sourceTree = "<group>"; };
 		ADD9247C205A6765000636F9 /* SlideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
 		ADD9247E205B7508000636F9 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
+		ADED1505207470FC001A747B /* PublishTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishTableViewController.m; sourceTree = "<group>"; };
+		ADED1506207470FC001A747B /* PublishTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTableViewController.h; sourceTree = "<group>"; };
+		ADED150820747107001A747B /* PickerCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerCollectionCell.m; sourceTree = "<group>"; };
+		ADED150920747107001A747B /* ProductImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductImageCell.xib; sourceTree = "<group>"; };
+		ADED150A20747107001A747B /* PickerCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerCollectionCell.h; sourceTree = "<group>"; };
+		ADED150B20747107001A747B /* ProductImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductImageCell.h; sourceTree = "<group>"; };
+		ADED150C20747107001A747B /* ProductImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductImageCell.m; sourceTree = "<group>"; };
+		ADED150D20747108001A747B /* PickerCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerCollectionCell.xib; sourceTree = "<group>"; };
 		ADF183EF20560B94003F9818 /* TagTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagTableViewCell.h; sourceTree = "<group>"; };
 		ADF183F020560B94003F9818 /* TagTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagTableViewCell.m; sourceTree = "<group>"; };
 		ADF183F220560E36003F9818 /* TagTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagTableViewController.h; sourceTree = "<group>"; };
@@ -392,6 +405,8 @@
 				AD37BE602046358A002D59CD /* MineTableViewController.m */,
 				AD37BE6520464CD7002D59CD /* DetailViewController.h */,
 				AD37BE6620464CD7002D59CD /* DetailViewController.m */,
+				ADED1506207470FC001A747B /* PublishTableViewController.h */,
+				ADED1505207470FC001A747B /* PublishTableViewController.m */,
 				AD70DC3A206E066600561710 /* PublishCollectionViewController.h */,
 				AD70DC3B206E066600561710 /* PublishCollectionViewController.m */,
 			);
@@ -472,6 +487,12 @@
 		AD70DC3D206E069B00561710 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ADED150A20747107001A747B /* PickerCollectionCell.h */,
+				ADED150820747107001A747B /* PickerCollectionCell.m */,
+				ADED150D20747108001A747B /* PickerCollectionCell.xib */,
+				ADED150B20747107001A747B /* ProductImageCell.h */,
+				ADED150C20747107001A747B /* ProductImageCell.m */,
+				ADED150920747107001A747B /* ProductImageCell.xib */,
 				AD70DC42206E095400561710 /* InputTFCell.h */,
 				AD70DC43206E095400561710 /* InputTFCell.m */,
 				AD70DC45206E096500561710 /* InputTVCell.h */,
@@ -663,6 +684,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADED150F20747108001A747B /* ProductImageCell.xib in Resources */,
 				AD37BE1A204552BF002D59CD /* LaunchScreen.storyboard in Resources */,
 				AD37BE17204552BF002D59CD /* Assets.xcassets in Resources */,
 				AD37BE53204562F7002D59CD /* Message.storyboard in Resources */,
@@ -671,6 +693,7 @@
 				AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */,
 				AD37BE5520456303002D59CD /* Mine.storyboard in Resources */,
 				AD37BE15204552BF002D59CD /* Main.storyboard in Resources */,
+				ADED151120747108001A747B /* PickerCollectionCell.xib in Resources */,
 				AD9960252050E17A00B74D28 /* Check.json in Resources */,
 				AD4E4BB62048D97300027C7B /* Hobby.json in Resources */,
 				AD996011204FEE1100B74D28 /* SelectTableViewCell.xib in Resources */,
@@ -863,12 +886,14 @@
 				AD4E4BAE2048085B00027C7B /* HobbyTableViewCell.m in Sources */,
 				ADF183F120560B94003F9818 /* TagTableViewCell.m in Sources */,
 				AD37BE722047DE2C002D59CD /* TestTableViewController.m in Sources */,
+				ADED150E20747108001A747B /* PickerCollectionCell.m in Sources */,
 				AD784857205768D700FAF340 /* FoldSectionView.m in Sources */,
 				AD82D9EE2058B1BF004D08C7 /* Fold2TableViewController.m in Sources */,
 				AD4E4BB32048D7B700027C7B /* HobbyModel.m in Sources */,
 				AD37BE1D204552BF002D59CD /* main.m in Sources */,
 				AD70DC3C206E066600561710 /* PublishCollectionViewController.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
+				ADED151020747108001A747B /* ProductImageCell.m in Sources */,
 				AD4E4BC22048FAA600027C7B /* RegisterViewController.m in Sources */,
 				AD70DC4D206E09B400561710 /* ImageSectionHeaderReusableView.m in Sources */,
 				ADD9247D205A6765000636F9 /* SlideViewController.m in Sources */,
@@ -896,6 +921,7 @@
 				AD37BE5E2046356F002D59CD /* MessageViewController.m in Sources */,
 				AD70DC47206E096500561710 /* InputTVCell.m in Sources */,
 				AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */,
+				ADED1507207470FD001A747B /* PublishTableViewController.m in Sources */,
 				AD4E4BC42048FB2100027C7B /* AcountTableViewController.swift in Sources */,
 				AD37BE64204638E7002D59CD /* PresentViewController.m in Sources */,
 			);
