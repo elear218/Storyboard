@@ -42,7 +42,7 @@
 		AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E4BC920493B3B00027C7B /* LinePushViewController.m */; };
 		AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4E4BCB20494A3800027C7B /* TaskViewController.swift */; };
 		AD4E4BCE204CE5F300027C7B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4E4BCD204CE5F300027C7B /* Login.storyboard */; };
-		AD70DC3C206E066600561710 /* CombineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC3B206E066600561710 /* CombineCollectionViewController.m */; };
+		AD70DC3C206E066600561710 /* PublishCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC3B206E066600561710 /* PublishCollectionViewController.m */; };
 		AD70DC41206E06F500561710 /* ProductFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC40206E06F500561710 /* ProductFormModel.m */; };
 		AD70DC44206E095400561710 /* InputTFCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC43206E095400561710 /* InputTFCell.m */; };
 		AD70DC47206E096500561710 /* InputTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD70DC46206E096500561710 /* InputTVCell.m */; };
@@ -156,8 +156,8 @@
 		AD4E4BC920493B3B00027C7B /* LinePushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinePushViewController.m; sourceTree = "<group>"; };
 		AD4E4BCB20494A3800027C7B /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		AD4E4BCD204CE5F300027C7B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		AD70DC3A206E066600561710 /* CombineCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombineCollectionViewController.h; sourceTree = "<group>"; };
-		AD70DC3B206E066600561710 /* CombineCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombineCollectionViewController.m; sourceTree = "<group>"; };
+		AD70DC3A206E066600561710 /* PublishCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishCollectionViewController.h; sourceTree = "<group>"; };
+		AD70DC3B206E066600561710 /* PublishCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishCollectionViewController.m; sourceTree = "<group>"; };
 		AD70DC3F206E06F500561710 /* ProductFormModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductFormModel.h; sourceTree = "<group>"; };
 		AD70DC40206E06F500561710 /* ProductFormModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductFormModel.m; sourceTree = "<group>"; };
 		AD70DC42206E095400561710 /* InputTFCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputTFCell.h; sourceTree = "<group>"; };
@@ -392,8 +392,8 @@
 				AD37BE602046358A002D59CD /* MineTableViewController.m */,
 				AD37BE6520464CD7002D59CD /* DetailViewController.h */,
 				AD37BE6620464CD7002D59CD /* DetailViewController.m */,
-				AD70DC3A206E066600561710 /* CombineCollectionViewController.h */,
-				AD70DC3B206E066600561710 /* CombineCollectionViewController.m */,
+				AD70DC3A206E066600561710 /* PublishCollectionViewController.h */,
+				AD70DC3B206E066600561710 /* PublishCollectionViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -867,7 +867,7 @@
 				AD82D9EE2058B1BF004D08C7 /* Fold2TableViewController.m in Sources */,
 				AD4E4BB32048D7B700027C7B /* HobbyModel.m in Sources */,
 				AD37BE1D204552BF002D59CD /* main.m in Sources */,
-				AD70DC3C206E066600561710 /* CombineCollectionViewController.m in Sources */,
+				AD70DC3C206E066600561710 /* PublishCollectionViewController.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
 				AD4E4BC22048FAA600027C7B /* RegisterViewController.m in Sources */,
 				AD70DC4D206E09B400561710 /* ImageSectionHeaderReusableView.m in Sources */,

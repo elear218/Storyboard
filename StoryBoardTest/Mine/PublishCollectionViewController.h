@@ -1,5 +1,5 @@
 //
-//  CombineCollectionViewController.h
+//  PublishCollectionViewController.h
 //  StoryBoardTest
 //
 //  Created by eall on 2018/3/30.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CombineCollectionViewController : UICollectionViewController
+@interface PublishCollectionViewController : UICollectionViewController
 
 @end

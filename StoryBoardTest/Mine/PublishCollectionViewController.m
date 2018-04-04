@@ -1,12 +1,12 @@
 //
-//  CombineCollectionViewController.m
+//  PublishCollectionViewController.m
 //  StoryBoardTest
 //
 //  Created by eall on 2018/3/30.
 //  Copyright © 2018年 eall. All rights reserved.
 //
 
-#import "CombineCollectionViewController.h"
+#import "PublishCollectionViewController.h"
 #import <TZImagePickerController.h>
 
 /** *** 试图类 *** */
@@ -15,7 +15,7 @@
 #import "ImagePickerCell.h"
 #import "ImageSectionHeaderReusableView.h"
 
-@interface CombineCollectionViewController ()<TZImagePickerControllerDelegate>{
+@interface PublishCollectionViewController ()<TZImagePickerControllerDelegate>{
     NSArray *imageModelArr/**图片本地模型类数组*/;
     CGSize imageItemSize; //选择图片item大小
 }
@@ -39,7 +39,7 @@
 
 @end
 
-@implementation CombineCollectionViewController
+@implementation PublishCollectionViewController
 
 static NSString * const inputTFReuseIdentifier = @"InputTFCell";
 static NSString * const inputTVReuseIdentifier = @"InputTVCell";
