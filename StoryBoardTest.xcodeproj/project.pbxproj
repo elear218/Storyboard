@@ -56,6 +56,8 @@
 		AD82D9FA20590BA2004D08C7 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD82D9F620590BA2004D08C7 /* YYWeakProxy.m */; };
 		AD82D9FB20590BA2004D08C7 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD82D9F820590BA2004D08C7 /* YYFPSLabel.m */; };
 		AD84C95D2057B6D500043B6C /* FoldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD84C95C2057B6D500043B6C /* FoldTableViewCell.m */; };
+		AD990E62207B55D3000C1DDA /* LxGridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD990E61207B55D3000C1DDA /* LxGridViewFlowLayout.m */; };
+		AD990E65207B56DB000C1DDA /* UIView+Snap.m in Sources */ = {isa = PBXBuildFile; fileRef = AD990E64207B56DB000C1DDA /* UIView+Snap.m */; };
 		AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD995FB6204FBF5100B74D28 /* CustomXibView.m */; };
 		AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */; };
 		AD996010204FEE1100B74D28 /* SelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD99600E204FEE1100B74D28 /* SelectTableViewCell.m */; };
@@ -188,6 +190,10 @@
 		AD82D9F920590BA2004D08C7 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
 		AD84C95B2057B6D500043B6C /* FoldTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldTableViewCell.h; sourceTree = "<group>"; };
 		AD84C95C2057B6D500043B6C /* FoldTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldTableViewCell.m; sourceTree = "<group>"; };
+		AD990E60207B55D3000C1DDA /* LxGridViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxGridViewFlowLayout.h; sourceTree = "<group>"; };
+		AD990E61207B55D3000C1DDA /* LxGridViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxGridViewFlowLayout.m; sourceTree = "<group>"; };
+		AD990E63207B56DB000C1DDA /* UIView+Snap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Snap.h"; sourceTree = "<group>"; };
+		AD990E64207B56DB000C1DDA /* UIView+Snap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Snap.m"; sourceTree = "<group>"; };
 		AD995FB5204FBF5100B74D28 /* CustomXibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomXibView.h; sourceTree = "<group>"; };
 		AD995FB6204FBF5100B74D28 /* CustomXibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomXibView.m; sourceTree = "<group>"; };
 		AD995FB8204FBF5E00B74D28 /* CustomXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomXibView.xib; sourceTree = "<group>"; };
@@ -420,6 +426,8 @@
 				AD37BE6A20478F6D002D59CD /* UITableViewCell+Action.m */,
 				AD9960192050D77800B74D28 /* UIViewController+ContentInset.h */,
 				AD99601A2050D77800B74D28 /* UIViewController+ContentInset.m */,
+				AD990E63207B56DB000C1DDA /* UIView+Snap.h */,
+				AD990E64207B56DB000C1DDA /* UIView+Snap.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -508,6 +516,8 @@
 		AD70DC3E206E06A600561710 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD990E60207B55D3000C1DDA /* LxGridViewFlowLayout.h */,
+				AD990E61207B55D3000C1DDA /* LxGridViewFlowLayout.m */,
 				AD70DC3F206E06F500561710 /* ProductFormModel.h */,
 				AD70DC40206E06F500561710 /* ProductFormModel.m */,
 			);
@@ -907,6 +917,8 @@
 				AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */,
 				AD996010204FEE1100B74D28 /* SelectTableViewCell.m in Sources */,
 				AD37BE6720464CD7002D59CD /* DetailViewController.m in Sources */,
+				AD990E62207B55D3000C1DDA /* LxGridViewFlowLayout.m in Sources */,
+				AD990E65207B56DB000C1DDA /* UIView+Snap.m in Sources */,
 				AD996014204FEE3E00B74D28 /* PushViewController.m in Sources */,
 				AD70DC4A206E098A00561710 /* ImagePickerCell.m in Sources */,
 				AD37BE0F204552BF002D59CD /* AppDelegate.m in Sources */,

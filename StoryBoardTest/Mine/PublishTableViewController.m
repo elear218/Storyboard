@@ -103,6 +103,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (0 != indexPath.section) {
         ProductImageCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ProductImageCell class]) forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.nameLabel.text = localDic[@"name"][indexPath.row];
         cell.detailLabel.text = localDic[@"detail"][indexPath.row];
         NSInteger maxCount = [localDic[@"count"][indexPath.row] integerValue];

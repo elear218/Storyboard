@@ -9,9 +9,13 @@
 #import "ProductImageCell.h"
 #import <TZImagePickerController.h>
 
+#import "LxGridViewFlowLayout.h"
+
 #import "PickerCollectionCell.h"
 
 @interface ProductImageCell ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TZImagePickerControllerDelegate>
+
+@property (nonatomic, strong) LxGridViewFlowLayout *flowLayout;
 
 @property (nonatomic, strong) NSMutableArray *photosArray;
 @property (nonatomic, strong) NSMutableArray *assestArray;
@@ -36,10 +40,42 @@ static NSString * const cellIdentifer = @"PickerCollectionCell";
     return _assestArray;
 }
 
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        _flowLayout = [[LxGridViewFlowLayout alloc] init];
+        _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        CGFloat spacing = 10.f;
+        //    CGFloat itemWidth = (ScreenWidth-20*2-spacing*2)/3.0;
+        CGFloat itemWidth = (ScreenWidth-60)/3.0;
+        _flowLayout.minimumInteritemSpacing = spacing;
+        _flowLayout.itemSize = CGSizeMake(itemWidth, itemWidth);
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowLayout]; //必须通过此种初始方式将自定义的_flowLayout赋给_collectionView才可以  [_collectionView setCollectionViewLayout:_flowLayout]无法滑动
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        
+        [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([PickerCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:cellIdentifer];
+    }
+    return _collectionView;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     
+    [self.contentView addSubview:self.collectionView];
+    if (_nameLabel && _detailLabel) {
+        [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(_nameLabel);
+            make.right.mas_equalTo(_detailLabel);
+            make.bottom.mas_equalTo(-20);
+            make.top.mas_equalTo(_nameLabel.mas_bottom).mas_offset(15);
+        }];
+    }
+
+    /*
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     
@@ -58,11 +94,12 @@ static NSString * const cellIdentifer = @"PickerCollectionCell";
     [_collectionView setCollectionViewLayout:flowLayout];
 
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([PickerCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:cellIdentifer];
+    */
 }
 
 - (void)setMaxCount:(NSInteger)maxCount {
     _maxCount = maxCount;
-    [_collectionView reloadData];
+    [self.collectionView reloadData];
 }
 
 //删除按钮事件
@@ -166,6 +203,35 @@ static NSString * const cellIdentifer = @"PickerCollectionCell";
             [self previewImagesAtIndexPath:indexPath];
         }
     }
+}
+
+#pragma mark - LxGridViewDataSource
+/// 以下三个方法为长按排序相关代码
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (_maxCount == self.photosArray.count) {
+        //图片选择达到上限 全部可以拖动
+        return YES;
+    }
+    return indexPath.item < self.photosArray.count;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)sourceIndexPath canMoveToIndexPath:(NSIndexPath *)destinationIndexPath {
+    if (_maxCount == self.photosArray.count) {
+        return YES;
+    }
+    return (sourceIndexPath.item < self.photosArray.count && destinationIndexPath.item < self.photosArray.count);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)sourceIndexPath didMoveToIndexPath:(NSIndexPath *)destinationIndexPath {
+    UIImage *image = self.photosArray[sourceIndexPath.item];
+    [self.photosArray removeObjectAtIndex:sourceIndexPath.item];
+    [self.photosArray insertObject:image atIndex:destinationIndexPath.item];
+    
+    id asset = self.assestArray[sourceIndexPath.item];
+    [self.assestArray removeObjectAtIndex:sourceIndexPath.item];
+    [self.assestArray insertObject:asset atIndex:destinationIndexPath.item];
+    
+    [_collectionView reloadData];
 }
 
 @end

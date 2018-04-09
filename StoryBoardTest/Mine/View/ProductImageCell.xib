@@ -24,16 +24,6 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cE0-ap-f1Q">
-                        <rect key="frame" x="20" y="54.5" width="280" height="93"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="al2-aa-0CF">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                    </collectionView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jxs-6q-0AB">
                         <rect key="frame" x="0.0" y="167.5" width="320" height="10"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -52,21 +42,16 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cE0-ap-f1Q" firstAttribute="trailing" secondItem="32i-Dj-9b1" secondAttribute="trailing" id="EMo-QB-iiz"/>
                     <constraint firstAttribute="trailing" secondItem="32i-Dj-9b1" secondAttribute="trailing" constant="20" id="Sy1-8O-ave"/>
-                    <constraint firstItem="Jxs-6q-0AB" firstAttribute="top" secondItem="cE0-ap-f1Q" secondAttribute="bottom" constant="20" id="Tdr-jq-8AB"/>
-                    <constraint firstItem="cE0-ap-f1Q" firstAttribute="top" secondItem="0dj-0Z-WfW" secondAttribute="bottom" constant="15" id="Xwa-Aw-wq7"/>
                     <constraint firstItem="0dj-0Z-WfW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ZpF-oE-X3T"/>
                     <constraint firstAttribute="bottom" secondItem="Jxs-6q-0AB" secondAttribute="bottom" id="b8a-35-Fxq"/>
                     <constraint firstItem="32i-Dj-9b1" firstAttribute="centerY" secondItem="0dj-0Z-WfW" secondAttribute="centerY" id="ev5-8U-1qg"/>
                     <constraint firstItem="Jxs-6q-0AB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hGb-Kq-bvR"/>
-                    <constraint firstItem="cE0-ap-f1Q" firstAttribute="leading" secondItem="0dj-0Z-WfW" secondAttribute="leading" id="n1H-Y8-J8W"/>
                     <constraint firstAttribute="trailing" secondItem="Jxs-6q-0AB" secondAttribute="trailing" id="psF-fx-chi"/>
                     <constraint firstItem="0dj-0Z-WfW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="yFQ-9z-er3"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="collectionView" destination="cE0-ap-f1Q" id="rXY-3c-Zaj"/>
                 <outlet property="detailLabel" destination="32i-Dj-9b1" id="VnF-KM-IMO"/>
                 <outlet property="nameLabel" destination="0dj-0Z-WfW" id="A0j-3K-rpA"/>
             </connections>
