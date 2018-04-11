@@ -21,7 +21,7 @@
 + (instancetype)manager NS_SWIFT_NAME(default());
 + (void)deallocManager;
 
-@property (assign, nonatomic) id<TZImagePickerControllerDelegate> pickerDelegate;
+@property (weak, nonatomic) id<TZImagePickerControllerDelegate> pickerDelegate;
 
 @property (nonatomic, assign) BOOL shouldFixOrientation;
 
@@ -105,6 +105,9 @@
 
 /// 获取asset的资源类型
 - (TZAssetModelMediaType)getAssetType:(id)asset;
+
+/// 缩放图片至新尺寸
+- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)size;
 
 @end
 

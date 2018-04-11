@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D9251FA86AD16288818C2E669A8D9AA7'
-               BlueprintName = 'TTGTagCollectionView'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libTTGTagCollectionView.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D9251FA86AD16288818C2E669A8D9AA7"
+               BlueprintName = "TTGTagCollectionView"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libTTGTagCollectionView.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

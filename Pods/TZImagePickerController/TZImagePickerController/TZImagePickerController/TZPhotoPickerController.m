@@ -309,8 +309,8 @@ static CGFloat itemMargin = 5;
         _originalPhotoLabel.frame = CGRectMake(fullImageWidth + 46, 0, 80, 50);
     }
     [_doneButton sizeToFit];
-    _doneButton.frame = CGRectMake(self.view.tz_width - _doneButton.tz_width - 12, 0, _doneButton.tz_width, toolBarHeight);
-    _numberImageView.frame = CGRectMake(_doneButton.tz_left - 30 - 2, (toolBarHeight - 30) / 2, 30, 30);
+    _doneButton.frame = CGRectMake(self.view.tz_width - _doneButton.tz_width - 12, 0, _doneButton.tz_width, 44);
+    _numberImageView.frame = CGRectMake(_doneButton.tz_left - 30 - 2, 7, 30, 30);
     _numberLabel.frame = _numberImageView.frame;
     _divideLine.frame = CGRectMake(0, 0, self.view.tz_width, 1);
     
@@ -352,45 +352,54 @@ static CGFloat itemMargin = 5;
     }
     
     [tzImagePickerVc showProgressHUD];
-    NSMutableArray *photos = [NSMutableArray array];
     NSMutableArray *assets = [NSMutableArray array];
-    NSMutableArray *infoArr = [NSMutableArray array];
-    for (NSInteger i = 0; i < tzImagePickerVc.selectedModels.count; i++) { [photos addObject:@1];[assets addObject:@1];[infoArr addObject:@1]; }
-    
-    __block BOOL havenotShowAlert = YES;
-    [TZImageManager manager].shouldFixOrientation = YES;
-    __block id alertView;
-    for (NSInteger i = 0; i < tzImagePickerVc.selectedModels.count; i++) {
-        TZAssetModel *model = tzImagePickerVc.selectedModels[i];
-        [[TZImageManager manager] getPhotoWithAsset:model.asset completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
-            if (isDegraded) return;
-            if (photo) {
-                photo = [self scaleImage:photo toSize:CGSizeMake(tzImagePickerVc.photoWidth, (int)(tzImagePickerVc.photoWidth * photo.size.height / photo.size.width))];
-                [photos replaceObjectAtIndex:i withObject:photo];
-            }
-            if (info)  [infoArr replaceObjectAtIndex:i withObject:info];
-            [assets replaceObjectAtIndex:i withObject:model.asset];
-            
-            for (id item in photos) { if ([item isKindOfClass:[NSNumber class]]) return; }
-            
-            if (havenotShowAlert) {
-                [tzImagePickerVc hideAlertView:alertView];
-                [self didGetAllPhotos:photos assets:assets infoArr:infoArr];
-            }
-        } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
-            // 如果图片正在从iCloud同步中,提醒用户
-            if (progress < 1 && havenotShowAlert && !alertView) {
-                [tzImagePickerVc hideProgressHUD];
-                alertView = [tzImagePickerVc showAlertWithTitle:[NSBundle tz_localizedStringForKey:@"Synchronizing photos from iCloud"]];
-                havenotShowAlert = NO;
-                return;
-            }
-            if (progress >= 1) {
-                havenotShowAlert = YES;
-            }
-        } networkAccessAllowed:YES];
+    NSMutableArray *photos;
+    NSMutableArray *infoArr;
+    if (tzImagePickerVc.onlyReturnAsset) { // not fetch image
+        for (NSInteger i = 0; i < tzImagePickerVc.selectedModels.count; i++) {
+            TZAssetModel *model = tzImagePickerVc.selectedModels[i];
+            [assets addObject:model.asset];
+        }
+    } else { // fetch image
+        photos = [NSMutableArray array];
+        infoArr = [NSMutableArray array];
+        for (NSInteger i = 0; i < tzImagePickerVc.selectedModels.count; i++) { [photos addObject:@1];[assets addObject:@1];[infoArr addObject:@1]; }
+        
+        __block BOOL havenotShowAlert = YES;
+        [TZImageManager manager].shouldFixOrientation = YES;
+        __block id alertView;
+        for (NSInteger i = 0; i < tzImagePickerVc.selectedModels.count; i++) {
+            TZAssetModel *model = tzImagePickerVc.selectedModels[i];
+            [[TZImageManager manager] getPhotoWithAsset:model.asset completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+                if (isDegraded) return;
+                if (photo) {
+                    photo = [[TZImageManager manager] scaleImage:photo toSize:CGSizeMake(tzImagePickerVc.photoWidth, (int)(tzImagePickerVc.photoWidth * photo.size.height / photo.size.width))];
+                    [photos replaceObjectAtIndex:i withObject:photo];
+                }
+                if (info)  [infoArr replaceObjectAtIndex:i withObject:info];
+                [assets replaceObjectAtIndex:i withObject:model.asset];
+                
+                for (id item in photos) { if ([item isKindOfClass:[NSNumber class]]) return; }
+                
+                if (havenotShowAlert) {
+                    [tzImagePickerVc hideAlertView:alertView];
+                    [self didGetAllPhotos:photos assets:assets infoArr:infoArr];
+                }
+            } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+                // 如果图片正在从iCloud同步中,提醒用户
+                if (progress < 1 && havenotShowAlert && !alertView) {
+                    [tzImagePickerVc hideProgressHUD];
+                    alertView = [tzImagePickerVc showAlertWithTitle:[NSBundle tz_localizedStringForKey:@"Synchronizing photos from iCloud"]];
+                    havenotShowAlert = NO;
+                    return;
+                }
+                if (progress >= 1) {
+                    havenotShowAlert = YES;
+                }
+            } networkAccessAllowed:YES];
+        }
     }
-    if (tzImagePickerVc.selectedModels.count <= 0) {
+    if (tzImagePickerVc.selectedModels.count <= 0 || tzImagePickerVc.onlyReturnAsset) {
         [self didGetAllPhotos:photos assets:assets infoArr:infoArr];
     }
 }
@@ -585,9 +594,9 @@ static CGFloat itemMargin = 5;
 - (void)pushImagePickerController {
     // 提前定位
     __weak typeof(self) weakSelf = self;
-    [[TZLocationManager manager] startLocationWithSuccessBlock:^(CLLocation *location, CLLocation *oldLocation) {
+    [[TZLocationManager manager] startLocationWithSuccessBlock:^(NSArray<CLLocation *> *locations) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        strongSelf.location = location;
+        strongSelf.location = [locations firstObject];
     } failureBlock:^(NSError *error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         strongSelf.location = nil;
@@ -653,18 +662,6 @@ static CGFloat itemMargin = 5;
     }];
 }
 
-/// Scale image / 缩放图片
-- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)size {
-    if (image.size.width < size.width) {
-        return image;
-    }
-    UIGraphicsBeginImageContext(size);
-    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
 - (void)scrollCollectionViewToBottom {
     TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
     if (_shouldScrollToBottom && _models.count > 0) {
@@ -689,13 +686,13 @@ static CGFloat itemMargin = 5;
 }
 
 - (void)checkSelectedModels {
+    NSMutableArray *selectedAssets = [NSMutableArray array];
+    TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
+    for (TZAssetModel *model in tzImagePickerVc.selectedModels) {
+        [selectedAssets addObject:model.asset];
+    }
     for (TZAssetModel *model in _models) {
         model.isSelected = NO;
-        NSMutableArray *selectedAssets = [NSMutableArray array];
-        TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
-        for (TZAssetModel *model in tzImagePickerVc.selectedModels) {
-            [selectedAssets addObject:model.asset];
-        }
         if ([[TZImageManager manager] isAssetsArray:selectedAssets containAsset:model.asset]) {
             model.isSelected = YES;
         }

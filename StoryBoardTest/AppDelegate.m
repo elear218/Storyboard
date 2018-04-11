@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "EnterViewController.h"
+
 #import "CustomTabBarController.h"
 //#import "CustomNaviViewController.h"
 #import <IQKeyboardManager.h>
@@ -24,8 +26,11 @@
     [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     
+    EnterViewController *enter = [[EnterViewController alloc] init];
+    self.window.rootViewController = enter;
+    
     //创建TabBarController
-    CustomTabBarController *tabVC = [[CustomTabBarController alloc] init];
+//    CustomTabBarController *tabVC = [[CustomTabBarController alloc] init];
     
     /*
     //加载Storyboard
@@ -57,7 +62,7 @@
     */
     
     //设置根控制器
-    self.window.rootViewController = tabVC;
+//    self.window.rootViewController = tabVC;
     
     return YES;
 }
