@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CGFloat navigationHeight = self.navigationController.navigationBar.frame.size.height;
+    CGFloat navigationHeight = [UIApplication sharedApplication].statusBarFrame.size.height+44;
     CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
     NSLog(@"navigationHeight:%f\ntabBarHeight:%f",navigationHeight,tabBarHeight);
     

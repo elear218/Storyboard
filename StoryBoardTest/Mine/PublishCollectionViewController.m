@@ -121,6 +121,7 @@ static CGFloat const sectionEdge = 20.f;
     [super viewDidLoad];
     
 //    参考文章：写一个iOS复杂表单的正确姿势（https://www.jianshu.com/p/4a3aad22f356）
+//            手把手教你使用UICollectionView写公司的项目（https://www.jianshu.com/p/cf616f73d596）
     
     [self contentInsetAdjustment];
     // Uncomment the following line to preserve selection between presentations
