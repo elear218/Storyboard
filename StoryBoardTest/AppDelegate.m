@@ -27,7 +27,8 @@
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     
     EnterViewController *enter = [[EnterViewController alloc] init];
-    self.window.rootViewController = enter;
+    CustomNaviViewController *nav = [[CustomNaviViewController alloc] initWithRootViewController:enter];
+    self.window.rootViewController = nav;
     
     //创建TabBarController
 //    CustomTabBarController *tabVC = [[CustomTabBarController alloc] init];
