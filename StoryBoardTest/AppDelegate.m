@@ -25,6 +25,7 @@
 - (UIWindow *)window {
     if (!_window) {
         _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//        _window.backgroundColor = [UIColor whiteColor];
         [_window makeKeyAndVisible];
     }
     return _window;
@@ -40,10 +41,10 @@
     self.window.rootViewController = nav;
     
     //第一种加载引导页：加在window上面 （第二种见EnterViewController.m）
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"hasLoaded"]) {
-        [GuidePagesView showGuidePageViewWithImages:@[@"Guide1", @"Guide2", @"Guide3", @"Guide4"]];
-//        [GuidePagesView showGuidePageViewWithImages:@[@"Guide1"]];
-    }
+//    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"hasLoaded"]) {
+//        [GuidePagesView showGuidePageViewWithImages:@[@"Guide1", @"Guide2", @"Guide3", @"Guide4"]];
+////        [GuidePagesView showGuidePageViewWithImages:@[@"Guide1"]];
+//    }
     
     //创建TabBarController
 //    CustomTabBarController *tabVC = [[CustomTabBarController alloc] init];

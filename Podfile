@@ -15,6 +15,7 @@ target 'StoryBoardTest' do
   pod 'Aspects'
   pod 'TZImagePickerController'
   pod 'IQKeyboardManager'
+  pod 'SDCycleScrollView'
 
   target 'StoryBoardTestTests' do
     inherit! :search_paths

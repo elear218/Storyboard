@@ -4,6 +4,11 @@ PODS:
   - IQKeyboardManager (5.0.8)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
+  - SDCycleScrollView (1.75):
+    - SDWebImage (>= 4.0.0)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
   - TTGTagCollectionView (1.9.0)
   - TZImagePickerController (2.0.1)
   - "UITableView+FDTemplateLayoutCell (1.6)"
@@ -15,6 +20,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Masonry
   - MJRefresh
+  - SDCycleScrollView
   - TTGTagCollectionView
   - TZImagePickerController
   - "UITableView+FDTemplateLayoutCell"
@@ -27,6 +33,8 @@ SPEC REPOS:
     - IQKeyboardManager
     - Masonry
     - MJRefresh
+    - SDCycleScrollView
+    - SDWebImage
     - TTGTagCollectionView
     - TZImagePickerController
     - "UITableView+FDTemplateLayoutCell"
@@ -38,11 +46,13 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   TTGTagCollectionView: 958f20b946dee92a8ba20dc37d10a06737641ae9
   TZImagePickerController: 34ecb53af8c349964394407e42b6e54e22589ebe
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 9582316c09d32723c1e192995229a8bf7ff206fc
+PODFILE CHECKSUM: 458477aa2d0817c0a9041d49c0e9e5a8b942c2bb
 
 COCOAPODS: 1.5.0

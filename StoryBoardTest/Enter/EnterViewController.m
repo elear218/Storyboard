@@ -8,16 +8,31 @@
 
 #import "EnterViewController.h"
 #import "CustomTabBarController.h"
+#import "GuideViewController.h"
 
-@interface EnterViewController ()
+@interface EnterViewController (){
+    BOOL isFirst;
+}
 
 @end
 
 @implementation EnterViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //第二种加载引导页：页面跳转
+    if (!isFirst) {
+        isFirst = YES;
+        GuideViewController *guide = [[GuideViewController alloc] init];
+        [self.navigationController pushViewController:guide animated:NO];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     UILabel *descLabel = [UILabel new];
@@ -70,9 +85,9 @@
         [UIApplication sharedApplication].keyWindow.rootViewController = tab;
         [UIView setAnimationsEnabled:oldState];
     } completion:^(BOOL finished){
-//        EnterViewController *vc = [[EnterViewController alloc] init];
-//        [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+
     }];
+    
 }
 
 - (void)dealloc {

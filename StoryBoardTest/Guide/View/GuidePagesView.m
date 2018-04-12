@@ -139,7 +139,7 @@ static CGFloat const doneBtnWidth = 100.f;
 
 - (UIPageControl *)pageControl {
     if(!_pageControl) {
-        _pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, ScreenHeight - 60, ScreenWidth, 40)];
+        _pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, ScreenHeight - 60, ScreenWidth, 35)];
         _pageControl.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.0f];
         _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
         _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
@@ -164,13 +164,13 @@ static CGFloat const doneBtnWidth = 100.f;
 - (UIButton *)doneBtn {
     if (!_doneBtn) {
         _doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _doneBtn.frame = CGRectMake(ScreenWidth*_imagesArray.count - ScreenWidth/2 - doneBtnWidth/2, ScreenHeight - 80, doneBtnWidth, 40);
+        _doneBtn.frame = CGRectMake(ScreenWidth*_imagesArray.count - ScreenWidth/2 - doneBtnWidth/2, ScreenHeight - 65, doneBtnWidth, 35);
         [_doneBtn addTarget:self action:@selector(jumpOrDoneGuide:) forControlEvents:UIControlEventTouchUpInside];
         _doneBtn.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:.8f];
         [_doneBtn setTitle:@"立即进入" forState:UIControlStateNormal];
         [_doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _doneBtn.titleLabel.font = [UIFont systemFontOfSize:15.f];
-        _doneBtn.layer.cornerRadius = 10.f;
+        _doneBtn.layer.cornerRadius = 8.f;
 //        _doneBtn.alpha = 0;
     }
     return _doneBtn;
