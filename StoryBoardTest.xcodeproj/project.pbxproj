@@ -78,6 +78,12 @@
 		ADF183F120560B94003F9818 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF183F020560B94003F9818 /* TagTableViewCell.m */; };
 		ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF183F320560E36003F9818 /* TagTableViewController.m */; };
 		ADF4657E207DF13700933BF2 /* EnterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF4657D207DF13700933BF2 /* EnterViewController.m */; };
+		ADF46582207E0C4100933BF2 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF46581207E0C4000933BF2 /* GuideViewController.m */; };
+		ADF46586207E123800933BF2 /* GuidePagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF46585207E123800933BF2 /* GuidePagesView.m */; };
+		ADF4658C207EFFB700933BF2 /* Guide3.png in Resources */ = {isa = PBXBuildFile; fileRef = ADF46588207EFFB600933BF2 /* Guide3.png */; };
+		ADF4658D207EFFB700933BF2 /* Guide2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADF46589207EFFB600933BF2 /* Guide2.png */; };
+		ADF4658E207EFFB700933BF2 /* Guide1.png in Resources */ = {isa = PBXBuildFile; fileRef = ADF4658A207EFFB600933BF2 /* Guide1.png */; };
+		ADF4658F207EFFB700933BF2 /* Guide4.png in Resources */ = {isa = PBXBuildFile; fileRef = ADF4658B207EFFB700933BF2 /* Guide4.png */; };
 		B455D359508109B9225D746C /* libPods-StoryBoardTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FB15284CFF59F9D244560A /* libPods-StoryBoardTestTests.a */; };
 /* End PBXBuildFile section */
 
@@ -228,6 +234,14 @@
 		ADF183F320560E36003F9818 /* TagTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagTableViewController.m; sourceTree = "<group>"; };
 		ADF4657C207DF13700933BF2 /* EnterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnterViewController.h; sourceTree = "<group>"; };
 		ADF4657D207DF13700933BF2 /* EnterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnterViewController.m; sourceTree = "<group>"; };
+		ADF46580207E0C4000933BF2 /* GuideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		ADF46581207E0C4000933BF2 /* GuideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		ADF46584207E123800933BF2 /* GuidePagesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuidePagesView.h; sourceTree = "<group>"; };
+		ADF46585207E123800933BF2 /* GuidePagesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuidePagesView.m; sourceTree = "<group>"; };
+		ADF46588207EFFB600933BF2 /* Guide3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Guide3.png; sourceTree = "<group>"; };
+		ADF46589207EFFB600933BF2 /* Guide2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Guide2.png; sourceTree = "<group>"; };
+		ADF4658A207EFFB600933BF2 /* Guide1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Guide1.png; sourceTree = "<group>"; };
+		ADF4658B207EFFB700933BF2 /* Guide4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Guide4.png; sourceTree = "<group>"; };
 		C3653FAEEF308E72059A4771 /* Pods-StoryBoardTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTest/Pods-StoryBoardTest.release.xcconfig"; sourceTree = "<group>"; };
 		ED0C2E2CCA482B2BE46C52F9 /* Pods-StoryBoardTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTestUITests/Pods-StoryBoardTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FF6BB2134173BD9155ACAA58 /* libPods-StoryBoardTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -299,11 +313,12 @@
 		AD37BE0C204552BF002D59CD /* StoryBoardTest */ = {
 			isa = PBXGroup;
 			children = (
-				ADD9247E205B7508000636F9 /* 0.jpg */,
+				ADF46587207EFF6C00933BF2 /* ImageResource */,
 				AD82D9F420590B90004D08C7 /* Tool */,
 				AD4E4BB42048D96600027C7B /* Local Data */,
 				AD37BE4F204562CE002D59CD /* Custom */,
 				AD37BE6820478ED8002D59CD /* Category */,
+				ADF4657F207E0C0900933BF2 /* Guide */,
 				ADF4657B207DF10100933BF2 /* Enter */,
 				AD37BE5620463502002D59CD /* Home */,
 				AD37BE572046350B002D59CD /* Message */,
@@ -314,9 +329,6 @@
 				AD37BE0E204552BF002D59CD /* AppDelegate.m */,
 				AD37BE10204552BF002D59CD /* ViewController.h */,
 				AD37BE11204552BF002D59CD /* ViewController.m */,
-				AD37BE13204552BF002D59CD /* Main.storyboard */,
-				AD37BE16204552BF002D59CD /* Assets.xcassets */,
-				AD37BE18204552BF002D59CD /* LaunchScreen.storyboard */,
 				ADF4657A207DF08200933BF2 /* Supporting Files */,
 			);
 			path = StoryBoardTest;
@@ -572,6 +584,9 @@
 		ADF4657A207DF08200933BF2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AD37BE16204552BF002D59CD /* Assets.xcassets */,
+				AD37BE13204552BF002D59CD /* Main.storyboard */,
+				AD37BE18204552BF002D59CD /* LaunchScreen.storyboard */,
 				AD37BE1B204552BF002D59CD /* Info.plist */,
 				AD37BE1C204552BF002D59CD /* main.m */,
 				AD4E4BB82048F64200027C7B /* StoryBoardTest-Bridging-Header.h */,
@@ -587,6 +602,37 @@
 				ADF4657D207DF13700933BF2 /* EnterViewController.m */,
 			);
 			path = Enter;
+			sourceTree = "<group>";
+		};
+		ADF4657F207E0C0900933BF2 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				ADF46583207E11FE00933BF2 /* View */,
+				ADF46580207E0C4000933BF2 /* GuideViewController.h */,
+				ADF46581207E0C4000933BF2 /* GuideViewController.m */,
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
+		ADF46583207E11FE00933BF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADF46584207E123800933BF2 /* GuidePagesView.h */,
+				ADF46585207E123800933BF2 /* GuidePagesView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADF46587207EFF6C00933BF2 /* ImageResource */ = {
+			isa = PBXGroup;
+			children = (
+				ADF4658A207EFFB600933BF2 /* Guide1.png */,
+				ADF46589207EFFB600933BF2 /* Guide2.png */,
+				ADF46588207EFFB600933BF2 /* Guide3.png */,
+				ADF4658B207EFFB700933BF2 /* Guide4.png */,
+				ADD9247E205B7508000636F9 /* 0.jpg */,
+			);
+			path = ImageResource;
 			sourceTree = "<group>";
 		};
 		EFC7CA91ED9B46CE03BF8542 /* Frameworks */ = {
@@ -717,15 +763,19 @@
 				AD4E4BAF2048085B00027C7B /* HobbyTableViewCell.xib in Resources */,
 				ADD9247F205B7509000636F9 /* 0.jpg in Resources */,
 				AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */,
+				ADF4658D207EFFB700933BF2 /* Guide2.png in Resources */,
 				AD37BE5520456303002D59CD /* Mine.storyboard in Resources */,
 				AD37BE15204552BF002D59CD /* Main.storyboard in Resources */,
 				ADED151120747108001A747B /* PickerCollectionCell.xib in Resources */,
 				AD9960252050E17A00B74D28 /* Check.json in Resources */,
+				ADF4658E207EFFB700933BF2 /* Guide1.png in Resources */,
 				AD4E4BB62048D97300027C7B /* Hobby.json in Resources */,
 				AD996011204FEE1100B74D28 /* SelectTableViewCell.xib in Resources */,
+				ADF4658F207EFFB700933BF2 /* Guide4.png in Resources */,
 				AD784859205768EB00FAF340 /* FoldSectionView.xib in Resources */,
 				AD9960232050DE1700B74D28 /* CheckTableViewCell.xib in Resources */,
 				AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */,
+				ADF4658C207EFFB700933BF2 /* Guide3.png in Resources */,
 				AD37BE51204562ED002D59CD /* Home.storyboard in Resources */,
 				AD4E4BCE204CE5F300027C7B /* Login.storyboard in Resources */,
 			);
@@ -848,6 +898,7 @@
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
 				ADED151020747108001A747B /* ProductImageCell.m in Sources */,
 				AD4E4BC22048FAA600027C7B /* RegisterViewController.m in Sources */,
+				ADF46582207E0C4100933BF2 /* GuideViewController.m in Sources */,
 				AD70DC4D206E09B400561710 /* ImageSectionHeaderReusableView.m in Sources */,
 				ADD9247D205A6765000636F9 /* SlideViewController.m in Sources */,
 				AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */,
@@ -868,6 +919,7 @@
 				ADF4657E207DF13700933BF2 /* EnterViewController.m in Sources */,
 				AD84C95D2057B6D500043B6C /* FoldTableViewCell.m in Sources */,
 				AD7848542057667800FAF340 /* Fold1TableViewController.m in Sources */,
+				ADF46586207E123800933BF2 /* GuidePagesView.m in Sources */,
 				AD37BE6E204792A7002D59CD /* LoginViewController.m in Sources */,
 				AD99601E2050DC4300B74D28 /* CheckModel.m in Sources */,
 				ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */,
