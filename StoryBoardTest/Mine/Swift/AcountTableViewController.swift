@@ -29,7 +29,7 @@ class AcountTableViewController: UITableViewController {
         self.contentInsetAdjustment()
         
         versionLabel.text = "v".appending(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
-//        print("1234567890");
+        print("1234567890");
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
