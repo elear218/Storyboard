@@ -55,6 +55,7 @@ static NSString * const cellIdentifer = @"PickerCollectionCell";
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+        _collectionView.decelerationRate = 0;
         
         [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([PickerCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:cellIdentifer];
     }
@@ -147,8 +148,8 @@ static NSString * const cellIdentifer = @"PickerCollectionCell";
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
                      withVelocity:(CGPoint)velocity
               targetContentOffset:(inout CGPoint *)targetContentOffset {
-    CGFloat cellWidth = (ScreenWidth-60)/3.0;
-    CGFloat cellPadding = 10.f;
+    CGFloat cellWidth = _flowLayout.itemSize.width;
+    CGFloat cellPadding = _flowLayout.minimumInteritemSpacing;
     
     NSInteger page = (scrollView.contentOffset.x - cellWidth / 2) / (cellWidth + cellPadding) + 1;
     
