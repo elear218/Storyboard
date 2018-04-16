@@ -11,6 +11,12 @@
 		6D0996298B28BEB9706AA1C0 /* libPods-StoryBoardTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6BB2134173BD9155ACAA58 /* libPods-StoryBoardTest.a */; };
 		AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */ = {isa = PBXBuildFile; fileRef = AD00C11820577CCF00F6C4A0 /* Fold.json */; };
 		AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00C11B20577E1C00F6C4A0 /* FoldModel.m */; };
+		AD1A08C2208491A60067CC88 /* CycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1A08C0208491A50067CC88 /* CycleViewController.m */; };
+		AD1A08C52084928E0067CC88 /* CustomCycleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1A08C42084928E0067CC88 /* CustomCycleCollectionCell.m */; };
+		AD1A08CA208496470067CC88 /* h3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1A08C6208496460067CC88 /* h3.jpg */; };
+		AD1A08CB208496470067CC88 /* h1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1A08C7208496460067CC88 /* h1.jpg */; };
+		AD1A08CC208496470067CC88 /* h4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1A08C8208496460067CC88 /* h4.jpg */; };
+		AD1A08CD208496470067CC88 /* h2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1A08C9208496470067CC88 /* h2.jpg */; };
 		AD37BE0F204552BF002D59CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37BE0E204552BF002D59CD /* AppDelegate.m */; };
 		AD37BE12204552BF002D59CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37BE11204552BF002D59CD /* ViewController.m */; };
 		AD37BE15204552BF002D59CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD37BE13204552BF002D59CD /* Main.storyboard */; };
@@ -114,6 +120,14 @@
 		AD00C11820577CCF00F6C4A0 /* Fold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Fold.json; sourceTree = "<group>"; };
 		AD00C11A20577E1C00F6C4A0 /* FoldModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldModel.h; sourceTree = "<group>"; };
 		AD00C11B20577E1C00F6C4A0 /* FoldModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldModel.m; sourceTree = "<group>"; };
+		AD1A08C0208491A50067CC88 /* CycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleViewController.m; sourceTree = "<group>"; };
+		AD1A08C1208491A50067CC88 /* CycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleViewController.h; sourceTree = "<group>"; };
+		AD1A08C32084928E0067CC88 /* CustomCycleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCycleCollectionCell.h; sourceTree = "<group>"; };
+		AD1A08C42084928E0067CC88 /* CustomCycleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCycleCollectionCell.m; sourceTree = "<group>"; };
+		AD1A08C6208496460067CC88 /* h3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h3.jpg; sourceTree = "<group>"; };
+		AD1A08C7208496460067CC88 /* h1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h1.jpg; sourceTree = "<group>"; };
+		AD1A08C8208496460067CC88 /* h4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h4.jpg; sourceTree = "<group>"; };
+		AD1A08C9208496470067CC88 /* h2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h2.jpg; sourceTree = "<group>"; };
 		AD37BE0A204552BF002D59CD /* StoryBoardTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryBoardTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD37BE0D204552BF002D59CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD37BE0E204552BF002D59CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -387,6 +401,8 @@
 				AD996013204FEE3E00B74D28 /* PushViewController.m */,
 				ADD9247B205A6765000636F9 /* SlideViewController.h */,
 				ADD9247C205A6765000636F9 /* SlideViewController.m */,
+				AD1A08C1208491A50067CC88 /* CycleViewController.h */,
+				AD1A08C0208491A50067CC88 /* CycleViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -568,6 +584,8 @@
 				AD99601F2050DE1700B74D28 /* CheckTableViewCell.h */,
 				AD9960202050DE1700B74D28 /* CheckTableViewCell.m */,
 				AD9960212050DE1700B74D28 /* CheckTableViewCell.xib */,
+				AD1A08C32084928E0067CC88 /* CustomCycleCollectionCell.h */,
+				AD1A08C42084928E0067CC88 /* CustomCycleCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -626,6 +644,10 @@
 		ADF46587207EFF6C00933BF2 /* ImageResource */ = {
 			isa = PBXGroup;
 			children = (
+				AD1A08C7208496460067CC88 /* h1.jpg */,
+				AD1A08C9208496470067CC88 /* h2.jpg */,
+				AD1A08C6208496460067CC88 /* h3.jpg */,
+				AD1A08C8208496460067CC88 /* h4.jpg */,
 				ADF4658A207EFFB600933BF2 /* Guide1.png */,
 				ADF46589207EFFB600933BF2 /* Guide2.png */,
 				ADF46588207EFFB600933BF2 /* Guide3.png */,
@@ -766,8 +788,10 @@
 				ADF4658D207EFFB700933BF2 /* Guide2.png in Resources */,
 				AD37BE5520456303002D59CD /* Mine.storyboard in Resources */,
 				AD37BE15204552BF002D59CD /* Main.storyboard in Resources */,
+				AD1A08CC208496470067CC88 /* h4.jpg in Resources */,
 				ADED151120747108001A747B /* PickerCollectionCell.xib in Resources */,
 				AD9960252050E17A00B74D28 /* Check.json in Resources */,
+				AD1A08CD208496470067CC88 /* h2.jpg in Resources */,
 				ADF4658E207EFFB700933BF2 /* Guide1.png in Resources */,
 				AD4E4BB62048D97300027C7B /* Hobby.json in Resources */,
 				AD996011204FEE1100B74D28 /* SelectTableViewCell.xib in Resources */,
@@ -775,8 +799,10 @@
 				AD784859205768EB00FAF340 /* FoldSectionView.xib in Resources */,
 				AD9960232050DE1700B74D28 /* CheckTableViewCell.xib in Resources */,
 				AD995FB9204FBF5E00B74D28 /* CustomXibView.xib in Resources */,
+				AD1A08CA208496470067CC88 /* h3.jpg in Resources */,
 				ADF4658C207EFFB700933BF2 /* Guide3.png in Resources */,
 				AD37BE51204562ED002D59CD /* Home.storyboard in Resources */,
+				AD1A08CB208496470067CC88 /* h1.jpg in Resources */,
 				AD4E4BCE204CE5F300027C7B /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -896,6 +922,7 @@
 				AD37BE1D204552BF002D59CD /* main.m in Sources */,
 				AD70DC3C206E066600561710 /* PublishCollectionViewController.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
+				AD1A08C2208491A60067CC88 /* CycleViewController.m in Sources */,
 				ADED151020747108001A747B /* ProductImageCell.m in Sources */,
 				AD4E4BC22048FAA600027C7B /* RegisterViewController.m in Sources */,
 				ADF46582207E0C4100933BF2 /* GuideViewController.m in Sources */,
@@ -926,6 +953,7 @@
 				AD82D9FA20590BA2004D08C7 /* YYWeakProxy.m in Sources */,
 				AD70DC44206E095400561710 /* InputTFCell.m in Sources */,
 				AD37BE5B2046352A002D59CD /* HomeViewController.m in Sources */,
+				AD1A08C52084928E0067CC88 /* CustomCycleCollectionCell.m in Sources */,
 				AD37BE5E2046356F002D59CD /* MessageViewController.m in Sources */,
 				AD70DC47206E096500561710 /* InputTVCell.m in Sources */,
 				AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */,

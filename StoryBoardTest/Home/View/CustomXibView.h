@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ClickBlock)(void);
 @interface CustomXibView : UIView
+
+@property (nonatomic, copy) ClickBlock block;
 
 @end

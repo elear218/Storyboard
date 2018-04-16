@@ -13,7 +13,9 @@
 #import "SlideViewController.h"
 #import "CustomXibView.h"
 
-@interface HomeViewController ()
+@interface HomeViewController (){
+    __weak IBOutlet CustomXibView *view1;
+}
 
 @end
 
@@ -22,12 +24,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CGFloat navigationHeight = [UIApplication sharedApplication].statusBarFrame.size.height+44;
+    CGFloat navigationHeight = [UIApplication sharedApplication].statusBarFrame.size.height + 44;
     CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
-    NSLog(@"navigationHeight:%f\ntabBarHeight:%f",navigationHeight,tabBarHeight);
+    NSLog(@"navigationHeight:%f\ntabBarHeight:%f",navigationHeight, tabBarHeight);
+    
+    view1.block = ^{
+        [self performSegueWithIdentifier:@"gotoCycleVCIdentifer" sender:nil];
+    };
     
     CustomXibView *view = [[CustomXibView alloc] init];
     view.backgroundColor = [UIColor redColor];
+    view.block = ^{
+        [self performSegueWithIdentifier:@"gotoCycleVCIdentifer" sender:nil];
+    };
     [self.view addSubview:view];
     
     [view mas_makeConstraints:^(MASConstraintMaker *make) {

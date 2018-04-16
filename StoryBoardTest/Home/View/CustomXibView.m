@@ -48,6 +48,12 @@
     [self addSubview:xibView];
 }
 
+- (IBAction)btnClick:(UIButton *)sender {
+    if (self.block) {
+        self.block();
+    }
+}
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 /**
