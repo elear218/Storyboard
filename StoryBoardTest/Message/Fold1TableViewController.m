@@ -15,6 +15,9 @@
     
     NSArray<FoldModel *> *dataArr;
 }
+
+@property (nonatomic, strong) NSIndexPath *selectIdxPath;
+
 @property (nonatomic, strong) NSMutableArray *sectionStatusArr;
 
 @end
@@ -51,6 +54,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
             [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+            self.selectIdxPath = [self.tableView.indexPathForSelectedRow copy];
         });
     });
     // Uncomment the following line to preserve selection between presentations.
@@ -89,6 +93,9 @@
         [self.sectionStatusArr replaceObjectAtIndex:section withObject:num];
         //重新加载当前区
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+        if (num.boolValue && section == self.selectIdxPath.section) {
+            [self.tableView selectRowAtIndexPath:self.selectIdxPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        }
     };
     [view updateContent:dataArr[section]];
     return view;
@@ -98,6 +105,10 @@
     FoldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoldTableViewCell class]) forIndexPath:indexPath];
     cell.model = [dataArr[indexPath.section] rowArr][indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectIdxPath = [indexPath copy];
 }
 
 - (void)dealloc {

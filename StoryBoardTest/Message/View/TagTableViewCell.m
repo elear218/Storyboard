@@ -39,14 +39,22 @@
 }
 
 #pragma mark -- TTGTextTagCollectionViewDelegate
-- (BOOL)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView canTapTag:(NSString *)tagText atIndex:(NSUInteger)index currentSelected:(BOOL)currentSelected{
+- (BOOL)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView
+                    canTapTag:(NSString *)tagText
+                      atIndex:(NSUInteger)index
+              currentSelected:(BOOL)currentSelected
+                    tagConfig:(TTGTextTagConfig *)config {
     if ([_delegate respondsToSelector:@selector(selectTagAtIndex:selected:in:)]) {
         [_delegate selectTagAtIndex:index selected:currentSelected in:self];
     }
     return YES;
 }
 
-//- (void)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView didTapTag:(NSString *)tagText atIndex:(NSUInteger)index selected:(BOOL)selected {
+//- (void)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView
+//                    didTapTag:(NSString *)tagText
+//                      atIndex:(NSUInteger)index
+//                     selected:(BOOL)selected
+//                    tagConfig:(TTGTextTagConfig *)config {
 //    if ([_delegate respondsToSelector:@selector(selectTagAtIndex:selected:in:)]) {
 //        [_delegate selectTagAtIndex:index selected:selected in:self];
 //    }
