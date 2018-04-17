@@ -17,6 +17,7 @@
 		AD1A08CB208496470067CC88 /* h1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1A08C7208496460067CC88 /* h1.jpg */; };
 		AD1A08CC208496470067CC88 /* h4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1A08C8208496460067CC88 /* h4.jpg */; };
 		AD1A08CD208496470067CC88 /* h2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1A08C9208496470067CC88 /* h2.jpg */; };
+		AD1A08D32085F5DD0067CC88 /* UIButton+ImageTitleSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1A08D22085F5DC0067CC88 /* UIButton+ImageTitleSpacing.m */; };
 		AD37BE0F204552BF002D59CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37BE0E204552BF002D59CD /* AppDelegate.m */; };
 		AD37BE12204552BF002D59CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37BE11204552BF002D59CD /* ViewController.m */; };
 		AD37BE15204552BF002D59CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD37BE13204552BF002D59CD /* Main.storyboard */; };
@@ -128,6 +129,8 @@
 		AD1A08C7208496460067CC88 /* h1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h1.jpg; sourceTree = "<group>"; };
 		AD1A08C8208496460067CC88 /* h4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h4.jpg; sourceTree = "<group>"; };
 		AD1A08C9208496470067CC88 /* h2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h2.jpg; sourceTree = "<group>"; };
+		AD1A08D12085F5DC0067CC88 /* UIButton+ImageTitleSpacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleSpacing.h"; sourceTree = "<group>"; };
+		AD1A08D22085F5DC0067CC88 /* UIButton+ImageTitleSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleSpacing.m"; sourceTree = "<group>"; };
 		AD37BE0A204552BF002D59CD /* StoryBoardTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryBoardTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD37BE0D204552BF002D59CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD37BE0E204552BF002D59CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -451,6 +454,8 @@
 		AD37BE6820478ED8002D59CD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				AD1A08D12085F5DC0067CC88 /* UIButton+ImageTitleSpacing.h */,
+				AD1A08D22085F5DC0067CC88 /* UIButton+ImageTitleSpacing.m */,
 				AD37BE6920478F6D002D59CD /* UITableViewCell+Action.h */,
 				AD37BE6A20478F6D002D59CD /* UITableViewCell+Action.m */,
 				AD9960192050D77800B74D28 /* UIViewController+ContentInset.h */,
@@ -951,6 +956,7 @@
 				AD99601E2050DC4300B74D28 /* CheckModel.m in Sources */,
 				ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */,
 				AD82D9FA20590BA2004D08C7 /* YYWeakProxy.m in Sources */,
+				AD1A08D32085F5DD0067CC88 /* UIButton+ImageTitleSpacing.m in Sources */,
 				AD70DC44206E095400561710 /* InputTFCell.m in Sources */,
 				AD37BE5B2046352A002D59CD /* HomeViewController.m in Sources */,
 				AD1A08C52084928E0067CC88 /* CustomCycleCollectionCell.m in Sources */,
@@ -1126,6 +1132,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W8YW2A59HJ;
 				GCC_PREFIX_HEADER = StoryBoardTest/PrefixHeader.pch;
 				INFOPLIST_FILE = StoryBoardTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1147,6 +1154,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W8YW2A59HJ;
 				GCC_PREFIX_HEADER = StoryBoardTest/PrefixHeader.pch;
 				INFOPLIST_FILE = StoryBoardTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
