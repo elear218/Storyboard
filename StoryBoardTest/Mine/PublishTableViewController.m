@@ -40,7 +40,10 @@
     placeHolderLabel.textColor = [UIColor lightGrayColor];
     placeHolderLabel.font = [UIFont systemFontOfSize:16.5f];
     [_contentTextView addSubview:placeHolderLabel];
-    [_contentTextView setValue:placeHolderLabel forKey:@"_placeholderLabel"];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.3) {
+        [_contentTextView setValue:placeHolderLabel forKey:@"_placeholderLabel"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

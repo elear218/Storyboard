@@ -31,7 +31,39 @@
 }
 
 - (void)dismiss:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+//    判断当前ViewController是push还是present的方式显示的
+    if (self.presentingViewController) {
+        //present方式
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else {
+        //push方式
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+    /*
+     if (self.navigationController.topViewController == self) {
+        [self.navigationController popViewControllerAnimated:YES];
+     }else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+     }
+     */
+    
+    /*
+     if ([self.navigationController.viewControllers.firstObject isEqual:self]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+     }else {
+        [self.navigationController popViewControllerAnimated:YES];
+     }
+     */
+    
+    /*
+     if ([self.navigationController.viewControllers indexOfObject:self] == 0) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+     }else {
+        [self.navigationController popViewControllerAnimated:YES];
+     }
+     */
 }
 
 - (void)didReceiveMemoryWarning {

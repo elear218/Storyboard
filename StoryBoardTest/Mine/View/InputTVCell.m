@@ -57,7 +57,9 @@
     [textView addSubview:placeHolderLabel];
     _placeholderLabel = placeHolderLabel;
     
-    [textView setValue:placeHolderLabel forKey:@"_placeholderLabel"];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.3) {
+        [textView setValue:placeHolderLabel forKey:@"_placeholderLabel"];
+    }
     
     [label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
 }

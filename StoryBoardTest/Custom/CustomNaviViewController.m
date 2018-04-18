@@ -91,10 +91,6 @@
  决定是否触发手势
  */
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    if ([NSStringFromClass(self.topViewController.class) isEqualToString:@"GuideViewController"]) {
-        //引导页禁用侧滑返回
-        return NO;
-    }
     //排除根控制器，其他所有子控制器都要触发手势
     return self.viewControllers.count > 1;
 }

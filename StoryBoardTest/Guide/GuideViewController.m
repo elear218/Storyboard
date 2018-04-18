@@ -82,6 +82,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //禁用侧滑返回
+    id traget = self.navigationController.interactivePopGestureRecognizer.delegate;
+    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc] initWithTarget:traget action:nil];
+    [self.view addGestureRecognizer:pan];
+    
     [self contentInsetAdjustment];
     self.view.backgroundColor = [UIColor whiteColor];
     

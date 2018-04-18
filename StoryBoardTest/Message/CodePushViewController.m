@@ -291,7 +291,6 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate && scrollView == self.collectionView) {
         [self updateContentOffset];
-        NSLog(@"11111");
     }
 }
 
@@ -303,7 +302,6 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.collectionView) {
         [self updateContentOffset];
-        NSLog(@"22222");
     }
 }
 
