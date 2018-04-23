@@ -10,7 +10,7 @@
 
 #import "UIButton+ImageTitleSpacing.h"
 
-@interface CodePushViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>{
+@interface CodePushViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,UISearchBarDelegate>{
     
     /**顶部试图总容器*/
     UIView *headerContainerView;
@@ -116,7 +116,9 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
     }];
     
     UISearchBar *search = [UISearchBar new];
+    search.delegate = self;
     search.showsBookmarkButton = YES;
+    [search setImage:[UIImage imageNamed:@"search_voice"] forSearchBarIcon:UISearchBarIconBookmark state:UIControlStateNormal];
     search.backgroundColor = [UIColor whiteColor];
     search.backgroundImage = [UIImage new];
     
@@ -240,6 +242,16 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
             self.view.userInteractionEnabled = YES;
         }];
     }
+}
+
+#pragma mark <UISearchBarDelegate>
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    NSLog(@"SeachBarClick");
+    return NO;
+}
+
+- (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"VoiceClick");
 }
 
 #pragma mark <UIScrollViewDelegate>

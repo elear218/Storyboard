@@ -24,6 +24,8 @@ typedef enum : NSUInteger {
     NSArray *hobbyLocalData;
 }
 
+@property (nonatomic, strong) UIView *selectBackgroundView;
+
 @property (nonatomic, strong) NSMutableArray *hobbysArr;
 
 @end
@@ -176,6 +178,17 @@ typedef enum : NSUInteger {
     if (SectionTypeHobby == indexPath.section) {//爱好 （动态cell）
         HobbyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"hobbyCellIdentifer" forIndexPath:indexPath];
         cell.model = self.hobbysArr[indexPath.row];
+        if (!_selectBackgroundView) {
+            _selectBackgroundView = [[UIView alloc] initWithFrame:cell.bounds];
+            _selectBackgroundView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.0f];
+            UIView *custom = [UIView new];
+            custom.backgroundColor = [UIColor cyanColor];
+            [_selectBackgroundView addSubview:custom];
+            [custom mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(UIEdgeInsetsMake(5, 10, 5, 5));
+            }];
+        }
+        cell.selectedBackgroundView = _selectBackgroundView;
         return cell;
     }
     
