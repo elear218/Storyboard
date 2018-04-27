@@ -7,8 +7,11 @@
 //
 
 #import "CodePushViewController.h"
+#import "EditItemViewController.h"
 
 #import "UIButton+ImageTitleSpacing.h"
+
+#import "AlipayItemModel.h"
 
 @interface CodePushViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,UISearchBarDelegate>{
     
@@ -28,16 +31,29 @@
     CGFloat customNaviHeight,funcBottomHeight,headerContainerHeight;
 }
 
+@property (nonatomic, strong) NSMutableArray *itemDataArr;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
+
+static NSString *itemCellId = @"AliPayFunctionItemCellIdentifer";
 
 static NSString * const cellId = @"UICollectionCellIdentifer";
 static NSString * const reuseHeaderId = @"UICollectionReuseHeaderIdentifer";
 
 static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、付钱、收钱、卡包)
 
+static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
+
 @implementation CodePushViewController
+
+- (NSMutableArray *)itemDataArr {
+    if (!_itemDataArr) {
+        _itemDataArr = [NSMutableArray arrayWithCapacity:10];
+    }
+    return _itemDataArr;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -58,12 +74,9 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
     
     [self contentInsetAdjustment];
     
-    customNaviHeight = [UIApplication sharedApplication].statusBarFrame.size.height + 54;
-    funcBottomHeight = 150.f;
-    headerContainerHeight = customNaviHeight + funcTopHeight + funcBottomHeight;
-    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = layout.minimumInteritemSpacing = .5f;
+    layout.itemSize = CGSizeMake(ScreenWidth / 3 - 1, 100);
     self.collectionView.collectionViewLayout = layout;
     
     WeakSelf(self);
@@ -74,10 +87,32 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
         });
     }];
     
+    customNaviHeight = [UIApplication sharedApplication].statusBarFrame.size.height + 54;
+    funcBottomHeight = (self.itemDataArr.count + 3) / 4 * itemCellHeight;
+    headerContainerHeight = customNaviHeight + funcTopHeight + funcBottomHeight;
+    
     self.collectionView.mj_header.ignoredScrollViewContentInsetTop = - headerContainerHeight;
     self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(headerContainerHeight, 0, 0, 0);
     
     [self setHeaderView];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 获取文件路径
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"AlipayItem" ofType:@"json"];
+        // 将文件数据化
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        // 对数据进行JSON格式化
+        NSError *err;
+        id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        if (!err) {
+            NSArray *dataArr = [NSArray yy_modelArrayWithClass:[AlipayItemModel class] json:json];
+            [self.itemDataArr addObjectsFromArray:[dataArr subarrayWithRange:NSMakeRange(0, 9)]];
+            [self.itemDataArr addObject:[dataArr lastObject]];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self updateTopViewHeight];
+        });
+    });
 }
 
 - (void)setHeaderView {
@@ -119,11 +154,12 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
     search.delegate = self;
     search.showsBookmarkButton = YES;
     [search setImage:[UIImage imageNamed:@"search_voice"] forSearchBarIcon:UISearchBarIconBookmark state:UIControlStateNormal];
-    search.backgroundColor = [UIColor whiteColor];
-    search.backgroundImage = [UIImage new];
+    search.barTintColor = [UIColor whiteColor];
+//    search.backgroundColor = [UIColor whiteColor];
+//    search.backgroundImage = [UIImage new];
     
     UITextField *textField = [search valueForKey:@"searchField"];
-    textField.backgroundColor = [UIColor whiteColor];
+    textField.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.0f];
     textField.placeholder = @"11111";
     
     [mainNavView addSubview:search];
@@ -208,14 +244,39 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = layout.minimumInteritemSpacing = .0f;
+    layout.itemSize = CGSizeMake(ScreenWidth/4, itemCellHeight);
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    collection.tag = 111;
     collection.backgroundColor = [UIColor whiteColor];
     [funcBottomView addSubview:collection];
     [collection mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
     }];
+    
+    [collection registerNib:[UINib nibWithNibName:@"AliPayFunctionItemCell" bundle:nil] forCellWithReuseIdentifier:itemCellId];
+    collection.delegate = self;
+    collection.dataSource = self;
 }
 
+- (void)updateTopViewHeight {
+    funcBottomHeight = (self.itemDataArr.count + 3) / 4 * itemCellHeight;
+    headerContainerHeight = customNaviHeight + funcTopHeight + funcBottomHeight;
+    
+    CGRect containerViewframe = headerContainerView.frame;
+    containerViewframe.size.height = headerContainerHeight;
+    headerContainerView.frame = containerViewframe;
+    
+    CGRect funcBottomFrame = funcBottomView.frame;
+    funcBottomFrame.size.height = funcBottomHeight;
+    funcBottomView.frame = funcBottomFrame;
+    
+    UICollectionView *collection = [funcBottomView viewWithTag:111];
+    [collection reloadData];
+    [self.collectionView reloadData];
+    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(headerContainerHeight, 0, 0, 0);
+    self.collectionView.mj_header.ignoredScrollViewContentInsetTop = - headerContainerHeight;
+    [self.collectionView.mj_header placeSubviews];
+}
 
 - (void)endRefresh {
     [self.collectionView.mj_header endRefreshing];
@@ -237,7 +298,7 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
         self.view.userInteractionEnabled = NO;
         [UIView animateWithDuration:.3f animations:^{
 //            [self.collectionView setContentOffset:CGPointMake(0, offsetY >= funcTopHeight / 2 ?funcTopHeight : .0f) animated:YES];
-            [self.collectionView setContentOffset:CGPointMake(0, offsetY >= funcTopHeight / 2 ?funcTopHeight : .0f)];
+            [self.collectionView setContentOffset:CGPointMake(0, offsetY >= funcTopHeight / 2 ? funcTopHeight : .0f)];
         } completion:^(BOOL finished) {
             self.view.userInteractionEnabled = YES;
         }];
@@ -276,13 +337,12 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
         
         CGFloat alpha = (1 - offsetY/funcTopHeight) ? : 0;
         
-        funcTopView.alpha = alpha;
+        funcTopView.alpha = (1 - offsetY/funcTopHeight*1.5) ? : 0;;
         if (alpha > .5f) {
             mainNavView.alpha = alpha * 2 - 1;
             coverNavView.alpha = 0;
         }else {
             mainNavView.alpha = 0;
-            funcTopView.alpha = alpha * .25f;
             coverNavView.alpha = 1 - alpha * 2;
         }
         
@@ -319,49 +379,88 @@ static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、�
 
 #pragma mark <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 16;
+    return collectionView == self.collectionView ? 16 : self.itemDataArr.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+    if (collectionView == self.collectionView) {
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+        //    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+        UILabel *label = [cell viewWithTag:666];
+        label.text = [NSString stringWithFormat:@"第%ld个",indexPath.item + 1];
+        return cell;
+    }
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:itemCellId forIndexPath:indexPath];
+    AlipayItemModel *model = self.itemDataArr[indexPath.item];
+    UIImageView *imageView = [cell viewWithTag:665];
+    imageView.image = [UIImage imageNamed:model.img];
     UILabel *label = [cell viewWithTag:666];
-    label.text = [NSString stringWithFormat:@"第%ld个",indexPath.item + 1];
+    label.text = model.txt;
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegateFlowLayout>
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(ScreenWidth / 3 - 1, 150);
-}
-
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    
-    UICollectionReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                                                                            withReuseIdentifier:reuseHeaderId
-                                                                                   forIndexPath:indexPath];
-    return headView;
+    if (collectionView == self.collectionView) {
+        UICollectionReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                                                withReuseIdentifier:reuseHeaderId
+                                                                                       forIndexPath:indexPath];
+        return headView;
+    }
+    return nil;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(1, headerContainerHeight);
+    return collectionView == self.collectionView ? CGSizeMake(1, headerContainerHeight) : CGSizeZero;
 }
 
 #pragma mark <UICollectionViewDelegate>
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UIView *bgView = [cell viewWithTag:111];
+    bgView.alpha = .6f;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+            UIView *bgView = [cell viewWithTag:111];
+            bgView.alpha = 1.f;
+    });
+    
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    if (collectionView != self.collectionView && indexPath.item == self.itemDataArr.count - 1) {
+        //点击功能区更多
+        [self performSegueWithIdentifier:@"gotoEditItemIdentifer" sender:nil];
+        return;
+    }
+    
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UILabel *label = [cell viewWithTag:666];
     UIViewController *vc = [[UIViewController alloc] init];
-    vc.title = [NSString stringWithFormat:@"%ld",indexPath.item + 1];
+    vc.title = label.text;
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
-/*
-#pragma mark - Navigation
 
+#pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"gotoEditItemIdentifer"]) {
+        EditItemViewController *vc = segue.destinationViewController;
+        vc.changeBlock = ^(NSArray *itemArr) {
+            [self.itemDataArr removeAllObjects];
+            [self.itemDataArr addObjectsFromArray:itemArr];
+            [self updateTopViewHeight];
+        };
+    }
 }
-*/
+
 
 @end
