@@ -39,7 +39,7 @@
 //            NSMutableArray *newItemArr = [NSMutableArray arrayWithCapacity:count];
             NSMutableSet *set = [NSMutableSet set];
             for (int i = 0; i < count; i ++) {
-                AlipayItemModel *model = dataArr[arc4random_uniform(dataArr.count)];
+                AlipayItemModel *model = dataArr[arc4random()%(dataArr.count-1)];
                 [set addObject:model];
             }
             itemArr = [NSMutableArray arrayWithArray:set.allObjects];

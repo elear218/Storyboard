@@ -192,7 +192,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lw-88-MUN">
                                             <rect key="frame" x="20" y="15" width="335" height="35"/>
-                                            <color key="backgroundColor" red="0.94509803920000002" green="0.3803921569" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.3411764705882353" green="0.88627450980392153" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="V8a-hl-b8t"/>
                                             </constraints>
@@ -534,10 +534,10 @@
             </objects>
             <point key="canvasLocation" x="1592.8" y="-475.41229385307349"/>
         </scene>
-        <!--Edit Item View Controller-->
+        <!--我的应用-->
         <scene sceneID="0Hr-JD-nOu">
             <objects>
-                <viewController id="AfM-LH-j8A" customClass="EditItemViewController" sceneMemberID="viewController">
+                <viewController title="我的应用" id="AfM-LH-j8A" customClass="EditItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eoj-Rl-a8W"/>
                         <viewControllerLayoutGuide type="bottom" id="2wz-wE-aBe"/>

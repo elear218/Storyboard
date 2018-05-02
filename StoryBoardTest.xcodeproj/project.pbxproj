@@ -11,6 +11,7 @@
 		6D0996298B28BEB9706AA1C0 /* libPods-StoryBoardTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6BB2134173BD9155ACAA58 /* libPods-StoryBoardTest.a */; };
 		AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */ = {isa = PBXBuildFile; fileRef = AD00C11820577CCF00F6C4A0 /* Fold.json */; };
 		AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00C11B20577E1C00F6C4A0 /* FoldModel.m */; };
+		AD01B33D2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD01B33B2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.m */; };
 		AD1A08C2208491A60067CC88 /* CycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1A08C0208491A50067CC88 /* CycleViewController.m */; };
 		AD1A08C52084928E0067CC88 /* CustomCycleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1A08C42084928E0067CC88 /* CustomCycleCollectionCell.m */; };
 		AD1A08CA208496470067CC88 /* h3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1A08C6208496460067CC88 /* h3.jpg */; };
@@ -125,6 +126,8 @@
 		AD00C11820577CCF00F6C4A0 /* Fold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Fold.json; sourceTree = "<group>"; };
 		AD00C11A20577E1C00F6C4A0 /* FoldModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldModel.h; sourceTree = "<group>"; };
 		AD00C11B20577E1C00F6C4A0 /* FoldModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldModel.m; sourceTree = "<group>"; };
+		AD01B33B2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKTStickySectionHeadersCollectionViewLayout.m; sourceTree = "<group>"; };
+		AD01B33C2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKTStickySectionHeadersCollectionViewLayout.h; sourceTree = "<group>"; };
 		AD1A08C0208491A50067CC88 /* CycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleViewController.m; sourceTree = "<group>"; };
 		AD1A08C1208491A50067CC88 /* CycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleViewController.h; sourceTree = "<group>"; };
 		AD1A08C32084928E0067CC88 /* CustomCycleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCycleCollectionCell.h; sourceTree = "<group>"; };
@@ -313,6 +316,24 @@
 				ED0C2E2CCA482B2BE46C52F9 /* Pods-StoryBoardTestUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AD01B33A2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				AD01B33B2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.m */,
+				AD01B33C2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.h */,
+			);
+			path = PDKTStickySectionHeadersCollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		AD01B33E2094223500CCFC3E /* LxGridViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				AD990E60207B55D3000C1DDA /* LxGridViewFlowLayout.h */,
+				AD990E61207B55D3000C1DDA /* LxGridViewFlowLayout.m */,
+			);
+			path = LxGridViewFlowLayout;
 			sourceTree = "<group>";
 		};
 		AD37BE01204552BF002D59CD = {
@@ -566,8 +587,6 @@
 		AD70DC3E206E06A600561710 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AD990E60207B55D3000C1DDA /* LxGridViewFlowLayout.h */,
-				AD990E61207B55D3000C1DDA /* LxGridViewFlowLayout.m */,
 				AD70DC3F206E06F500561710 /* ProductFormModel.h */,
 				AD70DC40206E06F500561710 /* ProductFormModel.m */,
 			);
@@ -577,6 +596,8 @@
 		AD82D9F420590B90004D08C7 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				AD01B33A2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout */,
+				AD01B33E2094223500CCFC3E /* LxGridViewFlowLayout */,
 				AD82D9F520590BA2004D08C7 /* YYFPSLabel */,
 			);
 			path = Tool;
@@ -985,6 +1006,7 @@
 				AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */,
 				ADED1507207470FD001A747B /* PublishTableViewController.m in Sources */,
 				AD4E4BC42048FB2100027C7B /* AcountTableViewController.swift in Sources */,
+				AD01B33D2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.m in Sources */,
 				AD37BE64204638E7002D59CD /* PresentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

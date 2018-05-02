@@ -32,6 +32,8 @@
     
     [self contentInsetAdjustment];
     
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
     _allTags = @[
                  @"AutoLayout", @"dynamically", @"calculates", @"the", @"size", @"and", @"position",
                  @"of", @"all", @"the", @"views", @"in", @"your", @"view", @"hierarchy", @"based",
@@ -114,8 +116,12 @@
     // 按照shape layer的path填充颜色，类似于渲染render
     // layer.fillColor = [UIColor colorWithWhite:1.f alpha:0.8f].CGColor;
     layer.fillColor = [UIColor whiteColor].CGColor;
-    layer.strokeColor = [UIColor grayColor].CGColor;
-    layer.lineWidth = 2.5f;
+    layer.strokeColor = kHexColor(0x57E2FD).CGColor;
+    layer.lineWidth = 1.5f;
+    layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    layer.shadowOpacity = .6f;
+    layer.shadowOffset = CGSizeMake(-5, 5);
+    layer.shadowRadius = 5.f;
 
     // view大小与cell一致
     UIView *roundView = [[UIView alloc] initWithFrame:bounds];

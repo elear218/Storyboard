@@ -93,10 +93,14 @@
     NSArray *title = @[@"纯文字上下滚动轮播", @"第一条广告", @"第二条广告", @"第三条广告"];
     _txtBanner.titlesGroup = [title copy];
     [_txtBanner disableScrollGesture];
+    
+    WeakSelf(self);
     _txtBanner.clickItemOperationBlock = ^(NSInteger currentIndex) {
-        NSLog(@" --- %@ --- ",title[currentIndex]);
+        StrongSelf(self);
+        NSString *titleStr = [title[currentIndex] copy];
+        NSLog(@" --- %@ --- ",titleStr);
         UIViewController *vc = [[UIViewController alloc] init];
-        vc.title = title[currentIndex];
+        vc.title = titleStr;
         vc.view.backgroundColor = [UIColor whiteColor];
         [self.navigationController pushViewController:vc animated:YES];
     };

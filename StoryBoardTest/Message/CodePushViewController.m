@@ -256,7 +256,43 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
     [collection registerNib:[UINib nibWithNibName:@"AliPayFunctionItemCell" bundle:nil] forCellWithReuseIdentifier:itemCellId];
     collection.delegate = self;
     collection.dataSource = self;
+    
+    //添加长安手势
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressMethod:)];
+    longPress.minimumPressDuration = .5f;
+    [collection addGestureRecognizer:longPress];
 }
+
+-(void)longPressMethod:(UILongPressGestureRecognizer*)gesture {
+    UICollectionView *collection = (UICollectionView *)gesture.view;
+    CGPoint location = [gesture locationInView:collection];
+    NSIndexPath *indexPath = [collection indexPathForItemAtPoint:location];
+    if (indexPath && indexPath.item != self.itemDataArr.count - 1) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"想调整首页应用？去“更多”进行编辑吧" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"去编辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self performSegueWithIdentifier:@"gotoEditItemIdentifer" sender:nil];
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (void)endRefresh {
+    [self.collectionView.mj_header endRefreshing];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    NSLog(@"Dealloc");
+}
+
 
 - (void)updateTopViewHeight {
     funcBottomHeight = (self.itemDataArr.count + 3) / 4 * itemCellHeight;
@@ -278,20 +314,6 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
     [self.collectionView.mj_header placeSubviews];
 }
 
-- (void)endRefresh {
-    [self.collectionView.mj_header endRefreshing];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)dealloc {
-    NSLog(@"Dealloc");
-}
-
-
 - (void)updateContentOffset {
     CGFloat offsetY = self.collectionView.contentOffset.y;
     if (offsetY >= 0 && offsetY <= funcTopHeight) {
@@ -308,11 +330,17 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
 #pragma mark <UISearchBarDelegate>
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     NSLog(@"SeachBarClick");
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"搜索框被点击" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
     return NO;
 }
 
 - (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar {
     NSLog(@"VoiceClick");
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"话筒被点击" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark <UIScrollViewDelegate>
