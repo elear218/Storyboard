@@ -1,8 +1,8 @@
 # Storyboard
-###故事版的一些应用
+### 故事版的一些应用
     
     
-######部分功能：
+###### 部分功能：
 *   [引导页+根试图切换](#guide)
 *   [cell多选①](#selectOne)
 *   [cell多选②](#selectTwo)
