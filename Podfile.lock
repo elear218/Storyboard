@@ -1,17 +1,17 @@
 PODS:
   - Aspects (1.4.1)
-  - CWLateralSlide (1.5.9)
-  - IQKeyboardManager (6.0.1)
+  - CWLateralSlide (1.6.3)
+  - IQKeyboardManager (6.1.1)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
-  - MJRefresh (3.1.15.3)
+  - MJRefresh (3.1.15.6)
   - SDCycleScrollView (1.75):
     - SDWebImage (>= 4.0.0)
-  - SDWebImage (4.3.3):
-    - SDWebImage/Core (= 4.3.3)
-  - SDWebImage/Core (4.3.3)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - TTGTagCollectionView (1.9.0)
-  - TZImagePickerController (2.0.1)
+  - TZImagePickerController (3.0.2)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - YYModel (1.0.4)
 
@@ -30,7 +30,7 @@ DEPENDENCIES:
   - YYModel
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Aspects
     - CWLateralSlide
     - IQKeyboardManager
@@ -46,18 +46,18 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
-  CWLateralSlide: f91ec07f1b8f0d22ebcb661c879b7f91a3e7481d
-  IQKeyboardManager: 118602feb2d0b8852cc7387c21db988f2ebdec6d
+  CWLateralSlide: 1b9a848873b93de45cfefe6389765b12aa70982c
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
-  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   TTGTagCollectionView: 958f20b946dee92a8ba20dc37d10a06737641ae9
-  TZImagePickerController: 34ecb53af8c349964394407e42b6e54e22589ebe
+  TZImagePickerController: c6736038f5016a8be14132fd07e4e92ce6496385
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: da49efeb7fd0369c3f3ac0ceff0eb87bebd70be8
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

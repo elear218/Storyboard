@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I0C-mv-bp8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I0C-mv-bp8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -247,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="基本信息" id="JXY-8M-4q7">
+                            <tableViewSection headerTitle="基本信息（静态cell）" id="JXY-8M-4q7">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="RHU-40-HOe" detailTextLabel="rgZ-bS-cPe" style="IBUITableViewCellStyleValue1" id="oat-U7-GSa">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="45"/>
@@ -337,7 +337,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="爱好" id="R5J-Rm-Vvw">
+                            <tableViewSection headerTitle="爱好（动态cell）" id="R5J-Rm-Vvw">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="hobbyCellIdentifer" id="cgB-fM-5iQ">
                                         <rect key="frame" x="0.0" y="229.5" width="375" height="45"/>
@@ -349,7 +349,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="账户安全" id="bNd-yl-ddR">
+                            <tableViewSection headerTitle="账户安全（支付宝首页）" id="bNd-yl-ddR">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="MVT-oS-Jb7" detailTextLabel="UF3-fG-Nf6" style="IBUITableViewCellStyleValue1" id="sB0-OT-bdT">
                                         <rect key="frame" x="0.0" y="313.5" width="375" height="45"/>

@@ -11,7 +11,6 @@
 @implementation UIViewController (ContentInset)
 
 - (void)contentInsetAdjustment{
-    
     if (@available(iOS 11.0, *)) {
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     } else {

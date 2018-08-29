@@ -11,6 +11,7 @@
 typedef void(^ClickBlock)(void);
 @interface CustomXibView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (nonatomic, copy) ClickBlock block;
 
 @end

@@ -16,7 +16,7 @@
 platform :ios, '7.0'
 
 target 'TargetName' do
-pod 'CWLateralSlide', '~> 1.5.8'
+pod 'CWLateralSlide', '~> 1.6.1'
 end
 ```
 **搜索不到最新版本的解决方法：**
@@ -75,12 +75,25 @@ vc为你需要侧滑出来的控制器，调用这个方法你就拥有一个抽
 [self dismissViewControllerAnimated:YES completion:nil];
 ```
 因为我们实现的本质就是调用系统的present方法，所以关闭抽屉我们只需要调用系统的dismiss方法即可，**注意：动画要设置为YES**。
-
-### 6、打开抽屉情况下的布局
+### 6、多手势冲突自定义处理接口
+直接在调用cw_showDrawer...方法的控制器里实现下面的函数，进行自己的手势处理方法
+```objective-c
+#pragma mark - 自定义处理手势冲突接口
+- (BOOL)cw_gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;// 可以在这里实现自己需要处理的手势冲突逻辑
+}
+```
+### 7、打开抽屉情况下的布局
 ![效果](https://github.com/ChavezChen/CWLateralSlide/blob/master/layoutImage/allLayout.png)
 
 ## update：
 ```
+1.6.2
+添加多手势冲突自定义处理接口。
+1.6.1
+修改iOS8手势打开界面的时候闪动的问题。
+1.5.9
+修改在特定场景下收起抽屉会多次dismiss的bug。
 1.5.8
 重新调整控制器直接为tableviewController时手势冲突问题，如果主界面类似QQ聊天列表需要侧滑显示抽屉同时需要左划显示删除等按钮可以翻看文末。
 1.5.7
@@ -105,19 +118,27 @@ vc为你需要侧滑出来的控制器，调用这个方法你就拥有一个抽
 
 **主界面类似QQ聊天列表需要侧滑显示抽屉同时需要左划显示删除等按钮手势的处理方式：**
 
-在CWInteractiveTransition.m的最后修改成如下，并在注册手势的时候将是否开启边缘手势设置为YES；即可解决手势冲突的问题。
+实现自定义处理手势冲突接口、修改成如下，并在注册手势的时候将是否开启**边缘手势设置为YES**；即可解决手势冲突的问题。
 ```
-#pragma mark - UIGestureRecognizerDelegate
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    
-    if ([[self viewController:otherGestureRecognizer.view] isKindOfClass:[UITableViewController class]] || [otherGestureRecognizer.view isKindOfClass:[UITableView class]]) {
+#pragma mark - 自定义处理手势冲突接口
+-(BOOL)cw_gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // 如果是自己创建tableview添加在VC的view上 这样写就足够了
+    if ([otherGestureRecognizer.view isKindOfClass:[UITableView class]]) {
         return YES;
     }
+    // 如果是一个整体的tableViewController 需要下成下面这样
+//    if ([[self viewController:otherGestureRecognizer.view] isKindOfClass:[UITableViewController class]] || //[otherGestureRecognizer.view isKindOfClass:[UITableView class]]) {
+//        return YES;
+//    }
     return NO;
 }
 ```
+**关于iOS11 设置scale界面缩放时导航栏出现20像素高黑条或者浅白条的问题可以看看下面这个issue**
 
+[issues24](https://github.com/ChavezChen/CWLateralSlide/issues/24) 
 
-还有不是很了解的可以下载demo看一下。有任何问题欢迎大家向我提issue，我会积极响应大家的问题。。
+还有不是很了解的可以下载demo看一下。有任何问题欢迎大家向我提issue或者加我联系方式，我会积极响应大家的问题。。
+
+**QQ\微信:543438338**
 
 最后希望大家给个star支持一下，感谢。

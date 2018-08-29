@@ -34,6 +34,8 @@
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 80;
+    self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedSectionHeaderHeight = 80;
     
     _allTags = @[
                  @"AutoLayout", @"dynamically", @"calculates", @"the", @"size", @"and", @"position",
@@ -41,7 +43,7 @@
                  @"on", @"constraints", @"placed", @"on", @"those", @"views"
                  ];
     _cellInfos = [NSMutableArray new];
-    for (NSInteger i = 0; i < 50; i++) {
+    for (NSInteger i = 0; i < 10; i++) {
         [_cellInfos addObject:[_allTags subarrayWithRange:NSMakeRange(0, i % (_allTags.count + 1))]];
     }
     
@@ -74,6 +76,34 @@
 }
 
 #pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 8;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *header = [UIView new];
+    header.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+    
+    UILabel *sectionLab = [UILabel new];
+    sectionLab.font = [UIFont boldSystemFontOfSize:16.f];
+    sectionLab.textColor = [UIColor whiteColor];
+    sectionLab.textAlignment = NSTextAlignmentCenter;
+    sectionLab.numberOfLines = 0;
+    [header addSubview:sectionLab];
+    
+    [sectionLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(10, 20, 10, 20));
+    }];
+    
+    NSMutableArray *txtArr = [NSMutableArray arrayWithCapacity:section + 1];
+    for (int i = 0; i < section + 1; i ++) {
+        [txtArr addObject:[NSString stringWithFormat:@"%ld", section + 1]];
+    }
+    sectionLab.text = [txtArr componentsJoinedByString:@"\n"];
+    
+    return header;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _cellInfos.count;
 }

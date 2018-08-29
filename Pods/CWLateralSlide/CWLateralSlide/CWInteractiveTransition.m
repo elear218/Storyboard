@@ -120,26 +120,27 @@
     if ((_direction == CWDrawerTransitionFromRight && _type == CWDrawerTransitiontypeShow) || (_direction == CWDrawerTransitionFromLeft && _type == CWDrawerTransitiontypeHidden)) {
         _percent = -_percent;
     }
-    
+
     switch (pan.state) {
         case UIGestureRecognizerStateBegan:
             break;
         case UIGestureRecognizerStateChanged: {
             if (!self.interacting) { // 保证present只调用一次
                 if (_type == CWDrawerTransitiontypeShow) {
-                    // 0是零界点，滑动慢的时候向右边滑动可能会导致x为0然后在接下来的自动判断方向识别为向左滑
-                    if (x != 0) [self showBeganTranslationX:x gesture:pan];
+                    // 必须最少有20个位移才进行抽屉显示
+                    if (fabs(x) > 20) [self showBeganTranslationX:x gesture:pan];
                 }else {
                     [self hiddenBeganTranslationX:x];
                 }
             }else {
-                _percent = fminf(fmaxf(_percent, 0.001), 1.0);
+                _percent = fminf(fmaxf(_percent, 0.003), 0.97);
                 [self updateInteractiveTransition:_percent];
             }
             break;
         }
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateEnded:{
+
             self.interacting = NO;
             if (_percent > self.configuration.finishPercent) {
                 [self startDisplayerLink:_percent toFinish:YES];
@@ -155,7 +156,13 @@
 
 
 - (void)startDisplayerLink:(CGFloat)percent toFinish:(BOOL)finish{
-    
+    if (finish && percent >= 1) {
+        [self finishInteractiveTransition];
+        return;
+    }else if (!finish && percent <= 0) {
+        [self cancelInteractiveTransition];
+        return;
+    }
     _toFinish = finish;
     CGFloat remainDuration = finish ? self.duration * (1 - percent) : self.duration * percent;
     _remaincount = 60 * remainDuration;
@@ -174,10 +181,10 @@
 }
 
 - (void)cw_update {
-    if (_percent >= 1 && _toFinish) {
+    if (_percent >= 0.97 && _toFinish) {
         [self stopDisplayerLink];
         [self finishInteractiveTransition];
-    }else if (_percent <= 0 && !_toFinish) {
+    }else if (_percent <= 0.03 && !_toFinish) {
         [self stopDisplayerLink];
         [self cancelInteractiveTransition];
     }else {
@@ -186,8 +193,8 @@
         }else {
             _percent -= _oncePercent;
         }
-        _percent = fminf(fmaxf(_percent, 0.0), 1.0);
-        [self updateInteractiveTransition:_percent];
+        CGFloat percent = fminf(fmaxf(_percent, 0.03), 0.97);
+        [self updateInteractiveTransition:percent];
     }
 }
 
@@ -196,8 +203,18 @@
 }
 
 #pragma mark - UIGestureRecognizerDelegate
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    SEL selector = @selector(cw_gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:);
+    if ([self.weakVC respondsToSelector:selector]) {
+        IMP imp = [self.weakVC methodForSelector:selector];
+        BOOL (*func)(id, SEL, UIGestureRecognizer *, UIGestureRecognizer *) = (void *)imp;
+        BOOL result = func(self.weakVC, selector, gestureRecognizer, otherGestureRecognizer);
+        return result;
+    }
+#pragma clang diagnostic pop
+    // 没有实现对应方法直接走以下默认逻辑
     if ([[self viewController:otherGestureRecognizer.view] isKindOfClass:[UITableViewController class]]) {
         return YES;
     }

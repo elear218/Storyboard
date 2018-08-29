@@ -33,18 +33,20 @@
     };
     
     CustomXibView *view = [[CustomXibView alloc] init];
-    view.backgroundColor = [UIColor redColor];
+    view.backgroundColor = [UIColor greenColor];
     view.block = ^{
         [self performSegueWithIdentifier:@"gotoCycleVCIdentifer" sender:nil];
     };
     [self.view addSubview:view];
     
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
-       
         make.bottom.mas_equalTo(-20);
         make.centerX.mas_equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(200, 200));
+        make.size.mas_equalTo(CGSizeMake(200, 230));
     }];
+    
+    NSString *contentStr = @"模糊匹配:\n1、XXXX高铁霸座XXX2、高铁提速了3、座位4、霸王项羽XXXX5、冰封王座XXXX铁XXXX";
+    view.contentLab.attributedText = [self matchingContentAnyKey:contentStr keyWord:@"高铁霸座" font:nil contentColor:nil keyWordColor:nil];
     
     YYFPSLabel *fpsLab = [YYFPSLabel new];
     [[UIApplication sharedApplication].keyWindow addSubview:fpsLab];
@@ -93,6 +95,70 @@
 //    conf.direction = CWDrawerTransitionFromRight;
 //    slide.drawerType = DrawerTypeDefault;
 //    [self cw_showDrawerViewController:slide animationType:CWDrawerAnimationTypeMask configuration:conf];
+}
+
+/**
+ 在文本内容中 匹配任一字符
+
+ @param content 文本
+ @param keyWord 关键字
+ @param font 文本字体大小
+ @param contentColor 文本颜色
+ @param keyWordColor 关键字颜色
+ @return NSMutableAttributedString
+ */
+-  (NSMutableAttributedString *)matchingContentAnyKey:(NSString *)content
+                                              keyWord:(NSString *)keyWord
+                                                 font:(UIFont *)font
+                                         contentColor:(UIColor *)contentColor
+                                         keyWordColor:(UIColor *)keyWordColor {
+    if (content == nil || ![content isKindOfClass:[NSString class]]) {
+        content = @"";
+    }
+    
+    if (font == nil) {
+        font = [UIFont systemFontOfSize:16];
+    }
+    
+    if (contentColor == nil) {
+        contentColor = [UIColor blackColor];
+    }
+    
+    if (keyWordColor == nil) {
+        keyWordColor = [UIColor redColor];
+    }
+    
+    //属性文本
+    NSMutableAttributedString *attributeContent;
+    {
+        NSMutableParagraphStyle *ps = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        [ps setLineBreakMode:NSLineBreakByTruncatingTail];
+        NSDictionary *attrDict = @{NSFontAttributeName: font, NSForegroundColorAttributeName:contentColor, NSParagraphStyleAttributeName:ps};
+        
+        attributeContent = [[NSMutableAttributedString alloc] initWithString:content
+                                                                  attributes:attrDict];
+    }
+    
+    
+    NSString *regEmj  = [NSString stringWithFormat:@"[.%@]",keyWord];
+    NSError *error    = nil;
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regEmj
+                                                                                options:NSRegularExpressionCaseInsensitive
+                                                                                  error:&error];
+    if (!expression) {
+        return attributeContent;
+    }
+    
+    NSArray *resultArray = [expression matchesInString:content
+                                               options:0
+                                                 range:NSMakeRange(0, content.length)];
+    NSDictionary *tmpDict = @{NSFontAttributeName : font, NSForegroundColorAttributeName : keyWordColor};
+    for (NSTextCheckingResult *match in resultArray) {
+        NSRange range    = match.range;
+        [attributeContent setAttributes:tmpDict range:range];
+    }
+    
+    return attributeContent;
 }
 
 - (void)didReceiveMemoryWarning {

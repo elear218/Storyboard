@@ -38,7 +38,6 @@ typedef enum : NSUInteger {
  @return 爱好数组
  */
 - (NSMutableArray *)hobbysArr{
-    
     if (!_hobbysArr) {
         _hobbysArr = [NSMutableArray array];
     }
@@ -52,7 +51,6 @@ typedef enum : NSUInteger {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self contentInsetAdjustment];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HobbyTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"hobbyCellIdentifer"];
@@ -65,13 +63,16 @@ typedef enum : NSUInteger {
 }
 
 - (void)loadHobbyData{
-    
     if (hobbyLocalData.count) {
         [self.hobbysArr removeAllObjects];
-        [self.hobbysArr addObjectsFromArray:hobbyLocalData];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:SectionTypeHobby] withRowAnimation:UITableViewRowAnimationNone];
-//        [self addData];
-    }else{
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.hobbysArr addObjectsFromArray:hobbyLocalData];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:SectionTypeHobby] withRowAnimation:UITableViewRowAnimationNone];
+            //        [self addData];
+        });
+    }else {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             // 获取文件路径
             NSString *path = [[NSBundle mainBundle] pathForResource:@"Hobby" ofType:@"json"];
@@ -92,7 +93,6 @@ typedef enum : NSUInteger {
 }
 
 - (void)addData{
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.hobbysArr addObject:hobbyLocalData[arc4random()%4]];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:SectionTypeHobby] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -157,7 +157,6 @@ typedef enum : NSUInteger {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     if (SectionTypeHobby == section) {//爱好 （动态cell）
         return self.hobbysArr.count;
     }
@@ -166,7 +165,6 @@ typedef enum : NSUInteger {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     if (SectionTypeHobby == indexPath.section) {//爱好 （动态cell）
         return 60.f;
     }
@@ -174,7 +172,6 @@ typedef enum : NSUInteger {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (SectionTypeHobby == indexPath.section) {//爱好 （动态cell）
         HobbyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"hobbyCellIdentifer" forIndexPath:indexPath];
         cell.model = self.hobbysArr[indexPath.row];
@@ -196,7 +193,6 @@ typedef enum : NSUInteger {
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     switch (indexPath.section) {
@@ -227,7 +223,6 @@ typedef enum : NSUInteger {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     if(SectionTypeHobby == indexPath.section){//爱好 （动态cell）
         return [super tableView:tableView indentationLevelForRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:SectionTypeHobby]];
     }
