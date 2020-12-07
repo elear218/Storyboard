@@ -7,11 +7,13 @@
 //
 
 #import "InputTFCell.h"
+#import "LimitPasteTextField.h"
+#import "WYSetTextField.h"
 
-@interface InputTFCell ()
+@interface InputTFCell ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UITextField *detailField;
+@property (nonatomic, strong) LimitPasteTextField *detailField;
 @property (nonatomic, strong) UIImageView *arrowImgView;
 
 @property (nonatomic, strong) CreateFormModel *createModel;
@@ -50,7 +52,8 @@
     }];
     _arrowImgView = imageView;
     
-    UITextField *textField = [UITextField new];
+    LimitPasteTextField *textField = [LimitPasteTextField new];
+    textField.delegate = self;
     textField.font = [UIFont systemFontOfSize:16.5f];
     textField.textAlignment = NSTextAlignmentRight;
     [textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -62,9 +65,9 @@
     }];
     _detailField = textField;
     
-    //设置placeholder
-    [textField setValue:[UIColor lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
-    [textField setValue:[UIFont systemFontOfSize:16.5f] forKeyPath:@"_placeholderLabel.font"];
+    //设置placeholder  iOS11后已失效
+//    [textField setValue:[UIColor lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
+//    [textField setValue:[UIFont systemFontOfSize:16.5f] forKeyPath:@"_placeholderLabel.font"];
     
     UIView *line = [UIView new];
     line.backgroundColor = [UIColor colorWithRed:242/255.f green:243/255.f blue:248/255.f alpha:1];
@@ -82,8 +85,10 @@
     _createModel = createModel;
     _uploadModel = uploadModel;
     _titleLabel.text = createModel.title;
-    _detailField.placeholder = createModel.placeholder;
+//    _detailField.placeholder = createModel.placeholder;
     _detailField.text = [uploadModel valueForKey:createModel.key]; // 将uploadModel的值以KVC的方式赋给textField
+    //注意顺序，要将placeholder赋值放在textField.font赋值的后面
+    _detailField.attributedPlaceholder = [createModel.placeholder getAttributeStringWithColor:[UIColor lightGrayColor] font:[UIFont systemFontOfSize:15.5f]];
     _detailField.userInteractionEnabled = createModel.cellType == CreateCellTypeFieldInput;
     switch (createModel.keyboardType) {
         case InputKeyboardTypeAll:
@@ -104,6 +109,16 @@
 
 - (void)textFieldDidChange:(UITextField *)sender {
     [_uploadModel setValue:sender.text forKey:_createModel.key]; // 将textField中的值赋给_uploadModel
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (InputKeyboardTypeFloat == _createModel.keyboardType) {
+        return [[WYSetTextField sharedInstance] setTextFieldTwoDecimalWithTextField:textField range:range string:string];
+    }
+    if (InputKeyboardTypeInt == _createModel.keyboardType) {
+        return [[WYSetTextField sharedInstance] setTextFieldPureIntWithTextField:textField range:range string:string];
+    }
+    return YES;
 }
 
 @end

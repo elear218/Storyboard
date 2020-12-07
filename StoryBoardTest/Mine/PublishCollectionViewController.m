@@ -15,7 +15,7 @@
 #import "ImagePickerCell.h"
 #import "ImageSectionHeaderReusableView.h"
 
-@interface PublishCollectionViewController ()<TZImagePickerControllerDelegate>{
+@interface PublishCollectionViewController ()<UIScrollViewDelegate, TZImagePickerControllerDelegate>{
     NSArray *imageModelArr/**图片本地模型类数组*/;
     CGSize imageItemSize; //选择图片item大小
 }
@@ -466,5 +466,9 @@ static CGFloat const sectionEdge = 20.f;
 	
 }
 */
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+}
 
 @end

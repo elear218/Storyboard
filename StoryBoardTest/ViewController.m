@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <UIViewController+CWLateralSlide.h>
 
 @interface ViewController ()
 
@@ -31,8 +32,10 @@
 }
 
 - (void)dismiss:(UIButton *)sender {
+    [self cw_dismissViewController];
     
 //    判断当前ViewController是push还是present的方式显示的
+    /*
     if (self.presentingViewController) {
         //present方式
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -40,6 +43,7 @@
         //push方式
         [self.navigationController popViewControllerAnimated:YES];
     }
+     */
     
     /*
      if (self.navigationController.topViewController == self) {

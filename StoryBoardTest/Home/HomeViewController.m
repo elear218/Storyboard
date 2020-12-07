@@ -26,7 +26,7 @@
     
     CGFloat navigationHeight = [UIApplication sharedApplication].statusBarFrame.size.height + 44;
     CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
-    NSLog(@"navigationHeight:%f\ntabBarHeight:%f",navigationHeight, tabBarHeight);
+    NSLog(@"navigationHeight:%f\ntabBarHeight:%f", navigationHeight, tabBarHeight);
     
     view1.block = ^{
         [self performSegueWithIdentifier:@"gotoCycleVCIdentifer" sender:nil];

@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		58BACBA0A723A738F2152071 /* libPods-StoryBoardTestUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7736243FB129DD16176BBC05 /* libPods-StoryBoardTestUITests.a */; };
+		5F94F967257DCA2000B65614 /* UIViewController+DDYPresent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F966257DCA2000B65614 /* UIViewController+DDYPresent.m */; };
+		5F94F96E257DCA6B00B65614 /* NSNull+NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F96B257DCA6B00B65614 /* NSNull+NullSafe.m */; };
+		5F94F96F257DCA6B00B65614 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F96C257DCA6B00B65614 /* NSDate+Extension.m */; };
+		5F94F970257DCA6B00B65614 /* NSDate+WHDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F96D257DCA6B00B65614 /* NSDate+WHDate.m */; };
+		5F94F973257DCAFF00B65614 /* NSString+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F972257DCAFF00B65614 /* NSString+Additional.m */; };
+		5F94F977257DD53700B65614 /* SQPrintJsonLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F976257DD53700B65614 /* SQPrintJsonLog.m */; };
+		5F94F97B257DD54000B65614 /* WYSetTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F979257DD54000B65614 /* WYSetTextField.m */; };
+		5F94F97F257DD56600B65614 /* OYCountDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F97D257DD56600B65614 /* OYCountDownManager.m */; };
+		5F94F983257DFCA200B65614 /* LimitPasteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F982257DFCA200B65614 /* LimitPasteTextField.m */; };
+		5F94F98B257E0C2600B65614 /* NSObject+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F98A257E0C2600B65614 /* NSObject+Description.m */; };
 		6D0996298B28BEB9706AA1C0 /* libPods-StoryBoardTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6BB2134173BD9155ACAA58 /* libPods-StoryBoardTest.a */; };
 		AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */ = {isa = PBXBuildFile; fileRef = AD00C11820577CCF00F6C4A0 /* Fold.json */; };
 		AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00C11B20577E1C00F6C4A0 /* FoldModel.m */; };
@@ -122,6 +132,26 @@
 		332C6E292B89FC0E89B83B70 /* Pods-StoryBoardTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTest/Pods-StoryBoardTest.debug.xcconfig"; sourceTree = "<group>"; };
 		38FB15284CFF59F9D244560A /* libPods-StoryBoardTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4188BBCB631E605574223272 /* Pods-StoryBoardTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTestTests/Pods-StoryBoardTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		5F94F965257DCA2000B65614 /* UIViewController+DDYPresent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DDYPresent.h"; sourceTree = "<group>"; };
+		5F94F966257DCA2000B65614 /* UIViewController+DDYPresent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DDYPresent.m"; sourceTree = "<group>"; };
+		5F94F968257DCA6A00B65614 /* NSDate+WHDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WHDate.h"; sourceTree = "<group>"; };
+		5F94F969257DCA6B00B65614 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		5F94F96A257DCA6B00B65614 /* NSNull+NullSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+NullSafe.h"; sourceTree = "<group>"; };
+		5F94F96B257DCA6B00B65614 /* NSNull+NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+NullSafe.m"; sourceTree = "<group>"; };
+		5F94F96C257DCA6B00B65614 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		5F94F96D257DCA6B00B65614 /* NSDate+WHDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WHDate.m"; sourceTree = "<group>"; };
+		5F94F971257DCAFF00B65614 /* NSString+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additional.h"; sourceTree = "<group>"; };
+		5F94F972257DCAFF00B65614 /* NSString+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additional.m"; sourceTree = "<group>"; };
+		5F94F975257DD53700B65614 /* SQPrintJsonLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQPrintJsonLog.h; sourceTree = "<group>"; };
+		5F94F976257DD53700B65614 /* SQPrintJsonLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQPrintJsonLog.m; sourceTree = "<group>"; };
+		5F94F979257DD54000B65614 /* WYSetTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYSetTextField.m; sourceTree = "<group>"; };
+		5F94F97A257DD54000B65614 /* WYSetTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYSetTextField.h; sourceTree = "<group>"; };
+		5F94F97D257DD56600B65614 /* OYCountDownManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OYCountDownManager.m; sourceTree = "<group>"; };
+		5F94F97E257DD56600B65614 /* OYCountDownManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OYCountDownManager.h; sourceTree = "<group>"; };
+		5F94F981257DFCA200B65614 /* LimitPasteTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LimitPasteTextField.h; sourceTree = "<group>"; };
+		5F94F982257DFCA200B65614 /* LimitPasteTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LimitPasteTextField.m; sourceTree = "<group>"; };
+		5F94F989257E0C2600B65614 /* NSObject+Description.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Description.h"; sourceTree = "<group>"; };
+		5F94F98A257E0C2600B65614 /* NSObject+Description.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Description.m"; sourceTree = "<group>"; };
 		7736243FB129DD16176BBC05 /* libPods-StoryBoardTestUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTestUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD00C11820577CCF00F6C4A0 /* Fold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Fold.json; sourceTree = "<group>"; };
 		AD00C11A20577E1C00F6C4A0 /* FoldModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldModel.h; sourceTree = "<group>"; };
@@ -305,6 +335,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F94F974257DD53700B65614 /* PrintJsonLog */ = {
+			isa = PBXGroup;
+			children = (
+				5F94F975257DD53700B65614 /* SQPrintJsonLog.h */,
+				5F94F976257DD53700B65614 /* SQPrintJsonLog.m */,
+			);
+			path = PrintJsonLog;
+			sourceTree = "<group>";
+		};
+		5F94F978257DD54000B65614 /* WYSetTextField */ = {
+			isa = PBXGroup;
+			children = (
+				5F94F979257DD54000B65614 /* WYSetTextField.m */,
+				5F94F97A257DD54000B65614 /* WYSetTextField.h */,
+			);
+			path = WYSetTextField;
+			sourceTree = "<group>";
+		};
+		5F94F97C257DD56600B65614 /* OYCountDownManager */ = {
+			isa = PBXGroup;
+			children = (
+				5F94F97D257DD56600B65614 /* OYCountDownManager.m */,
+				5F94F97E257DD56600B65614 /* OYCountDownManager.h */,
+			);
+			path = OYCountDownManager;
+			sourceTree = "<group>";
+		};
+		5F94F980257DFC6800B65614 /* LimitPasteTextField */ = {
+			isa = PBXGroup;
+			children = (
+				5F94F981257DFCA200B65614 /* LimitPasteTextField.h */,
+				5F94F982257DFCA200B65614 /* LimitPasteTextField.m */,
+			);
+			path = LimitPasteTextField;
+			sourceTree = "<group>";
+		};
 		ABA66ACFC2FFC70D69531945 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +553,14 @@
 		AD37BE6820478ED8002D59CD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				5F94F969257DCA6B00B65614 /* NSDate+Extension.h */,
+				5F94F96C257DCA6B00B65614 /* NSDate+Extension.m */,
+				5F94F968257DCA6A00B65614 /* NSDate+WHDate.h */,
+				5F94F96D257DCA6B00B65614 /* NSDate+WHDate.m */,
+				5F94F96A257DCA6B00B65614 /* NSNull+NullSafe.h */,
+				5F94F96B257DCA6B00B65614 /* NSNull+NullSafe.m */,
+				5F94F965257DCA2000B65614 /* UIViewController+DDYPresent.h */,
+				5F94F966257DCA2000B65614 /* UIViewController+DDYPresent.m */,
 				AD1A08D12085F5DC0067CC88 /* UIButton+ImageTitleSpacing.h */,
 				AD1A08D22085F5DC0067CC88 /* UIButton+ImageTitleSpacing.m */,
 				AD37BE6920478F6D002D59CD /* UITableViewCell+Action.h */,
@@ -495,6 +569,10 @@
 				AD99601A2050D77800B74D28 /* UIViewController+ContentInset.m */,
 				AD990E63207B56DB000C1DDA /* UIView+Snap.h */,
 				AD990E64207B56DB000C1DDA /* UIView+Snap.m */,
+				5F94F971257DCAFF00B65614 /* NSString+Additional.h */,
+				5F94F972257DCAFF00B65614 /* NSString+Additional.m */,
+				5F94F989257E0C2600B65614 /* NSObject+Description.h */,
+				5F94F98A257E0C2600B65614 /* NSObject+Description.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -596,6 +674,10 @@
 		AD82D9F420590B90004D08C7 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				5F94F980257DFC6800B65614 /* LimitPasteTextField */,
+				5F94F97C257DD56600B65614 /* OYCountDownManager */,
+				5F94F978257DD54000B65614 /* WYSetTextField */,
+				5F94F974257DD53700B65614 /* PrintJsonLog */,
 				AD01B33A2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout */,
 				AD01B33E2094223500CCFC3E /* LxGridViewFlowLayout */,
 				AD82D9F520590BA2004D08C7 /* YYFPSLabel */,
@@ -953,10 +1035,12 @@
 			files = (
 				AD99601B2050D77800B74D28 /* UIViewController+ContentInset.m in Sources */,
 				AD37BE12204552BF002D59CD /* ViewController.m in Sources */,
+				5F94F973257DCAFF00B65614 /* NSString+Additional.m in Sources */,
 				AD4E4BC720493B2800027C7B /* CodePushViewController.m in Sources */,
 				AD82D9F32058FF0B004D08C7 /* FoldTagTableViewCell.m in Sources */,
 				AD37BE412045569E002D59CD /* CustomNaviViewController.m in Sources */,
 				AD4E4BAE2048085B00027C7B /* HobbyTableViewCell.m in Sources */,
+				5F94F96E257DCA6B00B65614 /* NSNull+NullSafe.m in Sources */,
 				ADF183F120560B94003F9818 /* TagTableViewCell.m in Sources */,
 				AD37BE722047DE2C002D59CD /* TestTableViewController.m in Sources */,
 				ADED150E20747108001A747B /* PickerCollectionCell.m in Sources */,
@@ -965,6 +1049,7 @@
 				AD4E4BB32048D7B700027C7B /* HobbyModel.m in Sources */,
 				AD37BE1D204552BF002D59CD /* main.m in Sources */,
 				AD70DC3C206E066600561710 /* PublishCollectionViewController.m in Sources */,
+				5F94F97B257DD54000B65614 /* WYSetTextField.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
 				AD1A08C2208491A60067CC88 /* CycleViewController.m in Sources */,
 				ADED151020747108001A747B /* ProductImageCell.m in Sources */,
@@ -983,8 +1068,11 @@
 				AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */,
 				AD996010204FEE1100B74D28 /* SelectTableViewCell.m in Sources */,
 				AD37BE6720464CD7002D59CD /* DetailViewController.m in Sources */,
+				5F94F977257DD53700B65614 /* SQPrintJsonLog.m in Sources */,
 				AD990E62207B55D3000C1DDA /* LxGridViewFlowLayout.m in Sources */,
+				5F94F970257DCA6B00B65614 /* NSDate+WHDate.m in Sources */,
 				AD990E65207B56DB000C1DDA /* UIView+Snap.m in Sources */,
+				5F94F967257DCA2000B65614 /* UIViewController+DDYPresent.m in Sources */,
 				AD996014204FEE3E00B74D28 /* PushViewController.m in Sources */,
 				AD70DC4A206E098A00561710 /* ImagePickerCell.m in Sources */,
 				AD37BE0F204552BF002D59CD /* AppDelegate.m in Sources */,
@@ -993,11 +1081,14 @@
 				AD7848542057667800FAF340 /* Fold1TableViewController.m in Sources */,
 				ADF46586207E123800933BF2 /* GuidePagesView.m in Sources */,
 				AD37BE6E204792A7002D59CD /* LoginViewController.m in Sources */,
+				5F94F97F257DD56600B65614 /* OYCountDownManager.m in Sources */,
+				5F94F983257DFCA200B65614 /* LimitPasteTextField.m in Sources */,
 				ADB7056E2093194D00B6D4F3 /* EditItemViewController.m in Sources */,
 				AD99601E2050DC4300B74D28 /* CheckModel.m in Sources */,
 				ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */,
 				AD82D9FA20590BA2004D08C7 /* YYWeakProxy.m in Sources */,
 				AD1A08D32085F5DD0067CC88 /* UIButton+ImageTitleSpacing.m in Sources */,
+				5F94F98B257E0C2600B65614 /* NSObject+Description.m in Sources */,
 				AD70DC44206E095400561710 /* InputTFCell.m in Sources */,
 				AD37BE5B2046352A002D59CD /* HomeViewController.m in Sources */,
 				AD1A08C52084928E0067CC88 /* CustomCycleCollectionCell.m in Sources */,
@@ -1005,6 +1096,7 @@
 				AD70DC47206E096500561710 /* InputTVCell.m in Sources */,
 				AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */,
 				ADED1507207470FD001A747B /* PublishTableViewController.m in Sources */,
+				5F94F96F257DCA6B00B65614 /* NSDate+Extension.m in Sources */,
 				AD4E4BC42048FB2100027C7B /* AcountTableViewController.swift in Sources */,
 				AD01B33D2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.m in Sources */,
 				AD37BE64204638E7002D59CD /* PresentViewController.m in Sources */,
@@ -1185,7 +1277,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "StoryBoardTest/StoryBoardTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1207,7 +1299,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "StoryBoardTest/StoryBoardTest-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
