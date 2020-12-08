@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objcMembers //加上@objcMembers  否则setValue forKey方法崩溃
 class TaskViewController: UIViewController {
 
     var receivedStr : String = ""
@@ -18,8 +19,8 @@ class TaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        print("task page")
-        print(receivedStr)
+//        print(message: "task page")
+        print(message: receivedStr)
         // Do any additional setup after loading the view.
     }
 
@@ -32,7 +33,7 @@ class TaskViewController: UIViewController {
     }
     
     deinit {
-        print("dealloc")
+        print(message: "dealloc")
     }
     
     override func didReceiveMemoryWarning() {

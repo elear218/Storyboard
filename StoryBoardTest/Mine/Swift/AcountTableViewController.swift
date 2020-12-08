@@ -29,7 +29,7 @@ class AcountTableViewController: UITableViewController {
         self.contentInsetAdjustment()
         
         versionLabel.text = "v".appending(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
-        print("1234567890");
+        print(message: "1234567890")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -42,6 +42,9 @@ class AcountTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    deinit {
+        print(message: "dealloc")
+    }
     
      // MARK: - Navigation
      
@@ -58,7 +61,8 @@ class AcountTableViewController: UITableViewController {
         //taskVC回调
         weak var weakTask: TaskViewController! = taskVC
         taskVC.backValueClosure = {(_ text: String) -> Void in
-            print(weakTask.receivedStr)
+            print(message: weakTask.receivedStr)
+            print(message: text)
 //            self.tableView.backgroundColor = .red
         }
         
@@ -76,28 +80,28 @@ class AcountTableViewController: UITableViewController {
         guard let action = ActionIdentifier.init(rawValue: cell.actionIdentifier) else { return }
         switch action {
         case .MyFriends , .MyFollowing , .MyFans:
-            print(111)
+            print(message: 111)
             
         case .NewTask:
-            print(222)
+            print(message: 222)
             
         case .NewPublish:
-            print(333)
+            print(message: 333)
             
 //        case .MyFollowing:
-//            print(333)
+//            print(message: 333)
 //
 //        case .MyFans:
-//            print(444)
+//            print(message: 444)
             
         case .Feedback:
-            print(555)
+            print(message: 555)
             
         case .AboutUs:
-            print(666)
+            print(message: 666)
             
         case .VersionInfo:
-            print(777)
+            print(message: 777)
         }
     }
 

@@ -18,6 +18,7 @@
 		5F94F97F257DD56600B65614 /* OYCountDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F97D257DD56600B65614 /* OYCountDownManager.m */; };
 		5F94F983257DFCA200B65614 /* LimitPasteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F982257DFCA200B65614 /* LimitPasteTextField.m */; };
 		5F94F98B257E0C2600B65614 /* NSObject+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F98A257E0C2600B65614 /* NSObject+Description.m */; };
+		5FD0EA06257F0F2100539F9B /* CustomPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0EA05257F0F2100539F9B /* CustomPrint.swift */; };
 		6D0996298B28BEB9706AA1C0 /* libPods-StoryBoardTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6BB2134173BD9155ACAA58 /* libPods-StoryBoardTest.a */; };
 		AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */ = {isa = PBXBuildFile; fileRef = AD00C11820577CCF00F6C4A0 /* Fold.json */; };
 		AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00C11B20577E1C00F6C4A0 /* FoldModel.m */; };
@@ -152,6 +153,7 @@
 		5F94F982257DFCA200B65614 /* LimitPasteTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LimitPasteTextField.m; sourceTree = "<group>"; };
 		5F94F989257E0C2600B65614 /* NSObject+Description.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Description.h"; sourceTree = "<group>"; };
 		5F94F98A257E0C2600B65614 /* NSObject+Description.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Description.m"; sourceTree = "<group>"; };
+		5FD0EA05257F0F2100539F9B /* CustomPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPrint.swift; sourceTree = "<group>"; };
 		7736243FB129DD16176BBC05 /* libPods-StoryBoardTestUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTestUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD00C11820577CCF00F6C4A0 /* Fold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Fold.json; sourceTree = "<group>"; };
 		AD00C11A20577E1C00F6C4A0 /* FoldModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldModel.h; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 			children = (
 				AD4E4BC32048FB2100027C7B /* AcountTableViewController.swift */,
 				AD4E4BCB20494A3800027C7B /* TaskViewController.swift */,
+				5FD0EA05257F0F2100539F9B /* CustomPrint.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -1089,6 +1092,7 @@
 				AD82D9FA20590BA2004D08C7 /* YYWeakProxy.m in Sources */,
 				AD1A08D32085F5DD0067CC88 /* UIButton+ImageTitleSpacing.m in Sources */,
 				5F94F98B257E0C2600B65614 /* NSObject+Description.m in Sources */,
+				5FD0EA06257F0F2100539F9B /* CustomPrint.swift in Sources */,
 				AD70DC44206E095400561710 /* InputTFCell.m in Sources */,
 				AD37BE5B2046352A002D59CD /* HomeViewController.m in Sources */,
 				AD1A08C52084928E0067CC88 /* CustomCycleCollectionCell.m in Sources */,
@@ -1272,6 +1276,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "-D DEBUGSWIFT";
 				PRODUCT_BUNDLE_IDENTIFIER = eall.StoryBoardTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

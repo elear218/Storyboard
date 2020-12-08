@@ -51,7 +51,7 @@
     YYFPSLabel *fpsLab = [YYFPSLabel new];
     [[UIApplication sharedApplication].keyWindow addSubview:fpsLab];
     [fpsLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(20);
+        make.top.mas_equalTo([UIApplication sharedApplication].statusBarFrame.size.height);
         make.centerX.mas_equalTo(0);
     }];
     
