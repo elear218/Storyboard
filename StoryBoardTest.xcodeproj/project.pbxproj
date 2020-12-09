@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		58BACBA0A723A738F2152071 /* libPods-StoryBoardTestUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7736243FB129DD16176BBC05 /* libPods-StoryBoardTestUITests.a */; };
+		5F3A9C5625809E9C00CC7E25 /* UIControl+KKClickInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A9C5525809E9C00CC7E25 /* UIControl+KKClickInterval.m */; };
 		5F94F967257DCA2000B65614 /* UIViewController+DDYPresent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F966257DCA2000B65614 /* UIViewController+DDYPresent.m */; };
 		5F94F96E257DCA6B00B65614 /* NSNull+NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F96B257DCA6B00B65614 /* NSNull+NullSafe.m */; };
 		5F94F96F257DCA6B00B65614 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F96C257DCA6B00B65614 /* NSDate+Extension.m */; };
@@ -155,6 +156,8 @@
 		332C6E292B89FC0E89B83B70 /* Pods-StoryBoardTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTest/Pods-StoryBoardTest.debug.xcconfig"; sourceTree = "<group>"; };
 		38FB15284CFF59F9D244560A /* libPods-StoryBoardTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoryBoardTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4188BBCB631E605574223272 /* Pods-StoryBoardTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTestTests/Pods-StoryBoardTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		5F3A9C5425809E9C00CC7E25 /* UIControl+KKClickInterval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+KKClickInterval.h"; sourceTree = "<group>"; };
+		5F3A9C5525809E9C00CC7E25 /* UIControl+KKClickInterval.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+KKClickInterval.m"; sourceTree = "<group>"; };
 		5F94F965257DCA2000B65614 /* UIViewController+DDYPresent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DDYPresent.h"; sourceTree = "<group>"; };
 		5F94F966257DCA2000B65614 /* UIViewController+DDYPresent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DDYPresent.m"; sourceTree = "<group>"; };
 		5F94F968257DCA6A00B65614 /* NSDate+WHDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WHDate.h"; sourceTree = "<group>"; };
@@ -695,6 +698,8 @@
 				5F94F972257DCAFF00B65614 /* NSString+Additional.m */,
 				5F94F989257E0C2600B65614 /* NSObject+Description.h */,
 				5F94F98A257E0C2600B65614 /* NSObject+Description.m */,
+				5F3A9C5425809E9C00CC7E25 /* UIControl+KKClickInterval.h */,
+				5F3A9C5525809E9C00CC7E25 /* UIControl+KKClickInterval.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1218,6 +1223,7 @@
 				5F94F970257DCA6B00B65614 /* NSDate+WHDate.m in Sources */,
 				5FD0EA34257F5C7A00539F9B /* MKBToastView.m in Sources */,
 				AD990E65207B56DB000C1DDA /* UIView+Snap.m in Sources */,
+				5F3A9C5625809E9C00CC7E25 /* UIControl+KKClickInterval.m in Sources */,
 				5F94F967257DCA2000B65614 /* UIViewController+DDYPresent.m in Sources */,
 				AD996014204FEE3E00B74D28 /* PushViewController.m in Sources */,
 				5FCB4B60257F72FE006F373F /* FunctionStoreTool.m in Sources */,

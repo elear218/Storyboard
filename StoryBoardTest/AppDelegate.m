@@ -36,6 +36,10 @@
     [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     
+    //项目整体都可以实现点击间隔，如果单独修改某个 UIButton，可以设置 clickInterval 和 ignoreClickInterval
+    //btn.clickInterval = 5;  btn.ignoreClickInterval = NO;
+    [UIButton kk_exchangeClickMethod];
+    
     EnterViewController *enter = [[EnterViewController alloc] init];
     CustomNaviViewController *nav = [[CustomNaviViewController alloc] initWithRootViewController:enter];
     self.window.rootViewController = nav;

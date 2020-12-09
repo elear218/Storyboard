@@ -25,6 +25,7 @@
 #import "UIView+JZAnimation.h"
 #import "UIView+Line.h"
 #import "UIView+Snap.h"
+#import "UIControl+KKClickInterval.h"
 #import "UIButton+ImageTitleSpacing.h"
 #import "NSDate+WHDate.h"
 #import "NSDate+Extension.h"
