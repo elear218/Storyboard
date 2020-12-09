@@ -13,9 +13,13 @@
 
 #import "AlipayItemModel.h"
 
-@interface CodePushViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,UISearchBarDelegate>{
+#import "MKBFunctionCell.h"
+#import "FunctionStoreTool.h"
+#import "MKBNewFunctionController.h"
+
+@interface CodePushViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UISearchBarDelegate, UINavigationControllerDelegate> {
     
-    /**顶部试图总容器*/
+    /**顶部视图总容器*/
     UIView *headerContainerView;
     /**自定义导航栏纯色背景*/
     UIView *naviBackgroundView;
@@ -28,12 +32,14 @@
     /**功能区下部分：我的应用*/
     UIView *funcBottomView;
     
-    CGFloat customNaviHeight,funcBottomHeight,headerContainerHeight;
+    CGFloat customNaviHeight, funcBottomHeight, headerContainerHeight;
 }
 
 @property (nonatomic, strong) NSMutableArray *itemDataArr;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (strong,nonatomic) NSArray *commonFuncTypeArray;
 
 @end
 
@@ -44,7 +50,7 @@ static NSString * const reuseHeaderId = @"UICollectionReuseHeaderIdentifer";
 
 static CGFloat const funcTopHeight = 85.f; //功能区上部高度(扫一扫、付钱、收钱、卡包)
 
-static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
+static CGFloat const itemCellHeight = 100.f; //功能区底部每个item的高度
 
 @implementation CodePushViewController
 
@@ -55,21 +61,21 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
     return _itemDataArr;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+- (NSArray *)commonFuncTypeArray {
+    return [FunctionStoreTool commonFuncTypeArray];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // 设置导航控制器的代理为self
+    self.navigationController.delegate = self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.receivedArr enumerateObjectsUsingBlock:^(HobbyModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"item:%@,level:%@,time:%@",obj.item,obj.level,obj.time);
+        NSLog(@"item:%@,level:%@,time:%@", obj.item, obj.level, obj.time);
     }];
     
     [self contentInsetAdjustment];
@@ -96,6 +102,7 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
     
     [self setHeaderView];
     
+    /*
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 获取文件路径
         NSString *path = [[NSBundle mainBundle] pathForResource:@"AlipayItem" ofType:@"json"];
@@ -113,6 +120,22 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
             [self updateTopViewHeight];
         });
     });
+    */
+    [self dealFunctionData];
+}
+
+- (void)dealFunctionData {
+    [self.itemDataArr removeAllObjects];
+    NSInteger count = MIN(7, self.commonFuncTypeArray.count);
+    for (int i = 0; i < count; i++) {
+        MKBFunctionModel *func = [MKBFunctionModel new];
+        func.tag = [self.commonFuncTypeArray[i] integerValue];
+        [self.itemDataArr addObject:func];
+    }
+    MKBFunctionModel *all = [MKBFunctionModel new];
+    all.tag = ALL;
+    [self.itemDataArr addObject:all];
+    [self updateTopViewHeight];
 }
 
 - (void)setHeaderView {
@@ -243,9 +266,13 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
     [headerContainerView addSubview:funcBottomView];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.minimumLineSpacing = layout.minimumInteritemSpacing = .0f;
-    layout.itemSize = CGSizeMake(ScreenWidth/4, itemCellHeight);
+//    layout.minimumLineSpacing = layout.minimumInteritemSpacing = .0f;
+//    layout.itemSize = CGSizeMake(ScreenWidth/4, itemCellHeight);
+    layout.minimumLineSpacing = 1.f;
+    layout.minimumInteritemSpacing = 5.f;
+    layout.itemSize = CGSizeMake((ScreenWidth - 25) / 4.f, itemCellHeight);
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    collection.scrollEnabled = NO;
     collection.tag = 111;
     collection.backgroundColor = [UIColor whiteColor];
     [funcBottomView addSubview:collection];
@@ -253,7 +280,8 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
         make.edges.mas_equalTo(0);
     }];
     
-    [collection registerNib:[UINib nibWithNibName:@"AliPayFunctionItemCell" bundle:nil] forCellWithReuseIdentifier:itemCellId];
+//    [collection registerNib:[UINib nibWithNibName:@"AliPayFunctionItemCell" bundle:nil] forCellWithReuseIdentifier:itemCellId];
+    [collection registerNib:[UINib nibWithNibName:NSStringFromClass([MKBFunctionCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([MKBFunctionCell class])];
     collection.delegate = self;
     collection.dataSource = self;
     
@@ -283,16 +311,15 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
     [self.collectionView.mj_header endRefreshing];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (void)dealloc {
-    NSLog(@"Dealloc");
+    self.navigationController.delegate = nil;
+    NSLog(@"%s",__func__);
 }
-
 
 - (void)updateTopViewHeight {
     funcBottomHeight = (self.itemDataArr.count + 3) / 4 * itemCellHeight;
@@ -419,12 +446,16 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
         return cell;
     }
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:itemCellId forIndexPath:indexPath];
-    AlipayItemModel *model = self.itemDataArr[indexPath.item];
-    UIImageView *imageView = [cell viewWithTag:665];
-    imageView.image = [UIImage imageNamed:model.img];
-    UILabel *label = [cell viewWithTag:666];
-    label.text = model.txt;
+//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:itemCellId forIndexPath:indexPath];
+//    AlipayItemModel *model = self.itemDataArr[indexPath.item];
+//    UIImageView *imageView = [cell viewWithTag:665];
+//    imageView.image = [UIImage imageNamed:model.img];
+//    UILabel *label = [cell viewWithTag:666];
+//    label.text = model.txt;
+//    return cell;
+    
+    MKBFunctionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([MKBFunctionCell class]) forIndexPath:indexPath];
+    cell.func = self.itemDataArr[indexPath.item];
     return cell;
 }
 
@@ -446,14 +477,16 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
 #pragma mark <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    UIView *bgView = [cell viewWithTag:111];
+//    UIView *bgView = [cell viewWithTag:111];
+    UIView *bgView = collectionView == self.collectionView ? [cell viewWithTag:111] : cell;
     bgView.alpha = .6f;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-            UIView *bgView = [cell viewWithTag:111];
+//            UIView *bgView = [cell viewWithTag:111];
+            UIView *bgView = collectionView == self.collectionView ? [cell viewWithTag:111] : cell;
             bgView.alpha = 1.f;
     });
     
@@ -463,16 +496,32 @@ static CGFloat const itemCellHeight = 80.f; //功能区底部每个item的高度
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (collectionView != self.collectionView && indexPath.item == self.itemDataArr.count - 1) {
         //点击功能区更多
-        [self performSegueWithIdentifier:@"gotoEditItemIdentifer" sender:nil];
+//        [self performSegueWithIdentifier:@"gotoEditItemIdentifer" sender:nil];
+        MKBNewFunctionController *vc = [MKBNewFunctionController loadNibVc];
+        WeakSelf(self);
+        vc.updateBlock = ^{
+            StrongSelf(self);
+            [self dealFunctionData];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    
+
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     UILabel *label = [cell viewWithTag:666];
     UIViewController *vc = [[UIViewController alloc] init];
     vc.title = label.text;
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - UINavigationControllerDelegate
+// 将要显示控制器
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    // 判断要显示的控制器是否是自己
+    BOOL isShowSelf = [viewController isKindOfClass:[self class]];
+    
+    [self.navigationController setNavigationBarHidden:isShowSelf animated:YES];
 }
 
 #pragma mark - Navigation

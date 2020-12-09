@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MKBLittleFunctionCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_func_bx" translatesAutoresizingMaskIntoConstraints="NO" id="HA3-6z-xYK">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="func_service" translatesAutoresizingMaskIntoConstraints="NO" id="qw9-0M-pPr">
+                        <rect key="frame" x="1" y="35" width="49" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="qw9-0M-pPr" secondAttribute="height" multiplier="49:15" id="AMz-aX-Te6"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="qw9-0M-pPr" firstAttribute="trailing" secondItem="HA3-6z-xYK" secondAttribute="trailing" id="DLb-Os-F24"/>
+                <constraint firstAttribute="trailing" secondItem="HA3-6z-xYK" secondAttribute="trailing" id="IG1-zj-rMh"/>
+                <constraint firstItem="qw9-0M-pPr" firstAttribute="leading" secondItem="HA3-6z-xYK" secondAttribute="leading" constant="1" id="LtF-lQ-sOc"/>
+                <constraint firstAttribute="bottom" secondItem="HA3-6z-xYK" secondAttribute="bottom" id="guE-5d-dhC"/>
+                <constraint firstItem="qw9-0M-pPr" firstAttribute="bottom" secondItem="HA3-6z-xYK" secondAttribute="bottom" id="mA5-bl-sZe"/>
+                <constraint firstItem="HA3-6z-xYK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uMk-bH-rgw"/>
+                <constraint firstItem="HA3-6z-xYK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vYA-3G-JZL"/>
+            </constraints>
+            <connections>
+                <outlet property="imgView" destination="HA3-6z-xYK" id="d0H-oP-Cdc"/>
+                <outlet property="tipImgView" destination="qw9-0M-pPr" id="A24-S1-ey8"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="90"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="func_service" width="55" height="15"/>
+        <image name="ic_func_bx" width="55.5" height="55.5"/>
+    </resources>
+</document>

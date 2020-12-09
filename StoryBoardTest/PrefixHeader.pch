@@ -9,33 +9,9 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-//自定义的NSLog
-#ifdef DEBUG
-#define NSLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
-#else
-#define NSLog(...)
-#endif
+#import "AllDefines.h"
 
-//屏幕宽高
-#define ScreenWidth [UIScreen mainScreen].bounds.size.width
-#define ScreenHeight [UIScreen mainScreen].bounds.size.height
-
-//弱引用/强引用
-#define WeakSelf(type)  __weak typeof(type) weak##type = type;
-#define StrongSelf(type)  __strong typeof(type) type = weak##type;
-
-//UIColor生成
-#define kRGBColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
-
-//16进制颜色
-#define kHexColor(hexValue) \
-[UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 \
-green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 \
-blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0]
-
-#define APPDELEGATE         (AppDelegate *)[[UIApplication sharedApplication] delegate]
-#define isIPhoneX  [UIApplication sharedApplication].statusBarFrame.size.height >= 44
-
+#import <MBProgressHUD.h>
 #import <MJRefresh.h>
 #import <YYModel.h>
 #import <Masonry.h>
@@ -43,12 +19,22 @@ blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0]
 
 #import "UIViewController+ContentInset.h"
 #import "UIViewController+DDYPresent.h"
+#import "UIView+Addition.h"
+#import "UIView+Extension.h"
+#import "UIView+WHView.h"
+#import "UIView+JZAnimation.h"
+#import "UIView+Line.h"
+#import "UIView+Snap.h"
 #import "UIButton+ImageTitleSpacing.h"
 #import "NSDate+WHDate.h"
 #import "NSDate+Extension.h"
+#import "UIColor+Additional.h"
 #import "NSString+Additional.h"
 
+#import "AppDelegate.h"
+
 #import "CustomNaviViewController.h"
+#import "CustomBaseViewController.h"
 #import "StoryBoardTest-Swift.h" //导入此头文件之后OC就可以使用swift文件了
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
