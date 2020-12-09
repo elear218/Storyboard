@@ -334,7 +334,7 @@
     // 判断要显示的控制器是否是自己
     BOOL isShowSelf = [viewController isKindOfClass:[self class]];
     
-    [self.navigationController setNavigationBarHidden:isShowSelf animated:YES];
+    [self.navigationController setNavigationBarHidden:isShowSelf animated:animated];
 }
 
 @end

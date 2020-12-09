@@ -301,7 +301,14 @@ static CGFloat const itemCellHeight = 100.f; //功能区底部每个item的高�
             
         }]];
         [alert addAction:[UIAlertAction actionWithTitle:@"去编辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self performSegueWithIdentifier:@"gotoEditItemIdentifer" sender:nil];
+//            [self performSegueWithIdentifier:@"gotoEditItemIdentifer" sender:nil];
+            MKBNewFunctionController *vc = [MKBNewFunctionController loadNibVc];
+            WeakSelf(self);
+            vc.updateBlock = ^{
+                StrongSelf(self);
+                [self dealFunctionData];
+            };
+            [self.navigationController pushViewController:vc animated:YES];
         }]];
         [self presentViewController:alert animated:YES completion:nil];
     }
@@ -483,7 +490,7 @@ static CGFloat const itemCellHeight = 100.f; //功能区底部每个item的高�
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.13 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
 //            UIView *bgView = [cell viewWithTag:111];
             UIView *bgView = collectionView == self.collectionView ? [cell viewWithTag:111] : cell;
@@ -494,25 +501,27 @@ static CGFloat const itemCellHeight = 100.f; //功能区底部每个item的高�
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    if (collectionView != self.collectionView && indexPath.item == self.itemDataArr.count - 1) {
-        //点击功能区更多
-//        [self performSegueWithIdentifier:@"gotoEditItemIdentifer" sender:nil];
-        MKBNewFunctionController *vc = [MKBNewFunctionController loadNibVc];
-        WeakSelf(self);
-        vc.updateBlock = ^{
-            StrongSelf(self);
-            [self dealFunctionData];
-        };
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.15f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (collectionView != self.collectionView && indexPath.item == self.itemDataArr.count - 1) {
+                //点击功能区更多
+        //        [self performSegueWithIdentifier:@"gotoEditItemIdentifer" sender:nil];
+                MKBNewFunctionController *vc = [MKBNewFunctionController loadNibVc];
+                WeakSelf(self);
+                vc.updateBlock = ^{
+                    StrongSelf(self);
+                    [self dealFunctionData];
+                };
+                [self.navigationController pushViewController:vc animated:YES];
+                return;
+            }
 
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    UILabel *label = [cell viewWithTag:666];
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.title = label.text;
-    vc.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController pushViewController:vc animated:YES];
+            UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+            UILabel *label = [cell viewWithTag:666];
+            UIViewController *vc = [[UIViewController alloc] init];
+            vc.title = label.text;
+            vc.view.backgroundColor = [UIColor whiteColor];
+            [self.navigationController pushViewController:vc animated:YES];
+    });
 }
 
 #pragma mark - UINavigationControllerDelegate
@@ -521,7 +530,7 @@ static CGFloat const itemCellHeight = 100.f; //功能区底部每个item的高�
     // 判断要显示的控制器是否是自己
     BOOL isShowSelf = [viewController isKindOfClass:[self class]];
     
-    [self.navigationController setNavigationBarHidden:isShowSelf animated:YES];
+    [self.navigationController setNavigationBarHidden:isShowSelf animated:animated];
 }
 
 #pragma mark - Navigation
