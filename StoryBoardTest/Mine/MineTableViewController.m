@@ -62,7 +62,14 @@
     
     self.tableView.tableFooterView = footerView;
     
-    nameLabel.text = @"elear 18630308257\ncompany-CEO";
+    NSString *nameStr = @"iOS_Coder\nelear 186***9662";
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:nameStr];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:8];
+    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [nameStr length])];
+    nameLabel.attributedText = attributedString;
+//    nameLabel.text = @"iOS_Coder\nelear 186***9662";
     
     bottomButton.layer.borderWidth = 1.f;
     bottomButton.layer.borderColor = [UIColor colorWithRed:250/255.f green:250/255.f blue:250/255.f alpha:1].CGColor;
@@ -107,7 +114,7 @@
         switch (indexPath.row) {
             case 0:
             case 1:
-            case 2:{
+            case 2: {
                 
                 UIStoryboard *login = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
                 [self.navigationController pushViewController:login.instantiateInitialViewController animated:YES];
@@ -115,7 +122,7 @@
                 break;
             case 3:
             case 4:
-            case 5:{
+            case 5: {
              
                 UIStoryboard *login = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
                 

@@ -27,7 +27,10 @@
 //    [naviBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
     
     //左右按钮颜色
-    [naviBar setTintColor:[UIColor blackColor]];
+    [naviBar setTintColor:[UIColor whiteColor]];
+    
+    //标题属性
+    [naviBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont systemFontOfSize:18.f weight:UIFontWeightBold]}];
     
     //导航栏文字属性
     //    NSMutableDictionary *barAttrs = [NSMutableDictionary dictionary];
@@ -70,6 +73,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //导航条前景色
+    [[UINavigationBar appearance] setBarTintColor:[ThemeConfig themeColor]];
     
     // 手势代理
     self.interactivePopGestureRecognizer.delegate = self;

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		58BACBA0A723A738F2152071 /* libPods-StoryBoardTestUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7736243FB129DD16176BBC05 /* libPods-StoryBoardTestUITests.a */; };
 		5F3A9C5625809E9C00CC7E25 /* UIControl+KKClickInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A9C5525809E9C00CC7E25 /* UIControl+KKClickInterval.m */; };
+		5F3A9C592580A65200CC7E25 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A9C582580A65200CC7E25 /* UIImage+Color.m */; };
+		5F3A9C5D2580A75E00CC7E25 /* ThemeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A9C5C2580A75E00CC7E25 /* ThemeConfig.m */; };
+		5F82010C2581CB0C0064A4C5 /* ThemeConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F82010B2581CB0C0064A4C5 /* ThemeConfigViewController.m */; };
 		5F94F967257DCA2000B65614 /* UIViewController+DDYPresent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F966257DCA2000B65614 /* UIViewController+DDYPresent.m */; };
 		5F94F96E257DCA6B00B65614 /* NSNull+NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F96B257DCA6B00B65614 /* NSNull+NullSafe.m */; };
 		5F94F96F257DCA6B00B65614 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F96C257DCA6B00B65614 /* NSDate+Extension.m */; };
@@ -158,6 +161,12 @@
 		4188BBCB631E605574223272 /* Pods-StoryBoardTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryBoardTestTests/Pods-StoryBoardTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F3A9C5425809E9C00CC7E25 /* UIControl+KKClickInterval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+KKClickInterval.h"; sourceTree = "<group>"; };
 		5F3A9C5525809E9C00CC7E25 /* UIControl+KKClickInterval.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+KKClickInterval.m"; sourceTree = "<group>"; };
+		5F3A9C572580A65200CC7E25 /* UIImage+Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		5F3A9C582580A65200CC7E25 /* UIImage+Color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		5F3A9C5B2580A75E00CC7E25 /* ThemeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeConfig.h; sourceTree = "<group>"; };
+		5F3A9C5C2580A75E00CC7E25 /* ThemeConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeConfig.m; sourceTree = "<group>"; };
+		5F82010A2581CB0C0064A4C5 /* ThemeConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeConfigViewController.h; sourceTree = "<group>"; };
+		5F82010B2581CB0C0064A4C5 /* ThemeConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeConfigViewController.m; sourceTree = "<group>"; };
 		5F94F965257DCA2000B65614 /* UIViewController+DDYPresent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DDYPresent.h"; sourceTree = "<group>"; };
 		5F94F966257DCA2000B65614 /* UIViewController+DDYPresent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DDYPresent.m"; sourceTree = "<group>"; };
 		5F94F968257DCA6A00B65614 /* NSDate+WHDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WHDate.h"; sourceTree = "<group>"; };
@@ -402,6 +411,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F3A9C5A2580A74800CC7E25 /* ThemeConfig */ = {
+			isa = PBXGroup;
+			children = (
+				5F3A9C5B2580A75E00CC7E25 /* ThemeConfig.h */,
+				5F3A9C5C2580A75E00CC7E25 /* ThemeConfig.m */,
+			);
+			path = ThemeConfig;
+			sourceTree = "<group>";
+		};
 		5F94F974257DD53700B65614 /* PrintJsonLog */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +631,8 @@
 				ADD9247C205A6765000636F9 /* SlideViewController.m */,
 				AD1A08C1208491A50067CC88 /* CycleViewController.h */,
 				AD1A08C0208491A50067CC88 /* CycleViewController.m */,
+				5F82010A2581CB0C0064A4C5 /* ThemeConfigViewController.h */,
+				5F82010B2581CB0C0064A4C5 /* ThemeConfigViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -700,6 +720,8 @@
 				5F94F98A257E0C2600B65614 /* NSObject+Description.m */,
 				5F3A9C5425809E9C00CC7E25 /* UIControl+KKClickInterval.h */,
 				5F3A9C5525809E9C00CC7E25 /* UIControl+KKClickInterval.m */,
+				5F3A9C572580A65200CC7E25 /* UIImage+Color.h */,
+				5F3A9C582580A65200CC7E25 /* UIImage+Color.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -807,6 +829,7 @@
 		AD82D9F420590B90004D08C7 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				5F3A9C5A2580A74800CC7E25 /* ThemeConfig */,
 				5F94F980257DFC6800B65614 /* LimitPasteTextField */,
 				5F94F97C257DD56600B65614 /* OYCountDownManager */,
 				5F94F978257DD54000B65614 /* WYSetTextField */,
@@ -1196,6 +1219,7 @@
 				5FCB4B6F257F75BA006F373F /* MKBFunctionSectionFooter.m in Sources */,
 				AD70DC3C206E066600561710 /* PublishCollectionViewController.m in Sources */,
 				5FCB4B71257F75BA006F373F /* MKBFunctionSectionHeader.m in Sources */,
+				5F3A9C592580A65200CC7E25 /* UIImage+Color.m in Sources */,
 				5F94F97B257DD54000B65614 /* WYSetTextField.m in Sources */,
 				AD37BE6B20478F6D002D59CD /* UITableViewCell+Action.m in Sources */,
 				AD1A08C2208491A60067CC88 /* CycleViewController.m in Sources */,
@@ -1244,6 +1268,7 @@
 				5FD0EA20257F4C2400539F9B /* UIView+Line.m in Sources */,
 				AD1A08D32085F5DD0067CC88 /* UIButton+ImageTitleSpacing.m in Sources */,
 				5F94F98B257E0C2600B65614 /* NSObject+Description.m in Sources */,
+				5F3A9C5D2580A75E00CC7E25 /* ThemeConfig.m in Sources */,
 				5FD0EA06257F0F2100539F9B /* CustomPrint.swift in Sources */,
 				AD70DC44206E095400561710 /* InputTFCell.m in Sources */,
 				AD37BE5B2046352A002D59CD /* HomeViewController.m in Sources */,
@@ -1252,6 +1277,7 @@
 				AD70DC47206E096500561710 /* InputTVCell.m in Sources */,
 				AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */,
 				ADED1507207470FD001A747B /* PublishTableViewController.m in Sources */,
+				5F82010C2581CB0C0064A4C5 /* ThemeConfigViewController.m in Sources */,
 				5FD0EA09257F4B2100539F9B /* MKBFunctionModel.m in Sources */,
 				5F94F96F257DCA6B00B65614 /* NSDate+Extension.m in Sources */,
 				AD4E4BC42048FB2100027C7B /* AcountTableViewController.swift in Sources */,

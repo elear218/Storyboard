@@ -19,12 +19,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tabBar.tintColor = [UIColor colorWithRed:241/255.f green:97/255.f blue:95/255.f alpha:1]; //选中文字颜色
     self.tabBar.translucent = NO;
     
     //创建并将Storyboard添加到TabBarController中
     self.viewControllers = [self setViewControllersWithStoryboard:@[@"Home", @"Message", @"Mine"]];
     // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setTheme) name:kNotificationNameThemeChange object:nil];
+    
+    [self setTheme];
+}
+
+- (void)setTheme {
+    UIColor *themeColor = [ThemeConfig themeColor];
+    //选中文字颜色
+    self.tabBar.tintColor = themeColor;
+    [self.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.image = [[UIImage imageNamed:[NSString stringWithFormat:@"tabbar_%tu", idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        NSString *selectedImageStr = [NSString stringWithFormat:@"tabbar_hight_%tu", idx];
+        obj.selectedImage = kThemeImageByName(selectedImageStr);
+    }];
 }
 
 /**
@@ -47,8 +60,8 @@
         CustomNaviViewController *navi = [sb instantiateInitialViewController];
         UIViewController *vc = navi.topViewController;
         vc.title = titleArr[idx];
-        vc.tabBarItem.image = [[UIImage imageNamed:[NSString stringWithFormat:@"tabbar_%lu",(unsigned long)idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        vc.tabBarItem.selectedImage = [[UIImage imageNamed:[NSString stringWithFormat:@"tabbar_hight_%lu",(unsigned long)idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        vc.tabBarItem.image = [[UIImage imageNamed:[NSString stringWithFormat:@"tabbar_%lu",(unsigned long)idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        vc.tabBarItem.selectedImage = [[UIImage imageNamed:[NSString stringWithFormat:@"tabbar_hight_%lu",(unsigned long)idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
         [vcMutArr addObject:navi];
     }];

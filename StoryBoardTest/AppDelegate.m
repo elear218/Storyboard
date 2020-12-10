@@ -40,6 +40,8 @@
     //btn.clickInterval = 5;  btn.ignoreClickInterval = NO;
     [UIButton kk_exchangeClickMethod];
     
+    [ThemeConfig clearThemeColorType];
+    
     EnterViewController *enter = [[EnterViewController alloc] init];
     CustomNaviViewController *nav = [[CustomNaviViewController alloc] initWithRootViewController:enter];
     self.window.rootViewController = nav;

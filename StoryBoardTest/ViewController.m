@@ -32,6 +32,10 @@
 }
 
 - (void)dismiss:(UIButton *)sender {
+    if (self.view.tag != 5201314 && self.parentViewController.view.tag != 5201314) {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
     [self cw_dismissViewController];
     
 //    判断当前ViewController是push还是present的方式显示的

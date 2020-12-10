@@ -10,7 +10,7 @@
 
 #import "CheckTableViewCell.h"
 
-@interface PushViewController ()<UITableViewDelegate,UITableViewDataSource>{
+@interface PushViewController ()<UITableViewDelegate, UITableViewDataSource> {
     
     NSArray *localArr;
 }
@@ -25,7 +25,7 @@ static NSString *const cellId = @"CheckCellIdentifer";
 
 @implementation PushViewController
 
-- (NSMutableArray *)dataMutArr{
+- (NSMutableArray *)dataMutArr {
     
     if (!_dataMutArr) {
         _dataMutArr = [NSMutableArray array];
@@ -105,12 +105,12 @@ static NSString *const cellId = @"CheckCellIdentifer";
 }
 
 #pragma mark -- tableView method
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return self.dataMutArr.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CheckTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath]; //如果不存在会自动创建cell（前提tableview要注册cell）
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -118,22 +118,23 @@ static NSString *const cellId = @"CheckCellIdentifer";
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return [tableView fd_heightForCellWithIdentifier:cellId cacheByIndexPath:indexPath configuration:^(CheckTableViewCell *cell) {
         cell.model = self.dataMutArr[indexPath.row];
     }];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CheckModel *model = self.dataMutArr[indexPath.row];
     model.checkStatus = !model.checkStatus;
-    [tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationNone];
+//    [tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationNone];
+    [tableView reloadData];
 }
 
 - (void)dealloc {
-    NSLog(@"Dealloc");
+    NSLog(@"%s",__func__);
 }
 
 - (void)didReceiveMemoryWarning {

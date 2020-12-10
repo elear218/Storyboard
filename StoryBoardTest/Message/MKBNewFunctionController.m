@@ -158,8 +158,9 @@
     self.titleLabel.text = @"功能";
     [self addRightButtonWithImage:kImageNamed(@"")];
     [self.leftButton setTitle:@"" forState:UIControlStateNormal];
-    [self.leftButton setImage:[kImageNamed(@"back_white") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    self.leftButton.imageView.tintColor = kBlackColor;
+    [self.leftButton setImage:[kImageNamed(@"back_white") colorizewithColor:kBlackColor] forState:UIControlStateNormal];
+//    [self.leftButton setImage:[kImageNamed(@"back_white") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+//    self.leftButton.imageView.tintColor = kBlackColor;
     if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         //这里对添加到右滑视图上的所有手势禁用
         for (UIGestureRecognizer *popGesture in self.navigationController.interactivePopGestureRecognizer.view.gestureRecognizers) {

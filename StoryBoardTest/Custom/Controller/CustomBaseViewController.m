@@ -126,7 +126,7 @@
     
     [self.view addSubview:self.topBar];
     if (self.navigationController.childViewControllers.count > 1) {
-        [self addLeftButtonWithImage:kImageNamed(@"back_white")];
+        [self addLeftButtonWithImage:[kImageNamed(@"back_white") colorizewithColor:kBlackColor]];
     }
 }
 
@@ -139,8 +139,9 @@
     [_leftButton removeFromSuperview];
     _leftButton = [[UIButton alloc]initWithFrame:CGRectMake(6, isIPhoneX?44:20, 56, 44)];
     if (leftButtonImage) {
-        [_leftButton setImage:[leftButtonImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-        _leftButton.imageView.tintColor = kBlackColor;
+        [_leftButton setImage:leftButtonImage forState:UIControlStateNormal];
+//        [_leftButton setImage:[leftButtonImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+//        _leftButton.imageView.tintColor = kBlackColor;
     }
     [_leftButton setTitle:@"" forState:UIControlStateNormal];
     [_leftButton setTitleColor:kColor333333 forState:UIControlStateNormal];

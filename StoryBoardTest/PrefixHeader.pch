@@ -31,9 +31,11 @@
 #import "NSDate+Extension.h"
 #import "UIColor+Additional.h"
 #import "NSString+Additional.h"
+#import "UIImage+Color.h"
 
 #import "AppDelegate.h"
 
+#import "ThemeConfig.h"
 #import "CustomNaviViewController.h"
 #import "CustomBaseViewController.h"
 #import "StoryBoardTest-Swift.h" //导入此头文件之后OC就可以使用swift文件了

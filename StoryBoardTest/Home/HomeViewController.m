@@ -13,9 +13,13 @@
 #import "SlideViewController.h"
 #import "CustomXibView.h"
 
+#import "ThemeConfigViewController.h"
+
 @interface HomeViewController (){
     __weak IBOutlet CustomXibView *view1;
 }
+
+@property (weak, nonatomic) IBOutlet UIButton *themeBtn;
 
 @end
 
@@ -70,6 +74,8 @@
         }];
     }
     // Do any additional setup after loading the view.
+    [self.themeBtn setImage:kThemeImageByName(@"theme_set") forState:UIControlStateNormal];
+    [self.themeBtn setTitleColor:[ThemeConfig themeColor] forState:UIControlStateNormal];
 }
 
 - (IBAction)showLeftSlide:(id)sender {
@@ -166,14 +172,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"gotoThemeConfig"]) {
+        ThemeConfigViewController *themeVC = segue.destinationViewController;
+        themeVC.testArr = @[@1, @2, @3, @4, @5];
+        WeakSelf(self);
+        themeVC.themeChangeBlock = ^{
+            StrongSelf(self);
+            [self.themeBtn setImage:kThemeImageByName(@"theme_set") forState:UIControlStateNormal];
+            [self.themeBtn setTitleColor:[ThemeConfig themeColor] forState:UIControlStateNormal];
+        };
+        return;
+    }
 }
-*/
 
 @end

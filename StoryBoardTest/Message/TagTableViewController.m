@@ -112,7 +112,7 @@
     TagTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TagTableViewCell class])
                                                                      forIndexPath:indexPath];
     cell.delegate = self;
-    cell.tagView.selectionLimit = indexPath.row % 2 ? 3 : 0;
+    cell.tagView.selectionLimit = indexPath.row % 2 ? 3 : 1;
     cell.label.text = [NSString stringWithFormat:@"Cell: %ld", (long)indexPath.row];
     [cell setTagsArr:_cellInfos[indexPath.row] selectedArr:self.tagDic[@(indexPath.row)]];
     return cell;
