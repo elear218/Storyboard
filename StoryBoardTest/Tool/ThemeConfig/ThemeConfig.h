@@ -10,12 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef enum : NSUInteger {
+//typedef enum : NSUInteger {
+//    ThemeColorTypeSpring = 30010,
+//    ThemeColorTypeSummer,
+//    ThemeColorTypeAutumn,
+//    ThemeColorTypeWinter,
+//} ThemeColorType;
+
+typedef NS_ENUM(NSUInteger, ThemeColorType) {
     ThemeColorTypeSpring = 30010,
     ThemeColorTypeSummer,
     ThemeColorTypeAutumn,
     ThemeColorTypeWinter,
-} ThemeColorType;
+};
 
 #define kThemeImageByName(name) [UIImage colorizeImage:[UIImage imageNamed:name] withColor:[ThemeConfig themeColor]]
 
