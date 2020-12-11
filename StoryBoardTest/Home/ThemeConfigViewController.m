@@ -61,6 +61,7 @@
 //        [self.toggleBtn setImage:kThemeImageByName(@"forecast_toggle_1") forState:UIControlStateSelected|UIControlStateHighlighted];
 //    }else
 //        [self.toggleBtn setImage:kThemeImageByName(@"forecast_toggle_0") forState:UIControlStateHighlighted];
+    
     [self.toggleBtn setTitleColor:themeColor forState:UIControlStateNormal];
     
     self.bottomBtn.backgroundColor = themeColor;

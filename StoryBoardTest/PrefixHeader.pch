@@ -33,6 +33,10 @@
 #import "NSString+Additional.h"
 #import "UIImage+Color.h"
 
+#import "ThemeLabel.h"
+#import "ThemeImageView.h"
+#import "ThemeButton.h"
+
 #import "AppDelegate.h"
 
 #import "ThemeConfig.h"

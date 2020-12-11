@@ -76,6 +76,22 @@
     // Do any additional setup after loading the view.
     [self.themeBtn setImage:kThemeImageByName(@"theme_set") forState:UIControlStateNormal];
     [self.themeBtn setTitleColor:[ThemeConfig themeColor] forState:UIControlStateNormal];
+    
+    ThemeButton *codeBtn = [ThemeButton buttonWithType:UIButtonTypeCustom];
+    codeBtn.titleLabel.font = kFontSystem(16.f);
+    [codeBtn setImage:kImageNamed(@"theme_set") forState:UIControlStateNormal];
+    [codeBtn setImage:kImageNamed(@"theme_set") forState:UIControlStateHighlighted];
+    [codeBtn setTitle:@"代码创建" forState:UIControlStateNormal];
+    [codeBtn addTarget:self action:@selector(codeThemeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:codeBtn];
+    [codeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(view1);
+        make.right.mas_equalTo(view1.mas_left).offset(-10);
+    }];
+}
+
+- (void)codeThemeBtnClick:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"gotoThemeConfig" sender:nil];
 }
 
 - (IBAction)showLeftSlide:(id)sender {

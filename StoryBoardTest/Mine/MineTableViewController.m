@@ -78,6 +78,13 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    ThemeImageView *themeImgView = [ThemeImageView new];
+    themeImgView.image = kImageNamed(@"item_icon15");
+    [self.view addSubview:themeImgView];
+    [themeImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(0);
+    }];
 }
 
 - (IBAction)bottomBtnClick:(UIButton *)sender {

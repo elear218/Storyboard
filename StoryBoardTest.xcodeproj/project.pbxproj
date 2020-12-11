@@ -22,6 +22,10 @@
 		5F94F97F257DD56600B65614 /* OYCountDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F97D257DD56600B65614 /* OYCountDownManager.m */; };
 		5F94F983257DFCA200B65614 /* LimitPasteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F982257DFCA200B65614 /* LimitPasteTextField.m */; };
 		5F94F98B257E0C2600B65614 /* NSObject+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F98A257E0C2600B65614 /* NSObject+Description.m */; };
+		5FBE89ED2583078E00FB0526 /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE89EC2583078E00FB0526 /* ThemeLabel.m */; };
+		5FC53B26258319BE00BBA1FF /* UILabel+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC53B25258319BE00BBA1FF /* UILabel+Theme.m */; };
+		5FC53B2F25833FBD00BBA1FF /* ThemeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC53B2E25833FBD00BBA1FF /* ThemeImageView.m */; };
+		5FC53B322583561500BBA1FF /* ThemeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC53B312583561500BBA1FF /* ThemeButton.m */; };
 		5FCB4B60257F72FE006F373F /* FunctionStoreTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB4B5F257F72FE006F373F /* FunctionStoreTool.m */; };
 		5FCB4B64257F753F006F373F /* MKBNewFunctionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB4B61257F753E006F373F /* MKBNewFunctionController.m */; };
 		5FCB4B65257F753F006F373F /* MKBNewFunctionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FCB4B62257F753F006F373F /* MKBNewFunctionController.xib */; };
@@ -187,6 +191,14 @@
 		5F94F982257DFCA200B65614 /* LimitPasteTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LimitPasteTextField.m; sourceTree = "<group>"; };
 		5F94F989257E0C2600B65614 /* NSObject+Description.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Description.h"; sourceTree = "<group>"; };
 		5F94F98A257E0C2600B65614 /* NSObject+Description.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Description.m"; sourceTree = "<group>"; };
+		5FBE89EB2583078E00FB0526 /* ThemeLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeLabel.h; sourceTree = "<group>"; };
+		5FBE89EC2583078E00FB0526 /* ThemeLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeLabel.m; sourceTree = "<group>"; };
+		5FC53B24258319BD00BBA1FF /* UILabel+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Theme.h"; sourceTree = "<group>"; };
+		5FC53B25258319BE00BBA1FF /* UILabel+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Theme.m"; sourceTree = "<group>"; };
+		5FC53B2D25833FBD00BBA1FF /* ThemeImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeImageView.h; sourceTree = "<group>"; };
+		5FC53B2E25833FBD00BBA1FF /* ThemeImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeImageView.m; sourceTree = "<group>"; };
+		5FC53B302583561500BBA1FF /* ThemeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeButton.h; sourceTree = "<group>"; };
+		5FC53B312583561500BBA1FF /* ThemeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeButton.m; sourceTree = "<group>"; };
 		5FCB4B5E257F72FE006F373F /* FunctionStoreTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionStoreTool.h; sourceTree = "<group>"; };
 		5FCB4B5F257F72FE006F373F /* FunctionStoreTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionStoreTool.m; sourceTree = "<group>"; };
 		5FCB4B61257F753E006F373F /* MKBNewFunctionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBNewFunctionController.m; sourceTree = "<group>"; };
@@ -416,6 +428,12 @@
 			children = (
 				5F3A9C5B2580A75E00CC7E25 /* ThemeConfig.h */,
 				5F3A9C5C2580A75E00CC7E25 /* ThemeConfig.m */,
+				5FBE89EB2583078E00FB0526 /* ThemeLabel.h */,
+				5FBE89EC2583078E00FB0526 /* ThemeLabel.m */,
+				5FC53B2D25833FBD00BBA1FF /* ThemeImageView.h */,
+				5FC53B2E25833FBD00BBA1FF /* ThemeImageView.m */,
+				5FC53B302583561500BBA1FF /* ThemeButton.h */,
+				5FC53B312583561500BBA1FF /* ThemeButton.m */,
 			);
 			path = ThemeConfig;
 			sourceTree = "<group>";
@@ -722,6 +740,8 @@
 				5F3A9C5525809E9C00CC7E25 /* UIControl+KKClickInterval.m */,
 				5F3A9C572580A65200CC7E25 /* UIImage+Color.h */,
 				5F3A9C582580A65200CC7E25 /* UIImage+Color.m */,
+				5FC53B24258319BD00BBA1FF /* UILabel+Theme.h */,
+				5FC53B25258319BE00BBA1FF /* UILabel+Theme.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1231,6 +1251,7 @@
 				AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */,
 				AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */,
 				5FD0EA1F257F4C2400539F9B /* UIView+Extension.m in Sources */,
+				5FC53B2F25833FBD00BBA1FF /* ThemeImageView.m in Sources */,
 				AD9960222050DE1700B74D28 /* CheckTableViewCell.m in Sources */,
 				AD37BE4D20455FC6002D59CD /* CustomTabBarController.m in Sources */,
 				AD82D9FB20590BA2004D08C7 /* YYFPSLabel.m in Sources */,
@@ -1261,6 +1282,7 @@
 				AD37BE6E204792A7002D59CD /* LoginViewController.m in Sources */,
 				5F94F97F257DD56600B65614 /* OYCountDownManager.m in Sources */,
 				5F94F983257DFCA200B65614 /* LimitPasteTextField.m in Sources */,
+				5FBE89ED2583078E00FB0526 /* ThemeLabel.m in Sources */,
 				ADB7056E2093194D00B6D4F3 /* EditItemViewController.m in Sources */,
 				AD99601E2050DC4300B74D28 /* CheckModel.m in Sources */,
 				ADF183F420560E36003F9818 /* TagTableViewController.m in Sources */,
@@ -1278,8 +1300,10 @@
 				AD4E4BCC20494A3800027C7B /* TaskViewController.swift in Sources */,
 				ADED1507207470FD001A747B /* PublishTableViewController.m in Sources */,
 				5F82010C2581CB0C0064A4C5 /* ThemeConfigViewController.m in Sources */,
+				5FC53B26258319BE00BBA1FF /* UILabel+Theme.m in Sources */,
 				5FD0EA09257F4B2100539F9B /* MKBFunctionModel.m in Sources */,
 				5F94F96F257DCA6B00B65614 /* NSDate+Extension.m in Sources */,
+				5FC53B322583561500BBA1FF /* ThemeButton.m in Sources */,
 				AD4E4BC42048FB2100027C7B /* AcountTableViewController.swift in Sources */,
 				AD01B33D2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.m in Sources */,
 				5FD0EA2B257F5A4B00539F9B /* CustomBaseViewController.m in Sources */,
