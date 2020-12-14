@@ -53,21 +53,25 @@
     if (!self.isChange) {
         return;
     }
-    [self showLoading:[self.language isEqualToString:@"en"] ? @"switching..." : @"切换中..."];
+//    [self showLoading:[self.language isEqualToString:@"en"] ? @"switching..." : @"切换中..."];
     [[NSUserDefaults standardUserDefaults] setObject:self.language forKey:LANGUAGEKEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    //设置语言
+    [NSBundle setLanguage:self.language];
+    
+    [self showLoading:NSLocalizedString(@"切换中...", nil)];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //设置语言
-        [NSBundle setLanguage:self.language];
+//        [NSBundle setLanguage:self.language];
         
-        // 我们要把系统windown的rootViewController替换掉
+        // 我们要把系统window的rootViewController替换掉
         CustomTabBarController *tab = [[CustomTabBarController alloc] init];
         [UIApplication sharedApplication].keyWindow.rootViewController = tab;
         tab.selectedIndex = 2;
         
         [[(CustomNaviViewController *)tab.selectedViewController topViewController] performSegueWithIdentifier:@"pushPersonCenter" sender:nil];
         
-        HUDNormal([self.language isEqualToString:@"en"] ? @"switch success" : @"切换成功");
+        HUDNormal(NSLocalizedString(@"切换成功", nil));
     });
 }
 
