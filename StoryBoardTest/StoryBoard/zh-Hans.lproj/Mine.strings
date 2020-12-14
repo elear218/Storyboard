@@ -1,0 +1,111 @@
+
+/* Class = "UILabel"; text = "我发布的委托"; ObjectID = "0qN-xK-arT"; */
+"0qN-xK-arT.text" = "我发布的委托";
+
+/* Class = "UILabel"; text = "关于我们"; ObjectID = "7ip-x4-aBx"; */
+"7ip-x4-aBx.text" = "关于我们";
+
+/* Class = "UICollectionViewController"; title = "新品发布(collectionView)"; ObjectID = "82N-MA-1fJ"; */
+"82N-MA-1fJ.title" = "新品发布(collectionView)";
+
+/* Class = "UILabel"; text = "我的浏览记录"; ObjectID = "8fd-sl-Wjp"; */
+"8fd-sl-Wjp.text" = "我的浏览记录";
+
+/* Class = "UITextField"; placeholder = "请输入商品标题"; ObjectID = "8l3-xZ-Xgy"; */
+"8l3-xZ-Xgy.placeholder" = "请输入商品标题";
+
+/* Class = "UINavigationItem"; title = "新手任务"; ObjectID = "DNX-9D-Cqw"; */
+"DNX-9D-Cqw.title" = "新手任务";
+
+/* Class = "UILabel"; text = "商品标题"; ObjectID = "FQQ-6L-Gvv"; */
+"FQQ-6L-Gvv.text" = "商品标题";
+
+/* Class = "UIButton"; normalTitle = "退出登录"; ObjectID = "He2-gp-mBg"; */
+"He2-gp-mBg.normalTitle" = "退出登录";
+
+/* Class = "UILabel"; text = "版本信息"; ObjectID = "IT5-61-5Ds"; */
+"IT5-61-5Ds.text" = "版本信息";
+
+/* Class = "UILabel"; text = "新品发布(tableView)"; ObjectID = "O4a-kU-vf0"; */
+"O4a-kU-vf0.text" = "新品发布(tableView)";
+
+/* Class = "UITableViewController"; title = "新品发布(tableView)"; ObjectID = "OqB-1L-be4"; */
+"OqB-1L-be4.title" = "新品发布(tableView)";
+
+/* Class = "UITextField"; placeholder = "请选择支持项"; ObjectID = "PCb-fm-0fK"; */
+"PCb-fm-0fK.placeholder" = "请选择支持项";
+
+/* Class = "UILabel"; text = "我的粉丝"; ObjectID = "QCR-J3-Zlt"; */
+"QCR-J3-Zlt.text" = "我的粉丝";
+
+/* Class = "UILabel"; text = "我的好友"; ObjectID = "VnR-ho-RrY"; */
+"VnR-ho-RrY.text" = "我的好友";
+
+/* Class = "UITextField"; placeholder = "请选择商品二级分类"; ObjectID = "X3n-yb-3Os"; */
+"X3n-yb-3Os.placeholder" = "请选择商品二级分类";
+
+/* Class = "UILabel"; text = "选择分类"; ObjectID = "XD8-mT-AJx"; */
+"XD8-mT-AJx.text" = "选择分类";
+
+/* Class = "UILabel"; text = "意见反馈"; ObjectID = "YXw-37-MR2"; */
+"YXw-37-MR2.text" = "意见反馈";
+
+/* Class = "UILabel"; text = "多语言"; ObjectID = "cux-jl-Dbk"; */
+"cux-jl-Dbk.text" = "多语言";
+
+/* Class = "UILabel"; text = "新品发布(collectionView)"; ObjectID = "e9P-0J-7l2"; */
+"e9P-0J-7l2.text" = "新品发布(collectionView)";
+
+/* Class = "UILabel"; text = "新手任务"; ObjectID = "fvF-7E-irj"; */
+"fvF-7E-irj.text" = "新手任务";
+
+/* Class = "UITextField"; placeholder = "请输入商品价格"; ObjectID = "j2a-Cd-FR5"; */
+"j2a-Cd-FR5.placeholder" = "请输入商品价格";
+
+/* Class = "UILabel"; text = "我的关注"; ObjectID = "l1x-lg-rfN"; */
+"l1x-lg-rfN.text" = "我的关注";
+
+/* Class = "UILabel"; text = "我关注的房子"; ObjectID = "lLK-8X-OUO"; */
+"lLK-8X-OUO.text" = "我关注的房子";
+
+/* Class = "UILabel"; text = "有效期"; ObjectID = "lWe-GY-4I6"; */
+"lWe-GY-4I6.text" = "有效期";
+
+/* Class = "UILabel"; text = "我的房子"; ObjectID = "liD-Yx-Fvu"; */
+"liD-Yx-Fvu.text" = "我的房子";
+
+/* Class = "UILabel"; text = "单人限购件数"; ObjectID = "nJB-8A-mTY"; */
+"nJB-8A-mTY.text" = "单人限购件数";
+
+/* Class = "UILabel"; text = "价格"; ObjectID = "nzU-FL-40e"; */
+"nzU-FL-40e.text" = "价格";
+
+/* Class = "UILabel"; text = "我的需求"; ObjectID = "oRx-nB-Gtc"; */
+"oRx-nB-Gtc.text" = "我的需求";
+
+/* Class = "UILabel"; text = "我的看房记录"; ObjectID = "obN-YV-35U"; */
+"obN-YV-35U.text" = "我的看房记录";
+
+/* Class = "UITextField"; placeholder = "请选择天数"; ObjectID = "qJ1-5d-8PS"; */
+"qJ1-5d-8PS.placeholder" = "请选择天数";
+
+/* Class = "UINavigationItem"; title = "更多"; ObjectID = "qgL-mf-2HW"; */
+"qgL-mf-2HW.title" = "更多";
+
+/* Class = "UIBarButtonItem"; title = "🔙"; ObjectID = "rjJ-Rv-ZEm"; */
+"rjJ-Rv-ZEm.title" = "🔙";
+
+/* Class = "UIButton"; normalTitle = "回跳传值"; ObjectID = "rwV-Rq-qjj"; */
+"rwV-Rq-qjj.normalTitle" = "回跳传值";
+
+/* Class = "UITextField"; placeholder = "请输入限购件数"; ObjectID = "sNe-9Z-Jjs"; */
+"sNe-9Z-Jjs.placeholder" = "请输入限购件数";
+
+/* Class = "UILabel"; text = "详情描述"; ObjectID = "scD-1h-gR1"; */
+"scD-1h-gR1.text" = "详情描述";
+
+/* Class = "UINavigationItem"; title = "个人中心"; ObjectID = "vFN-Nr-2KA"; */
+"vFN-Nr-2KA.title" = "个人中心";
+
+/* Class = "UILabel"; text = "支持项"; ObjectID = "yhP-W8-Ycz"; */
+"yhP-W8-Ycz.text" = "支持项";

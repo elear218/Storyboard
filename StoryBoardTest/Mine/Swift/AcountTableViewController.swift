@@ -17,6 +17,7 @@ enum ActionIdentifier: String {
     case Feedback
     case AboutUs
     case VersionInfo
+    case ModifyLanguage
 }
 
 class AcountTableViewController: UITableViewController {
@@ -28,6 +29,8 @@ class AcountTableViewController: UITableViewController {
 
         self.contentInsetAdjustment()
         
+        tableView.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 18));
+        tableView.tableFooterView = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1));
         versionLabel.text = "v".appending(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
         print(message: "1234567890")
         // Uncomment the following line to preserve selection between presentations
@@ -78,30 +81,38 @@ class AcountTableViewController: UITableViewController {
         
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         guard let action = ActionIdentifier.init(rawValue: cell.actionIdentifier) else { return }
+        //switch每个case默认break  如果想要执行完之后继续向下进行，在case里面加fallthrough
         switch action {
-        case .MyFriends , .MyFollowing , .MyFans:
-            print(message: 111)
+            case .MyFriends , .MyFollowing , .MyFans:
+                print(message: 111)
+//                fallthrough
+            case .NewTask:
+                print(message: 222)
+                
+            case .NewPublish:
+                print(message: 333)
+                
+    //        case .MyFollowing:
+    //            print(message: 333)
+    //
+    //        case .MyFans:
+    //            print(message: 444)
+                
+            case .Feedback:
+                print(message: 555)
+                
+            case .AboutUs:
+                print(message: 666)
+                
+            case .VersionInfo:
+                print(message: 777)
             
-        case .NewTask:
-            print(message: 222)
-            
-        case .NewPublish:
-            print(message: 333)
-            
-//        case .MyFollowing:
-//            print(message: 333)
-//
-//        case .MyFans:
-//            print(message: 444)
-            
-        case .Feedback:
-            print(message: 555)
-            
-        case .AboutUs:
-            print(message: 666)
-            
-        case .VersionInfo:
-            print(message: 777)
+            case .ModifyLanguage:
+//                print(message: 888);
+                let targetVC: ModifyLanguageViewController? = ModifyLanguageViewController.loadNibVc()
+                guard let vc = targetVC else { return }
+//                self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.present(vc, animated: true, completion: nil)
         }
     }
 
