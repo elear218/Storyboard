@@ -50,7 +50,7 @@
     
     NSMutableArray *vcMutArr = [NSMutableArray arrayWithCapacity:storyboardArr.count];
     
-    NSArray *titleArr = @[@"首页", @"聊天", @"我的"];
+    NSArray *titleArr = @[NSLocalizedString(@"首页", nil), NSLocalizedString(@"聊天", nil), NSLocalizedString(@"我的", nil)];
     [storyboardArr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
        
         //加载Storyboard

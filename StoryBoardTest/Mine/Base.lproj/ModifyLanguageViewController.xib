@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ModifyLanguageViewController">
             <connections>
                 <outlet property="enBtn" destination="DSe-bJ-JW3" id="Pvk-o0-hTb"/>
+                <outlet property="testLabel" destination="Fie-mh-7Vg" id="jSU-Sz-PCK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="zhBtn" destination="fyU-bB-jAu" id="d7e-r3-YDv"/>
             </connections>
@@ -30,6 +31,9 @@
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSe-bJ-JW3">
                     <rect key="frame" x="15" y="438" width="384" height="30"/>
                     <state key="normal" title="英文"/>
+                    <connections>
+                        <action selector="languageBtnClick:" destination="-1" eventType="touchUpInside" id="N5z-5o-D1d"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试文本" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fie-mh-7Vg">
                     <rect key="frame" x="172.5" y="661" width="69.5" height="21"/>

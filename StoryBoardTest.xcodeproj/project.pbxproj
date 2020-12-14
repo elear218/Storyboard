@@ -18,6 +18,7 @@
 		5F8A99DE25873CD7001F8837 /* Elear.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F8A99E025873CD7001F8837 /* Elear.strings */; };
 		5F8A99EE25874B24001F8837 /* ModifyLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F8A99F025874B24001F8837 /* ModifyLanguageViewController.xib */; };
 		5F8A99F525874EFE001F8837 /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8A99F725874EFE001F8837 /* Mine.storyboard */; };
+		5F8A99FE25875634001F8837 /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A99FD25875634001F8837 /* NSBundle+Language.m */; };
 		5F94F967257DCA2000B65614 /* UIViewController+DDYPresent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F966257DCA2000B65614 /* UIViewController+DDYPresent.m */; };
 		5F94F96E257DCA6B00B65614 /* NSNull+NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F96B257DCA6B00B65614 /* NSNull+NullSafe.m */; };
 		5F94F96F257DCA6B00B65614 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F94F96C257DCA6B00B65614 /* NSDate+Extension.m */; };
@@ -192,6 +193,8 @@
 		5F8A99F825874F02001F8837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Mine.storyboard; sourceTree = "<group>"; };
 		5F8A99FA25874F06001F8837 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Mine.strings"; sourceTree = "<group>"; };
 		5F8A99FB25874F0B001F8837 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Mine.strings; sourceTree = "<group>"; };
+		5F8A99FC25875634001F8837 /* NSBundle+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
+		5F8A99FD25875634001F8837 /* NSBundle+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
 		5F94F965257DCA2000B65614 /* UIViewController+DDYPresent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DDYPresent.h"; sourceTree = "<group>"; };
 		5F94F966257DCA2000B65614 /* UIViewController+DDYPresent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DDYPresent.m"; sourceTree = "<group>"; };
 		5F94F968257DCA6A00B65614 /* NSDate+WHDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WHDate.h"; sourceTree = "<group>"; };
@@ -765,6 +768,8 @@
 				5F3A9C582580A65200CC7E25 /* UIImage+Color.m */,
 				5FC53B24258319BD00BBA1FF /* UILabel+Theme.h */,
 				5FC53B25258319BE00BBA1FF /* UILabel+Theme.m */,
+				5F8A99FC25875634001F8837 /* NSBundle+Language.h */,
+				5F8A99FD25875634001F8837 /* NSBundle+Language.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1307,6 +1312,7 @@
 				AD70DC4A206E098A00561710 /* ImagePickerCell.m in Sources */,
 				5FD0EA35257F5C7A00539F9B /* JZBaseTableViewCell.m in Sources */,
 				AD37BE0F204552BF002D59CD /* AppDelegate.m in Sources */,
+				5F8A99FE25875634001F8837 /* NSBundle+Language.m in Sources */,
 				ADF4657E207DF13700933BF2 /* EnterViewController.m in Sources */,
 				AD84C95D2057B6D500043B6C /* FoldTableViewCell.m in Sources */,
 				AD7848542057667800FAF340 /* Fold1TableViewController.m in Sources */,

@@ -32,6 +32,7 @@
 #import "UIColor+Additional.h"
 #import "NSString+Additional.h"
 #import "UIImage+Color.h"
+#import "NSBundle+Language.h"
 
 #import "ThemeLabel.h"
 #import "ThemeImageView.h"

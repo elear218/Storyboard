@@ -36,6 +36,10 @@
     [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:LANGUAGEKEY] && [[[NSUserDefaults standardUserDefaults] objectForKey:LANGUAGEKEY] length]) {
+        [NSBundle setLanguage:[[NSUserDefaults standardUserDefaults] objectForKey:LANGUAGEKEY]];
+    }
+    
     //项目整体都可以实现点击间隔，如果单独修改某个 UIButton，可以设置 clickInterval 和 ignoreClickInterval
     //btn.clickInterval = 5;  btn.ignoreClickInterval = NO;
     [UIButton kk_exchangeClickMethod];
