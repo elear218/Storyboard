@@ -28,7 +28,7 @@ TTGTagCollectionView is useful for showing different size tag views in a vertica
 ## Demo
 You can find demos in the `Example->TTGTagCollectionView.xcworkspace` project.
 
-![Example project](https://github.com/zekunyan/TTGTagCollectionView/raw/master/Resources/demo_example.png)
+![Example project](https://github.com/zekunyan/TTGTagCollectionView/raw/master/Resources/demo_example.jpeg)
 
 ## Requirements
 iOS 7 and later.
@@ -54,7 +54,7 @@ github "zekunyan/TTGTagCollectionView"
 Use TTGTextTagCollectionView to show text tags.
 
 #### Basic usage
-```
+```Objective-C
 TTGTextTagCollectionView *tagCollectionView = [[TTGTextTagCollectionView alloc] initWithFrame:CGRectMake(20, 20, 200, 200)];
 [self.view addSubview:tagCollectionView];
 [tagCollectionView addTags:@[@"TTG", @"Tag", @"collection", @"view"]];
@@ -64,70 +64,94 @@ TTGTextTagCollectionView *tagCollectionView = [[TTGTextTagCollectionView alloc] 
 #### Delegate
 Conform the `TTGTextTagCollectionViewDelegate` protocol to get callback when you select the tag or content height changes.
 
-```
+```Objective-C
 @protocol TTGTextTagCollectionViewDelegate <NSObject>
 @optional
-- (BOOL)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView canTapTag:(NSString *)tagText atIndex:(NSUInteger)index currentSelected:(BOOL)currentSelected;
+- (BOOL)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView
+                    canTapTag:(NSString *)tagText
+                      atIndex:(NSUInteger)index
+              currentSelected:(BOOL)currentSelected
+                    tagConfig:(TTGTextTagConfig *)config;
 
-- (void)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView didTapTag:(NSString *)tagText atIndex:(NSUInteger)index selected:(BOOL)selected;
+- (void)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView
+                    didTapTag:(NSString *)tagText
+                      atIndex:(NSUInteger)index
+                     selected:(BOOL)selected
+                    tagConfig:(TTGTextTagConfig *)config;
 
-- (void)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView updateContentSize:(CGSize)contentSize;
+- (void)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView
+            updateContentSize:(CGSize)contentSize;
 @end
 ```
 
 #### Customization
 Each tag can be configured.
 
-```
+```Objective-C
 @interface TTGTextTagConfig : NSObject
+
 // Text font
-@property (strong, nonatomic) UIFont *tagTextFont;
+@property (strong, nonatomic) UIFont *textFont;
 
 // Text color
-@property (strong, nonatomic) UIColor *tagTextColor;
-@property (strong, nonatomic) UIColor *tagSelectedTextColor;
+@property (strong, nonatomic) UIColor *textColor;
+@property (strong, nonatomic) UIColor *selectedTextColor;
 
 // Background color
-@property (strong, nonatomic) UIColor *tagBackgroundColor;
-@property (strong, nonatomic) UIColor *tagSelectedBackgroundColor;
+@property (strong, nonatomic) UIColor *backgroundColor;
+@property (strong, nonatomic) UIColor *selectedBackgroundColor;
 
 // Gradient background color
-@property (assign, nonatomic) BOOL tagShouldUseGradientBackgrounds; // Default is `NO`. If set, solid background colors are ignored.
-@property (strong, nonatomic) UIColor *tagGradientBackgroundStartColor;
-@property (strong, nonatomic) UIColor *tagGradientBackgroundEndColor;
-@property (strong, nonatomic) UIColor *tagSelectedGradientBackgroundStartColor;
-@property (strong, nonatomic) UIColor *tagSelectedGradientBackgroundEndColor;
-@property (assign, nonatomic) CGPoint tagGradientStartPoint; // Default is `(0.5, 0)`.
-@property (assign, nonatomic) CGPoint tagGradientEndPoint; // Default is `(0.5, 1)`.
+@property (assign, nonatomic) BOOL enableGradientBackground;
+@property (strong, nonatomic) UIColor *gradientBackgroundStartColor;
+@property (strong, nonatomic) UIColor *gradientBackgroundEndColor;
+@property (strong, nonatomic) UIColor *selectedGradientBackgroundStartColor;
+@property (strong, nonatomic) UIColor *selectedGradientBackgroundEndColor;
+@property (assign, nonatomic) CGPoint gradientBackgroundStartPoint;
+@property (assign, nonatomic) CGPoint gradientBackgroundEndPoint;
 
 // Corner radius
-@property (assign, nonatomic) CGFloat tagCornerRadius;
-@property (assign, nonatomic) CGFloat tagSelectedCornerRadius;
+@property (assign, nonatomic) CGFloat cornerRadius;
+@property (assign, nonatomic) CGFloat selectedCornerRadius;
+@property (assign, nonatomic) Boolean cornerTopRight;
+@property (assign, nonatomic) Boolean cornerTopLeft;
+@property (assign, nonatomic) Boolean cornerBottomRight;
+@property (assign, nonatomic) Boolean cornerBottomLeft;
 
 // Border
-@property (assign, nonatomic) CGFloat tagBorderWidth;
-@property (assign, nonatomic) CGFloat tagSelectedBorderWidth;
-@property (strong, nonatomic) UIColor *tagBorderColor;
-@property (strong, nonatomic) UIColor *tagSelectedBorderColor;
+@property (assign, nonatomic) CGFloat borderWidth;
+@property (assign, nonatomic) CGFloat selectedBorderWidth;
+@property (strong, nonatomic) UIColor *borderColor;
+@property (strong, nonatomic) UIColor *selectedBorderColor;
 
-// Tag shadow.
-@property (nonatomic, copy) UIColor *tagShadowColor;    // Default is [UIColor black]
-@property (nonatomic, assign) CGSize tagShadowOffset;   // Default is (2, 2)
-@property (nonatomic, assign) CGFloat tagShadowRadius;  // Default is 2f
-@property (nonatomic, assign) CGFloat tagShadowOpacity; // Default is 0.3f
+// Shadow.
+@property (nonatomic, copy) UIColor *shadowColor;    // Default is [UIColor black]
+@property (nonatomic, assign) CGSize shadowOffset;   // Default is (2, 2)
+@property (nonatomic, assign) CGFloat shadowRadius;  // Default is 2f
+@property (nonatomic, assign) CGFloat shadowOpacity; // Default is 0.3f
 
-// Tag extra space in width and height, will expand each tag's size
-@property (assign, nonatomic) CGSize tagExtraSpace;
-// Tag max width for a text tag. 0 and below means no max width.
-@property (assign, nonatomic) CGFloat tagMaxWidth;
-// Tag min width for a text tag. 0 and below means no min width.
-@property (assign, nonatomic) CGFloat tagMinWidth;
+// Extra space in width and height, will expand each tag's size
+@property (assign, nonatomic) CGSize extraSpace;
+
+// Max width for a text tag. 0 and below means no max width.
+@property (assign, nonatomic) CGFloat maxWidth;
+// Min width for a text tag. 0 and below means no min width.
+@property (assign, nonatomic) CGFloat minWidth;
+
+// Exact width. 0 and below means no work
+@property (nonatomic, assign) CGFloat exactWidth;
+// Exact height. 0 and below means no work
+@property (nonatomic, assign) CGFloat exactHeight;
+
+// Extra data. You can use this to bind any object you want to each tag.
+@property (nonatomic, strong) NSObject *extraData;
+
 @end
 ```
 
 You can also configure scroll direction, alignment, lines limit, spacing and inset.
 
-```
+```Objective-C
 // Define if the tag can be selected.
 @property (assign, nonatomic) BOOL enableTagSelection;
 
@@ -166,7 +190,7 @@ You can also configure scroll direction, alignment, lines limit, spacing and ins
 
 Alignment types:
 
-```
+```Objective-C
 typedef NS_ENUM(NSInteger, TTGTagCollectionAlignment) {
     TTGTagCollectionAlignmentLeft = 0,                           // Default
     TTGTagCollectionAlignmentCenter,                             // Center
@@ -181,7 +205,7 @@ typedef NS_ENUM(NSInteger, TTGTagCollectionAlignment) {
 
 Add tag.
 
-```
+```Objective-C
 // Add tag with detalt config
 - (void)addTag:(NSString *)tag;
 - (void)addTags:(NSArray <NSString *> *)tags;
@@ -193,7 +217,7 @@ Add tag.
 
 Insert tag.
 
-```
+```Objective-C
 // Insert tag with default config
 - (void)insertTag:(NSString *)tag atIndex:(NSUInteger)index;
 - (void)insertTags:(NSArray <NSString *> *)tags atIndex:(NSUInteger)index;
@@ -205,7 +229,7 @@ Insert tag.
 
 Remove tag.
 
-```
+```Objective-C
 // Remove tag
 - (void)removeTag:(NSString *)tag;
 - (void)removeTagAtIndex:(NSUInteger)index;
@@ -214,12 +238,13 @@ Remove tag.
 
 #### Config tag selection
 
-```
+```Objective-C
 - (void)setTagAtIndex:(NSUInteger)index selected:(BOOL)selected;
 ```
 
 #### Update tag style config
-```
+
+```Objective-C
 // Update tag config
 - (void)setTagAtIndex:(NSUInteger)index withConfig:(TTGTextTagConfig *)config;
 - (void)setTagsInRange:(NSRange)range withConfig:(TTGTextTagConfig *)config;
@@ -227,7 +252,7 @@ Remove tag.
 
 #### Get tag information
 
-```
+```Objective-C
 // Get tag
 - (NSString *)getTagAtIndex:(NSUInteger)index;
 - (NSArray <NSString *> *)getTagsInRange:(NSRange)range;
@@ -245,13 +270,14 @@ Remove tag.
 #### Reload
 You can reload tags programmatically.
 
-```
+```Objective-C
 - (void)reload;
 ```
 
 #### Index at point
 Returns the index of the tag located at the specified point.
-```
+
+```Objective-C
 - (NSInteger)indexOfTagAt:(CGPoint)point;
 ```
 
@@ -263,7 +289,7 @@ Just like the UITableView, you must conform and implement the required methods o
 
 **DataSource**
 
-```
+```Objective-C
 @protocol TTGTagCollectionViewDataSource <NSObject>
 @required
 - (NSUInteger)numberOfTagsInTagCollectionView:(TTGTagCollectionView *)tagCollectionView;
@@ -274,7 +300,7 @@ Just like the UITableView, you must conform and implement the required methods o
 
 **Delegate**
 
-```
+```Objective-C
 @protocol TTGTagCollectionViewDelegate <NSObject>
 @required
 - (CGSize)tagCollectionView:(TTGTagCollectionView *)tagCollectionView sizeForTagAtIndex:(NSUInteger)index;
@@ -290,7 +316,7 @@ Just like the UITableView, you must conform and implement the required methods o
 
 #### Customization
 
-```
+```Objective-C
 // Tags scroll direction, default is vertical.
 @property (nonatomic, assign) TTGTagCollectionScrollDirection scrollDirection;
 
@@ -323,13 +349,15 @@ Just like the UITableView, you must conform and implement the required methods o
 
 #### Reload
 You can reload tags programmatically.
-```
+
+```Objective-C
 - (void)reload;
 ```
 
 #### Index at point
 Returns the index of the tag located at the specified point.
-```
+
+```Objective-C
 - (NSInteger)indexOfTagAt:(CGPoint)point;
 ```
 

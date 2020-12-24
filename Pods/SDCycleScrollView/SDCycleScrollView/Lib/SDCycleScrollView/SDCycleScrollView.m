@@ -477,7 +477,7 @@ NSString * const ID = @"SDCycleScrollViewCell";
 
 + (void)clearImagesCache
 {
-    [[[SDWebImageManager sharedManager] imageCache] clearDiskOnCompletion:nil];
+    [[[SDWebImageManager sharedManager] imageCache] clearWithCacheType:SDImageCacheTypeDisk completion:nil];
 }
 
 #pragma mark - life circles
@@ -510,6 +510,13 @@ NSString * const ID = @"SDCycleScrollViewCell";
         size = [pageControl sizeForNumberOfPages:self.imagePathsGroup.count];
     } else {
         size = CGSizeMake(self.imagePathsGroup.count * self.pageControlDotSize.width * 1.5, self.pageControlDotSize.height);
+        // ios14 需要按照系统规则适配pageControl size
+        if (@available(iOS 14.0, *)) {
+            if ([self.pageControl isKindOfClass:[UIPageControl class]]) {
+                UIPageControl *pageControl = (UIPageControl *)_pageControl;
+                size.width = [pageControl sizeForNumberOfPages:self.imagePathsGroup.count].width;
+            }
+        }
     }
     CGFloat x = (self.sd_width - size.width) * 0.5;
     if (self.pageControlAliment == SDCycleScrollViewPageContolAlimentRight) {

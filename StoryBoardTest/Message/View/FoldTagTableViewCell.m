@@ -27,15 +27,15 @@
 - (TTGTextTagConfig *)config {
     if (!_config) {
         _config = [[TTGTextTagConfig alloc] init];
-        _config.tagTextColor = [UIColor blackColor];
-        _config.tagSelectedTextColor = [UIColor whiteColor];
-        _config.tagBackgroundColor = [UIColor whiteColor];
-        _config.tagSelectedBackgroundColor = [UIColor purpleColor];
-        _config.tagCornerRadius = _config.tagSelectedCornerRadius = 12.5f;
-        _config.tagBorderWidth = _config.tagSelectedBorderWidth = 2.f;
-        _config.tagBorderColor = [UIColor blackColor];
-        _config.tagSelectedBorderColor = [UIColor whiteColor];
-        _config.tagExtraSpace = CGSizeMake(20, 10);
+        _config.textColor = [UIColor blackColor];
+        _config.selectedTextColor = [UIColor whiteColor];
+        _config.backgroundColor = [UIColor whiteColor];
+        _config.selectedBackgroundColor = [UIColor purpleColor];
+        _config.cornerRadius = _config.selectedCornerRadius = 12.5f;
+        _config.borderWidth = _config.selectedBorderWidth = 2.f;
+        _config.borderColor = [UIColor blackColor];
+        _config.selectedBorderColor = [UIColor whiteColor];
+        _config.extraSpace = CGSizeMake(20, 10);
     }
     return _config;
 }

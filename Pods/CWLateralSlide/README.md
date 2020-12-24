@@ -2,7 +2,7 @@
 ![iOS7+](https://img.shields.io/badge/iOS-7%2B-orange.svg)
 [![Version](https://img.shields.io/cocoapods/v/CWLateralSlide.svg?style=flat)](https://cocoapods.org/pods/CWLateralSlide)
 
-打破传统侧滑抽屉框架LeftVC，RightVC，CenterVC模式，使用自定义转场动画实现的**0耦合、0侵入、0污染**的抽屉框架，抽屉控制器拥有完整的生命周期函数调用，关闭抽屉时抽屉不会展示在我们看不见的地方（屏幕外，或者根控制器下边），**最重要的是简单：只要一行代码就能拥有一个侧滑抽屉**。
+打破传统侧滑抽屉框架LeftVC，RightVC，CenterVC模式，使用自定义转场动画实现的**0耦合、0侵入、0污染**的抽屉框架，抽屉控制器拥有完整的生命周期函数调用，关闭抽屉时抽屉不会展示在我们看不见的地方（屏幕外，或者根控制器下边）,**最重要的是简单：只要一行代码就能拥有一个侧滑抽屉**。
 
 实现的一些细节方面可以看一下我的文章
 [需要侧滑抽屉效果？一行代码足以](https://juejin.im/post/5a444b94518825698e7259f6) 
@@ -16,7 +16,7 @@
 platform :ios, '7.0'
 
 target 'TargetName' do
-pod 'CWLateralSlide', '~> 1.6.1'
+pod 'CWLateralSlide', '~> 1.6.3'
 end
 ```
 **搜索不到最新版本的解决方法：**
@@ -68,6 +68,9 @@ vc为你需要侧滑出来的控制器，调用这个方法你就拥有一个抽
     NextViewController *vc = [NextViewController new];
     //  在侧滑的控制器内(没有导航控制器)，调用这个方法进行push操作就可以了
     [self cw_pushViewController:vc];
+    // present & dismiss
+    [self cw_presentViewController:vc];
+    [self cw_dismissViewController];
 ```
 ### 5、主动关闭抽屉
 ```objective-c
@@ -88,6 +91,10 @@ vc为你需要侧滑出来的控制器，调用这个方法你就拥有一个抽
 
 ## update：
 ```
+1.6.4
+优化边缘手势
+1.6.3
+修改cw_present 以及 cw_dismiss接口。
 1.6.2
 添加多手势冲突自定义处理接口。
 1.6.1
@@ -141,4 +148,5 @@ vc为你需要侧滑出来的控制器，调用这个方法你就拥有一个抽
 
 **QQ\微信:543438338**
 
-最后希望大家给个star支持一下，感谢。
+最后希望大家给个star支持一下，感谢。  
+#### 广而告之：欢聚时代YY直播团队招聘iOS开发，位置广州番禺南村万博万达广场，有兴趣的可以将简历发送至 chenwang@yy.com 或者加我微信/QQ联系我，其他任意岗位也可以联系我内推哦，让我赚点外快吧😂

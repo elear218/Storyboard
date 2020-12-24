@@ -9,7 +9,7 @@
 #import "TZPhotoPreviewController.h"
 #import "TZPhotoPreviewCell.h"
 #import "TZAssetModel.h"
-#import "UIView+Layout.h"
+#import "UIView+TZLayout.h"
 #import "TZImagePickerController.h"
 #import "TZImageManager.h"
 #import "TZImageCropManager.h"
@@ -42,6 +42,7 @@
 
 @property (nonatomic, assign) double progress;
 @property (strong, nonatomic) UIAlertController *alertView;
+@property (nonatomic, strong) UIView *iCloudErrorView;
 @end
 
 @implementation TZPhotoPreviewController
@@ -61,7 +62,7 @@
     [self configCustomNaviBar];
     [self configBottomToolBar];
     self.view.clipsToBounds = YES;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }
 
 - (void)setIsSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto {
@@ -78,17 +79,19 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [UIApplication sharedApplication].statusBarHidden = YES;
-    if (_currentIndex) [_collectionView setContentOffset:CGPointMake((self.view.tz_width + 20) * _currentIndex, 0) animated:NO];
+    if (_currentIndex) {
+        [_collectionView setContentOffset:CGPointMake((self.view.tz_width + 20) * self.currentIndex, 0) animated:NO];
+    }
     [self refreshNaviBarAndBottomBarState];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
     TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
     if (tzImagePickerVc.needShowStatusBar) {
         [UIApplication sharedApplication].statusBarHidden = NO;
     }
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [TZImageManager manager].shouldFixOrientation = NO;
 }
 
@@ -103,7 +106,7 @@
     _naviBar.backgroundColor = [UIColor colorWithRed:(34/255.0) green:(34/255.0)  blue:(34/255.0) alpha:0.7];
     
     _backButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    [_backButton setImage:[UIImage imageNamedFromMyBundle:@"navi_back"] forState:UIControlStateNormal];
+    [_backButton setImage:[UIImage tz_imageNamedFromMyBundle:@"navi_back"] forState:UIControlStateNormal];
     [_backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_backButton addTarget:self action:@selector(backButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -117,6 +120,7 @@
     _selectButton.hidden = !tzImagePickerVc.showSelectBtn;
     
     _indexLabel = [[UILabel alloc] init];
+    _indexLabel.adjustsFontSizeToFitWidth = YES;
     _indexLabel.font = [UIFont systemFontOfSize:14];
     _indexLabel.textColor = [UIColor whiteColor];
     _indexLabel.textAlignment = NSTextAlignmentCenter;
@@ -135,7 +139,7 @@
     TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
     if (_tzImagePickerVc.allowPickingOriginalPhoto) {
         _originalPhotoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _originalPhotoButton.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+        _originalPhotoButton.imageEdgeInsets = UIEdgeInsetsMake(0, [TZCommonTools tz_isRightToLeftLayout] ? 10 : -10, 0, 0);
         _originalPhotoButton.backgroundColor = [UIColor clearColor];
         [_originalPhotoButton addTarget:self action:@selector(originalPhotoButtonClick) forControlEvents:UIControlEventTouchUpInside];
         _originalPhotoButton.titleLabel.font = [UIFont systemFontOfSize:13];
@@ -168,6 +172,7 @@
     
     _numberLabel = [[UILabel alloc] init];
     _numberLabel.font = [UIFont systemFontOfSize:15];
+    _numberLabel.adjustsFontSizeToFitWidth = YES;
     _numberLabel.textColor = [UIColor whiteColor];
     _numberLabel.textAlignment = NSTextAlignmentCenter;
     _numberLabel.text = [NSString stringWithFormat:@"%zd",_tzImagePickerVc.selectedModels.count];
@@ -202,11 +207,16 @@
     [_collectionView registerClass:[TZPhotoPreviewCell class] forCellWithReuseIdentifier:@"TZPhotoPreviewCell"];
     [_collectionView registerClass:[TZVideoPreviewCell class] forCellWithReuseIdentifier:@"TZVideoPreviewCell"];
     [_collectionView registerClass:[TZGifPreviewCell class] forCellWithReuseIdentifier:@"TZGifPreviewCell"];
+    
+    TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
+    if (_tzImagePickerVc.scaleAspectFillCrop && _tzImagePickerVc.allowCrop) {
+        _collectionView.scrollEnabled = NO;
+    }
 }
 
 - (void)configCropView {
     TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
-    if (_tzImagePickerVc.maxImagesCount <= 1 && _tzImagePickerVc.allowCrop) {
+    if (_tzImagePickerVc.maxImagesCount <= 1 && _tzImagePickerVc.allowCrop && _tzImagePickerVc.allowPickingImage) {
         [_cropView removeFromSuperview];
         [_cropBgView removeFromSuperview];
         
@@ -242,9 +252,10 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
-
-    CGFloat statusBarHeight = [TZCommonTools tz_statusBarHeight];
-    CGFloat statusBarHeightInterval = statusBarHeight - 20;
+    
+    BOOL isFullScreen = self.view.tz_height == [UIScreen mainScreen].bounds.size.height;
+    CGFloat statusBarHeight = isFullScreen ? [TZCommonTools tz_statusBarHeight] : 0;
+    CGFloat statusBarHeightInterval = isFullScreen ? (statusBarHeight - 20) : 0;
     CGFloat naviBarHeight = statusBarHeight + _tzImagePickerVc.navigationBar.tz_height;
     _naviBar.frame = CGRectMake(0, 0, self.view.tz_width, naviBarHeight);
     _backButton.frame = CGRectMake(10, 10 + statusBarHeightInterval, 44, 44);
@@ -264,7 +275,7 @@
         [_collectionView reloadData];
     }
     
-    CGFloat toolBarHeight = [TZCommonTools tz_isIPhoneX] ? 44 + (83 - 49) : 44;
+    CGFloat toolBarHeight = 44 + [TZCommonTools tz_safeAreaInsets].bottom;
     CGFloat toolBarTop = self.view.tz_height - toolBarHeight;
     _toolBar.frame = CGRectMake(0, toolBarTop, self.view.tz_width, toolBarHeight);
     if (_tzImagePickerVc.allowPickingOriginalPhoto) {
@@ -294,7 +305,7 @@
 
 - (void)select:(UIButton *)selectButton {
     TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
-    TZAssetModel *model = _models[_currentIndex];
+    TZAssetModel *model = _models[self.currentIndex];
     if (!selectButton.isSelected) {
         // 1. select:check if over the maxImagesCount / 选择照片,检查是否超过了最大个数的限制
         if (_tzImagePickerVc.selectedModels.count >= _tzImagePickerVc.maxImagesCount) {
@@ -303,10 +314,13 @@
             return;
             // 2. if not over the maxImagesCount / 如果没有超过最大个数限制
         } else {
+            if ([[TZImageManager manager] isAssetCannotBeSelected:model.asset]) {
+                return;
+            }
             [_tzImagePickerVc addSelectedModel:model];
             if (self.photos) {
-                [_tzImagePickerVc.selectedAssets addObject:_assetsTemp[_currentIndex]];
-                [self.photos addObject:_photosTemp[_currentIndex]];
+                [_tzImagePickerVc.selectedAssets addObject:_assetsTemp[self.currentIndex]];
+                [self.photos addObject:_photosTemp[self.currentIndex]];
             }
             if (model.type == TZAssetModelMediaTypeVideo && !_tzImagePickerVc.allowPickingMultipleVideo) {
                 [_tzImagePickerVc showAlertWithTitle:[NSBundle tz_localizedStringForKey:@"Select the video when in multi state, we will handle the video as a photo"]];
@@ -331,13 +345,13 @@
                     NSArray *selectedAssetsTmp = [NSArray arrayWithArray:_tzImagePickerVc.selectedAssets];
                     for (NSInteger i = 0; i < selectedAssetsTmp.count; i++) {
                         id asset = selectedAssetsTmp[i];
-                        if ([asset isEqual:_assetsTemp[_currentIndex]]) {
+                        if ([asset isEqual:_assetsTemp[self.currentIndex]]) {
                             [_tzImagePickerVc.selectedAssets removeObjectAtIndex:i];
                             break;
                         }
                     }
-                    // [_tzImagePickerVc.selectedAssets removeObject:_assetsTemp[_currentIndex]];
-                    [self.photos removeObject:_photosTemp[_currentIndex]];
+                    // [_tzImagePickerVc.selectedAssets removeObject:_assetsTemp[self.currentIndex]];
+                    [self.photos removeObject:_photosTemp[self.currentIndex]];
                 }
                 break;
             }
@@ -377,15 +391,18 @@
     }
     
     // 如果没有选中过照片 点击确定时选中当前预览的照片
-    if (_tzImagePickerVc.selectedModels.count == 0 && _tzImagePickerVc.minImagesCount <= 0) {
-        TZAssetModel *model = _models[_currentIndex];
-        [_tzImagePickerVc addSelectedModel:model];
+    if (_tzImagePickerVc.selectedModels.count == 0 && _tzImagePickerVc.minImagesCount <= 0 && _tzImagePickerVc.autoSelectCurrentWhenDone) {
+        TZAssetModel *model = _models[self.currentIndex];
+        if ([[TZImageManager manager] isAssetCannotBeSelected:model.asset]) {
+            return;
+        }
+        [self select:_selectButton];
     }
-    if (_tzImagePickerVc.allowCrop) { // 裁剪状态
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
+    TZPhotoPreviewCell *cell = (TZPhotoPreviewCell *)[_collectionView cellForItemAtIndexPath:indexPath];
+    if (_tzImagePickerVc.allowCrop && [cell isKindOfClass:[TZPhotoPreviewCell class]]) { // 裁剪状态
         _doneButton.enabled = NO;
         [_tzImagePickerVc showProgressHUD];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_currentIndex inSection:0];
-        TZPhotoPreviewCell *cell = (TZPhotoPreviewCell *)[_collectionView cellForItemAtIndexPath:indexPath];
         UIImage *cropedImage = [TZImageCropManager cropImageView:cell.previewView.imageView toRect:_tzImagePickerVc.cropRect zoomScale:cell.previewView.scrollView.zoomScale containerView:self.view];
         if (_tzImagePickerVc.needCircleCrop) {
             cropedImage = [TZImageCropManager circularClipImage:cropedImage];
@@ -393,7 +410,7 @@
         _doneButton.enabled = YES;
         [_tzImagePickerVc hideProgressHUD];
         if (self.doneButtonClickBlockCropMode) {
-            TZAssetModel *model = _models[_currentIndex];
+            TZAssetModel *model = _models[self.currentIndex];
             self.doneButtonClickBlockCropMode(cropedImage,model.asset);
         }
     } else if (self.doneButtonClickBlock) { // 非裁剪状态
@@ -405,6 +422,10 @@
 }
 
 - (void)originalPhotoButtonClick {
+    TZAssetModel *model = _models[self.currentIndex];
+    if ([[TZImageManager manager] isAssetCannotBeSelected:model.asset]) {
+        return;
+    }
     _originalPhotoButton.selected = !_originalPhotoButton.isSelected;
     _isSelectOriginalPhoto = _originalPhotoButton.isSelected;
     _originalPhotoLabel.hidden = !_originalPhotoButton.isSelected;
@@ -433,12 +454,10 @@
     offSetWidth = offSetWidth +  ((self.view.tz_width + 20) * 0.5);
     
     NSInteger currentIndex = offSetWidth / (self.view.tz_width + 20);
-    
     if (currentIndex < _models.count && _currentIndex != currentIndex) {
         _currentIndex = currentIndex;
         [self refreshNaviBarAndBottomBarState];
     }
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"photoPreviewCollectionViewDidScroll" object:nil];
 }
 
@@ -456,31 +475,45 @@
     __weak typeof(self) weakSelf = self;
     if (_tzImagePickerVc.allowPickingMultipleVideo && model.type == TZAssetModelMediaTypeVideo) {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TZVideoPreviewCell" forIndexPath:indexPath];
+        TZVideoPreviewCell *currentCell = (TZVideoPreviewCell *)cell;
+        currentCell.iCloudSyncFailedHandle = ^(id asset, BOOL isSyncFailed) {
+            model.iCloudFailed = isSyncFailed;
+            [weakSelf didICloudSyncStatusChanged:model];
+        };
     } else if (_tzImagePickerVc.allowPickingMultipleVideo && model.type == TZAssetModelMediaTypePhotoGif && _tzImagePickerVc.allowPickingGif) {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TZGifPreviewCell" forIndexPath:indexPath];
+        TZGifPreviewCell *currentCell = (TZGifPreviewCell *)cell;
+        currentCell.previewView.iCloudSyncFailedHandle = ^(id asset, BOOL isSyncFailed) {
+            model.iCloudFailed = isSyncFailed;
+            [weakSelf didICloudSyncStatusChanged:model];
+        };
     } else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TZPhotoPreviewCell" forIndexPath:indexPath];
         TZPhotoPreviewCell *photoPreviewCell = (TZPhotoPreviewCell *)cell;
         photoPreviewCell.cropRect = _tzImagePickerVc.cropRect;
         photoPreviewCell.allowCrop = _tzImagePickerVc.allowCrop;
-        __weak typeof(_tzImagePickerVc) weakTzImagePickerVc = _tzImagePickerVc;
+        photoPreviewCell.scaleAspectFillCrop = _tzImagePickerVc.scaleAspectFillCrop;
         __weak typeof(_collectionView) weakCollectionView = _collectionView;
         __weak typeof(photoPreviewCell) weakCell = photoPreviewCell;
         [photoPreviewCell setImageProgressUpdateBlock:^(double progress) {
             __strong typeof(weakSelf) strongSelf = weakSelf;
-            __strong typeof(weakTzImagePickerVc) strongTzImagePickerVc = weakTzImagePickerVc;
             __strong typeof(weakCollectionView) strongCollectionView = weakCollectionView;
             __strong typeof(weakCell) strongCell = weakCell;
             strongSelf.progress = progress;
             if (progress >= 1) {
                 if (strongSelf.isSelectOriginalPhoto) [strongSelf showPhotoBytes];
                 if (strongSelf.alertView && [strongCollectionView.visibleCells containsObject:strongCell]) {
-                    [strongTzImagePickerVc hideAlertView:strongSelf.alertView];
-                    strongSelf.alertView = nil;
-                    [strongSelf doneButtonClick];
+                    [strongSelf.alertView dismissViewControllerAnimated:YES completion:^{
+                        strongSelf.alertView = nil;
+                        [strongSelf doneButtonClick];
+                    }];
                 }
             }
         }];
+        photoPreviewCell.previewView.iCloudSyncFailedHandle = ^(id asset, BOOL isSyncFailed) {
+            model.iCloudFailed = isSyncFailed;
+            [weakSelf didICloudSyncStatusChanged:model];
+        };
     }
     
     cell.model = model;
@@ -488,6 +521,7 @@
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf didTapPreviewCell];
     }];
+
     return cell;
 }
 
@@ -501,23 +535,27 @@
     if ([cell isKindOfClass:[TZPhotoPreviewCell class]]) {
         [(TZPhotoPreviewCell *)cell recoverSubviews];
     } else if ([cell isKindOfClass:[TZVideoPreviewCell class]]) {
-        [(TZVideoPreviewCell *)cell pausePlayerAndShowNaviBar];
+        TZVideoPreviewCell *videoCell = (TZVideoPreviewCell *)cell;
+        if (videoCell.player && videoCell.player.rate != 0.0) {
+            [videoCell pausePlayerAndShowNaviBar];
+        }
     }
 }
 
 #pragma mark - Private Method
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     // NSLog(@"%@ dealloc",NSStringFromClass(self.class));
 }
 
 - (void)refreshNaviBarAndBottomBarState {
     TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
-    TZAssetModel *model = _models[_currentIndex];
+    TZAssetModel *model = _models[self.currentIndex];
     _selectButton.selected = model.isSelected;
     [self refreshSelectButtonImageViewContentMode];
     if (_selectButton.isSelected && _tzImagePickerVc.showSelectedIndex && _tzImagePickerVc.showSelectBtn) {
-        NSString *index = [NSString stringWithFormat:@"%zd", [_tzImagePickerVc.selectedAssetIds indexOfObject:model.asset.localIdentifier] + 1];
+        NSString *index = [NSString stringWithFormat:@"%d", (int)([_tzImagePickerVc.selectedAssetIds indexOfObject:model.asset.localIdentifier] + 1)];
         _indexLabel.text = index;
         _indexLabel.hidden = NO;
     } else {
@@ -554,6 +592,11 @@
         _originalPhotoLabel.hidden = YES;
         _doneButton.hidden = YES;
     }
+    // iCloud同步失败的UI刷新
+    [self didICloudSyncStatusChanged:model];
+    if (_tzImagePickerVc.photoPreviewPageDidRefreshStateBlock) {
+        _tzImagePickerVc.photoPreviewPageDidRefreshStateBlock(_collectionView, _naviBar, _backButton, _selectButton, _indexLabel, _toolBar, _originalPhotoButton, _originalPhotoLabel, _doneButton, _numberImageView, _numberLabel);
+    }
 }
 
 - (void)refreshSelectButtonImageViewContentMode {
@@ -566,10 +609,33 @@
     });
 }
 
+- (void)didICloudSyncStatusChanged:(TZAssetModel *)model{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
+        // onlyReturnAsset为NO时,依赖TZ返回大图,所以需要有iCloud同步失败的提示,并且不能选择,
+        if (_tzImagePickerVc.onlyReturnAsset) {
+            return;
+        }
+        TZAssetModel *currentModel = self.models[self.currentIndex];
+        if (_tzImagePickerVc.selectedModels.count <= 0) {
+            self->_doneButton.enabled = !currentModel.iCloudFailed;
+        } else {
+            self->_doneButton.enabled = YES;
+        }
+        self->_selectButton.hidden = currentModel.iCloudFailed || !_tzImagePickerVc.showSelectBtn;
+        self->_originalPhotoButton.hidden = currentModel.iCloudFailed;
+        self->_originalPhotoLabel.hidden = currentModel.iCloudFailed;
+    });
+}
+
 - (void)showPhotoBytes {
-    [[TZImageManager manager] getPhotosBytesWithArray:@[_models[_currentIndex]] completion:^(NSString *totalBytes) {
+    [[TZImageManager manager] getPhotosBytesWithArray:@[_models[self.currentIndex]] completion:^(NSString *totalBytes) {
         self->_originalPhotoLabel.text = [NSString stringWithFormat:@"(%@)",totalBytes];
     }];
+}
+
+- (NSInteger)currentIndex {
+    return [TZCommonTools tz_isRightToLeftLayout] ? self.models.count - _currentIndex - 1 : _currentIndex;
 }
 
 @end

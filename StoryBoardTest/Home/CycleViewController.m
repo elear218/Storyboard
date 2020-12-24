@@ -12,6 +12,8 @@
 #import <UIImageView+WebCache.h>
 #import "CustomCycleCollectionCell.h"
 
+#import "ViewController.h"
+
 @interface CycleViewController ()<SDCycleScrollViewDelegate>{
     NSArray *_imagesLocalStrings,*_imagesURLStrings;
     NSArray *_txtStrings;
@@ -62,6 +64,11 @@
     [self banner3Set];
     [self banner4Set];
     // Do any additional setup after loading the view.
+    
+//    NSMutableArray *vcArr = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+//    ViewController *inserVC = [ViewController new];
+//    [vcArr insertObject:inserVC atIndex:self.navigationController.viewControllers.count - 1];
+//    [self.navigationController setViewControllers:vcArr animated:NO];
 }
 
 - (void)banner1Set {
