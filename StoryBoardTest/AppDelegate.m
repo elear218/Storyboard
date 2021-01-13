@@ -40,6 +40,12 @@
         [NSBundle setLanguage:[[NSUserDefaults standardUserDefaults] objectForKey:LANGUAGEKEY]];
     }
     
+    //配置网络请求基本信息
+    [ELBaseService addBaseUrl:@"https://can.mankebao.cn/"];
+    [ELBaseService addHeader:@"USER:157_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMDAzMTgxMDE3MDA3MDExMSIsImlhdCI6MTYwOTM5NjAwMX0.fWnTPrWYj0y04hYeNOIfyi2T0CxmUfvHIw4sds17CU8" forKey:@"Authorization"];
+//    [ELBaseService addCommonPara:@{}];
+    [ELBaseService enableDebugLog:YES];
+    
     //项目整体都可以实现点击间隔，如果单独修改某个 UIButton，可以设置 clickInterval 和 ignoreClickInterval
     //btn.clickInterval = 5;  btn.ignoreClickInterval = NO;
     [UIButton kk_exchangeClickMethod];

@@ -1,0 +1,6 @@
+framework module ELBaseService {
+  umbrella header "ELBaseService.h"
+
+  export *
+  module * { export * }
+}

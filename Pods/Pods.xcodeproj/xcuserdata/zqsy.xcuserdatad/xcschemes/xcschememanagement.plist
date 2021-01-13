@@ -4,17 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Aspects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>CWLateralSlide.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ELBaseService.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -39,17 +39,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-StoryBoardTest-StoryBoardTestUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-StoryBoardTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-StoryBoardTestTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-StoryBoardTestUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

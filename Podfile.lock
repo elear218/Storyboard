@@ -1,39 +1,25 @@
 PODS:
-  - AFNetworking (4.0.1):
-    - AFNetworking/NSURLSession (= 4.0.1)
-    - AFNetworking/Reachability (= 4.0.1)
-    - AFNetworking/Security (= 4.0.1)
-    - AFNetworking/Serialization (= 4.0.1)
-    - AFNetworking/UIKit (= 4.0.1)
-  - AFNetworking/NSURLSession (4.0.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (4.0.1)
-  - AFNetworking/Security (4.0.1)
-  - AFNetworking/Serialization (4.0.1)
-  - AFNetworking/UIKit (4.0.1):
-    - AFNetworking/NSURLSession
   - Aspects (1.4.1)
   - CWLateralSlide (1.6.5)
+  - ELBaseService (1.0.0)
   - IQKeyboardManager (6.5.6)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.5.0)
   - SDCycleScrollView (1.82):
     - SDWebImage (>= 5.0.0)
-  - SDWebImage (5.10.0):
-    - SDWebImage/Core (= 5.10.0)
-  - SDWebImage/Core (5.10.0)
+  - SDWebImage (5.10.2):
+    - SDWebImage/Core (= 5.10.2)
+  - SDWebImage/Core (5.10.2)
   - TTGTagCollectionView (1.11.1)
-  - TZImagePickerController (3.5.7)
+  - TZImagePickerController (3.5.8)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - AFNetworking (~> 4.0)
   - Aspects
   - CWLateralSlide
+  - ELBaseService
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD
@@ -46,8 +32,9 @@ DEPENDENCIES:
   - YYModel
 
 SPEC REPOS:
-  trunk:
-    - AFNetworking
+  https://github.com/elear218/ELPods.git:
+    - ELBaseService
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Aspects
     - CWLateralSlide
     - IQKeyboardManager
@@ -62,20 +49,20 @@ SPEC REPOS:
     - YYModel
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
+  ELBaseService: 24088e71793785ceacc396b3e88e4871ef7395ba
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
-  SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
+  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
-  TZImagePickerController: aff4b62eacce0194d2494ee4f42934bcff577cec
+  TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: bfbdb57d30ca22f0553778f63cc793b5bb14b2eb
+PODFILE CHECKSUM: 49acceb805e26baa9c34f6972302f60598ed4053
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0

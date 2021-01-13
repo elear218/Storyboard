@@ -149,6 +149,9 @@
         make.size.mas_equalTo(CGSizeMake(100, 35));
     }];
     // Do any additional setup after loading the view.
+//    [ELBaseService postOperationWithUrl:@"base/api/v1/supplierUser/getMineQrCode" params:nil handler:^(BOOL success, id  _Nonnull response, NSString * _Nonnull errorMsg) {
+//
+//    }];
 }
 
 #pragma mark 按钮事件
