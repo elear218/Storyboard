@@ -23,7 +23,7 @@ target 'StoryBoardTest' do
   pod 'IQKeyboardManager'
   pod 'SDCycleScrollView'
   pod 'SDWebImage'
-  pod 'MBProgressHUD'
+#  pod 'MBProgressHUD'
 
   target 'StoryBoardTestTests' do
     inherit! :search_paths

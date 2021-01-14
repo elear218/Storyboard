@@ -49,7 +49,7 @@ UIKIT_EXTERN NSString *const kNotificationNameTokenInvalid;
  @return NSURLSessionDataTask
  */
 + (NSURLSessionDataTask *)postOperationWithUrl:(NSString *)urlStr
-                                        params:(nullable NSDictionary * )params
+                                        params:(nullable NSDictionary *)params
                                         handler:(void(^)(BOOL success, id response, NSString *errorMsg))handler;
 
 /**
@@ -61,7 +61,7 @@ UIKIT_EXTERN NSString *const kNotificationNameTokenInvalid;
  @return NSURLSessionDataTask
  */
 + (NSURLSessionDataTask *)getOperationWithUrl:(NSString *)urlStr
-                                        params:(nullable NSDictionary * )params
+                                        params:(nullable NSDictionary *)params
                                         handler:(void(^)(BOOL success, id response, NSString *errorMsg))handler;
 
 /**
@@ -74,7 +74,7 @@ UIKIT_EXTERN NSString *const kNotificationNameTokenInvalid;
  @return NSURLSessionDataTask
  */
 + (NSURLSessionDataTask *)uploadImageWithUrl:(NSString *)urlStr
-                                        params:(nullable NSDictionary * )params
+                                        params:(nullable NSDictionary *)params
                                         image:(UIImage *)image
                                         progress:(nullable void(^)(NSProgress *progress))progress
                                         handler:(void(^)(BOOL success, id response, NSString *errorMsg))handler;
@@ -90,7 +90,7 @@ UIKIT_EXTERN NSString *const kNotificationNameTokenInvalid;
  @return NSURLSessionDataTask
  */
 + (NSURLSessionDataTask *)uploadFaceImageWithUrl:(NSString *)urlStr
-                                        params:(nullable NSDictionary * )params
+                                        params:(nullable NSDictionary *)params
                                         imageData:(NSData *)imageData
                                         progress:(nullable void(^)(NSProgress *progress))progress
                                         handler:(void(^)(BOOL success, id response, NSString *errorMsg))handler;

@@ -1023,7 +1023,6 @@
 				AD37BE07204552BF002D59CD /* Frameworks */,
 				AD37BE08204552BF002D59CD /* Resources */,
 				55AA7504404E9540D8593AF7 /* [CP] Copy Pods Resources */,
-				B666A7D12189DD8606152593 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1062,7 +1061,6 @@
 				AD37BE2A204552BF002D59CD /* Frameworks */,
 				AD37BE2B204552BF002D59CD /* Resources */,
 				E44D3498A33D4A8408933E84 /* [CP] Copy Pods Resources */,
-				5EF32EBDA46BE5193A81EEF7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1243,24 +1241,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StoryBoardTest/Pods-StoryBoardTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5EF32EBDA46BE5193A81EEF7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StoryBoardTest-StoryBoardTestUITests/Pods-StoryBoardTest-StoryBoardTestUITests-frameworks.sh",
-				"${PODS_ROOT}/ELBaseService/ELBaseService.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ELBaseService.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StoryBoardTest-StoryBoardTestUITests/Pods-StoryBoardTest-StoryBoardTestUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		615B2DDDA5E4A031EC12F014 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1277,24 +1257,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B666A7D12189DD8606152593 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StoryBoardTest/Pods-StoryBoardTest-frameworks.sh",
-				"${PODS_ROOT}/ELBaseService/ELBaseService.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ELBaseService.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StoryBoardTest/Pods-StoryBoardTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E44D3498A33D4A8408933E84 /* [CP] Copy Pods Resources */ = {
@@ -1637,6 +1599,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = YES;
 				GCC_PREFIX_HEADER = StoryBoardTest/PrefixHeader.pch;
 				INFOPLIST_FILE = StoryBoardTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -1661,6 +1624,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = YES;
 				GCC_PREFIX_HEADER = StoryBoardTest/PrefixHeader.pch;
 				INFOPLIST_FILE = StoryBoardTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
