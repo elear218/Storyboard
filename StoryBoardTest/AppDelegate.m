@@ -46,6 +46,15 @@
 //    [ELBaseService addCommonPara:@{}];
     [ELBaseService enableDebugLog:YES];
     
+    [[ELLogManager sharedInstance] setup];
+    [[ELLogManager sharedInstance] enableNSLog];
+    [[ELLogManager sharedInstance] enableFileLog];
+    #ifdef DEBUG
+        [ELLogManager sharedInstance].level = ELLogLevelAll;
+    #else
+        [ELLogManager sharedInstance].level = ELLogLevelInfo;
+    #endif
+    
     //项目整体都可以实现点击间隔，如果单独修改某个 UIButton，可以设置 clickInterval 和 ignoreClickInterval
     //btn.clickInterval = 5;  btn.ignoreClickInterval = NO;
     [UIButton kk_exchangeClickMethod];

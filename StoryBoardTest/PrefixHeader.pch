@@ -17,6 +17,7 @@
 #import <Masonry.h>
 #import <UITableView+FDTemplateLayoutCell.h>
 #import <ELBaseService/ELBaseService.h>
+#import <ELLog/ELLog.h>
 
 #import "UIViewController+ContentInset.h"
 #import "UIViewController+DDYPresent.h"

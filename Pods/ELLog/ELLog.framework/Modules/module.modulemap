@@ -1,0 +1,6 @@
+framework module ELLog {
+  umbrella header "ELLog.h"
+
+  export *
+  module * { export * }
+}

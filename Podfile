@@ -12,6 +12,7 @@ target 'StoryBoardTest' do
 #  pod 'AFNetworking', '~> 4.0'
 #  pod 'AFNetworking', :subspecs => ['Reachability', 'Serialization', 'Security', 'NSURLSession']
   pod 'ELBaseService'
+  pod 'ELLog'
   pod 'MJRefresh'
   pod 'YYModel'
   pod 'Masonry'

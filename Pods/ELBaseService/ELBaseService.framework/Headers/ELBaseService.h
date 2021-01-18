@@ -95,6 +95,24 @@ UIKIT_EXTERN NSString *const kNotificationNameTokenInvalid;
                                         progress:(nullable void(^)(NSProgress *progress))progress
                                         handler:(void(^)(BOOL success, id response, NSString *errorMsg))handler;
 
+/**
+ 文件上传
+ 
+ @param urlStr 接口名
+ @param params 参数
+ @param data 文件二进制数据
+ @param fileName 文件名（带扩展名）
+ @param progress 上传进度回调
+ @param handler 结果回调
+ @return NSURLSessionDataTask
+ */
++ (NSURLSessionDataTask *)uploadDataWithUrl:(NSString *)urlStr
+                                        params:(nullable NSDictionary *)params
+                                        data:(NSData *)data
+                                        fileName:(NSString *)fileName
+                                        progress:(nullable void (^)(NSProgress *progress))progress
+                                        handler:(void (^)(BOOL success, id response, NSString *errorMsg))handler;
+
 + (void)cancelAll;
 + (void)cancelTask:(NSURLSessionDataTask *)task;
 

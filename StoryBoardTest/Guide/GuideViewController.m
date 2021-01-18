@@ -165,6 +165,12 @@
 
 - (void)nextOrDoneGuide:(UIButton *)sender {
     if (self.pageControl.currentPage == _imagesArray.count - 1) {
+        ELogInfo(@"111", @"faddsd");
+        ELogError(@"1111", @"test");
+        ELog(@"123456");
+        ELogD(@"sfaewew");
+        ELogDebug(@"123", @"elogTest");
+//        [[ELLogManager sharedInstance] writeFile];
         [self jumpGuide:nil];
     }else {
         NSInteger page = self.pageControl.currentPage;
