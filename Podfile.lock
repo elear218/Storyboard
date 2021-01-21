@@ -18,8 +18,10 @@ PODS:
   - CWLateralSlide (1.6.5)
   - ELBaseService (1.0.1):
     - AFNetworking (~> 4.0.1)
+    - ELLog (~> 1.0.0)
     - MBProgressHUD (~> 1.2.0)
-  - ELLog (1.0.0)
+    - YYModel
+  - ELLog (1.0.1)
   - IQKeyboardManager (6.5.6)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
@@ -29,6 +31,7 @@ PODS:
   - SDWebImage (5.10.2):
     - SDWebImage/Core (= 5.10.2)
   - SDWebImage/Core (5.10.2)
+  - SSZipArchive (2.2.3)
   - TTGTagCollectionView (1.11.1)
   - TZImagePickerController (3.5.8)
   - "UITableView+FDTemplateLayoutCell (1.6)"
@@ -38,16 +41,15 @@ DEPENDENCIES:
   - Aspects
   - CWLateralSlide
   - ELBaseService
-  - ELLog
   - IQKeyboardManager
   - Masonry
   - MJRefresh
   - SDCycleScrollView
   - SDWebImage
+  - SSZipArchive
   - TTGTagCollectionView
   - TZImagePickerController
   - "UITableView+FDTemplateLayoutCell"
-  - YYModel
 
 SPEC REPOS:
   https://github.com/elear218/ELPods.git:
@@ -63,6 +65,7 @@ SPEC REPOS:
     - MJRefresh
     - SDCycleScrollView
     - SDWebImage
+    - SSZipArchive
     - TTGTagCollectionView
     - TZImagePickerController
     - "UITableView+FDTemplateLayoutCell"
@@ -72,19 +75,20 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
-  ELBaseService: b05a9f111a53531e8912ed15c7f131ee23e66b6f
-  ELLog: f2b8c35b71ece0abbab8a76d168beb9037ca6b39
+  ELBaseService: 406750781cfda33016a0a79b5f02b4adb4e99cf5
+  ELLog: f940ad2c208b087cbed98cbf4ff67a51b9cd88cf
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
   SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
   TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: c433c461cafd32b34c5a3bf0513d7215b7697684
+PODFILE CHECKSUM: 7cc72fcd2bcb115e5bf1b56f3b46e325c67c4602
 
 COCOAPODS: 1.10.0

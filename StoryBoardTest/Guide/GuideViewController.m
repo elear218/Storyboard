@@ -149,9 +149,17 @@
         make.size.mas_equalTo(CGSizeMake(100, 35));
     }];
     // Do any additional setup after loading the view.
-//    [ELBaseService postOperationWithUrl:@"base/api/v1/supplierUser/getMineQrCode" params:nil handler:^(BOOL success, id  _Nonnull response, NSString * _Nonnull errorMsg) {
-//
-//    }];
+    [ELBaseService postOperationWithUrl:@"base/api/v1/supplier/getByCode" params:@{@"supplierCode" : @"300089"} handler:^(BOOL success, id  _Nonnull response, NSString * _Nonnull errorMsg) {
+        
+    }];
+    
+    [ELBaseService postOperationWithUrl:@"base/api/v3/shop/getAllListForSupplierUser" params:@{@"retailEnable" : @0, @"shopStatus" : @YES, @"needDinnerTypeEnable" : @YES} handler:^(BOOL success, id  _Nonnull response, NSString * _Nonnull errorMsg) {
+        if (success) {
+            
+        }else {
+            
+        }
+    }];
 }
 
 #pragma mark 按钮事件
@@ -171,6 +179,9 @@
         ELogD(@"sfaewew");
         ELogDebug(@"123", @"elogTest");
 //        [[ELLogManager sharedInstance] writeFile];
+        //模拟应用崩溃
+//        NSArray *arr = @[@"1", @"2"];
+//        NSString *str = arr[2];
         [self jumpGuide:nil];
     }else {
         NSInteger page = self.pageControl.currentPage;

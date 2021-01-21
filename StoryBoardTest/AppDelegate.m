@@ -16,6 +16,8 @@
 
 #import "GuidePagesView.h"
 
+#import <SSZipArchive/SSZipArchive.h>
+
 @interface AppDelegate ()
 
 @end
@@ -42,8 +44,8 @@
     
     //配置网络请求基本信息
     [ELBaseService addBaseUrl:@"https://can.mankebao.cn/"];
-    [ELBaseService addHeader:@"USER:157_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMDAzMTgxMDE3MDA3MDExMSIsImlhdCI6MTYwOTM5NjAwMX0.fWnTPrWYj0y04hYeNOIfyi2T0CxmUfvHIw4sds17CU8" forKey:@"Authorization"];
-//    [ELBaseService addCommonPara:@{}];
+    [ELBaseService addHeader:@"USER:157_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMDAzMTgxMDE3MDA3MDExMSIsImlhdCI6MTYxMTEwNjkzM30.WePX-kGzYsG6oUT66Ppkp-8s0pTWRg4-WI6Cvan2Tts" forKey:@"Authorization"];
+    [ELBaseService addCommonPara:@{@"supplierId" : @"157", @"appChannelType" : @"2"}];
     [ELBaseService enableDebugLog:YES];
     
     [[ELLogManager sharedInstance] setup];
@@ -55,24 +57,71 @@
         [ELLogManager sharedInstance].level = ELLogLevelInfo;
     #endif
     
+    //创建日志压缩文件目录
+    NSString *zipDirectory = [NSString stringWithFormat:@"%@/ellogZip", NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDirectory = NO;
+    BOOL rootPathExisted = [fileManager fileExistsAtPath:zipDirectory isDirectory:&isDirectory];
+    if (!isDirectory || !rootPathExisted){
+        [fileManager createDirectoryAtPath:zipDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    NSArray<NSString *> *logFiles = [[ELLogManager sharedInstance] exportLog];
+    NSLog(@"logFile === %@", logFiles);
+    if (logFiles.count) {
+        //@((NSInteger)([[NSDate date] timeIntervalSince1970] * 100))
+        NSString *time = [[NSDate date] stringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSLog(@"time === %@", time);
+        BOOL success = [SSZipArchive createZipFileAtPath:[NSString stringWithFormat:@"%@/%@.zip", zipDirectory, time] withFilesAtPaths:logFiles withPassword:@"123456"];
+        if (success) {
+            //压缩成功，清除日志文件
+            [[ELLogManager sharedInstance] clearLogFiles];
+        }else {
+            //压缩失败
+        }
+    }
+    
+    //获取压缩日志并上传
+    NSError *error;
+    NSArray *filesArr = [fileManager contentsOfDirectoryAtPath:zipDirectory error:&error];
+    if (error) {
+        NSLog(@"err === %@", error);
+    }else {
+        NSMutableArray *zipFiles = [NSMutableArray array];
+        [filesArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([[obj pathExtension] isEqualToString:@"zip"]) {
+                NSString *filePath = [zipDirectory stringByAppendingPathComponent:obj];
+                [zipFiles addObject:filePath];
+            }
+        }];
+        if (zipFiles.count) {
+            [self uploadLogZip:zipFiles];
+        }
+    }
+    
     //项目整体都可以实现点击间隔，如果单独修改某个 UIButton，可以设置 clickInterval 和 ignoreClickInterval
     //btn.clickInterval = 5;  btn.ignoreClickInterval = NO;
     [UIButton kk_exchangeClickMethod];
     
     [ThemeConfig clearThemeColorType];
     
+    //随机引导页方式
+    arc4random() % 2 ? [self controllerGuide] : [self viewGuide];
+    
+    return YES;
+}
+
+- (void)controllerGuide {
+    //第一种加载引导页：见EnterViewController.m
     EnterViewController *enter = [[EnterViewController alloc] init];
     CustomNaviViewController *nav = [[CustomNaviViewController alloc] initWithRootViewController:enter];
     self.window.rootViewController = nav;
-    
-    //第一种加载引导页：加在window上面 （第二种见EnterViewController.m）
-//    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"hasLoaded"]) {
-//        [GuidePagesView showGuidePageViewWithImages:@[@"Guide1", @"Guide2", @"Guide3", @"Guide4"]];
-////        [GuidePagesView showGuidePageViewWithImages:@[@"Guide1"]];
-//    }
-    
+}
+
+- (void)viewGuide {
+    //第二种加在window上面
     //创建TabBarController
-//    CustomTabBarController *tabVC = [[CustomTabBarController alloc] init];
+    CustomTabBarController *tabVC = [[CustomTabBarController alloc] init];
     
     /*
     //加载Storyboard
@@ -102,13 +151,50 @@
     //创建并将Storyboard添加到TabBarController中
     tabVC.viewControllers = @[homeNav,messageNav,mineNav];
     */
-    
     //设置根控制器
-//    self.window.rootViewController = tabVC;
+    self.window.rootViewController = tabVC;
     
-    return YES;
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"hasLoaded"]) {
+        [GuidePagesView showGuidePageViewWithImages:@[@"Guide1", @"Guide2", @"Guide3", @"Guide4"]];
+//        [GuidePagesView showGuidePageViewWithImages:@[@"Guide1"]];
+    }
 }
 
+- (void)uploadLogZip:(NSArray<NSString *> *)zipFiles {
+    //创建一个队列组
+    dispatch_group_t group = dispatch_group_create();
+    //创建一个并行队列
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    [zipFiles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        dispatch_group_enter(group);
+        dispatch_group_async(group, queue, ^{
+            NSLog(@"idx ===== %zd", idx);
+            NSError *error;
+            NSURL *zipUrl = [NSURL fileURLWithPath:obj];
+            NSData *logData = [NSData dataWithContentsOfURL:zipUrl options:NSDataReadingMappedIfSafe error:&error];
+            if (error) {
+                //转换二进制失败
+            }else {
+                //转换成功 上传
+//                if (idx) sleep(2);
+                [ELBaseService uploadDataWithUrl:@"testUpload" params:nil data:logData fileName:[zipUrl lastPathComponent] progress:^(NSProgress * _Nonnull progress) {
+                    
+                } handler:^(BOOL success, id  _Nonnull response, NSString * _Nonnull errorMsg) {
+                    dispatch_group_leave(group);
+                    NSLog(@"complete:%zd", idx);
+                    if (success) {
+                        //上传成功删除本地zip日志
+                        [[NSFileManager defaultManager] removeItemAtPath:obj error:nil];
+                    }
+                }];
+            }
+        });
+    }];
+    // 多个请求都结束了，处理请求数据
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"allComplete");
+    });
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

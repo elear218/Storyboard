@@ -12,9 +12,9 @@ target 'StoryBoardTest' do
 #  pod 'AFNetworking', '~> 4.0'
 #  pod 'AFNetworking', :subspecs => ['Reachability', 'Serialization', 'Security', 'NSURLSession']
   pod 'ELBaseService'
-  pod 'ELLog'
+#  pod 'ELLog'
   pod 'MJRefresh'
-  pod 'YYModel'
+#  pod 'YYModel'
   pod 'Masonry'
   pod 'UITableView+FDTemplateLayoutCell'
   pod 'TTGTagCollectionView'
@@ -25,6 +25,7 @@ target 'StoryBoardTest' do
   pod 'SDCycleScrollView'
   pod 'SDWebImage'
 #  pod 'MBProgressHUD'
+  pod 'SSZipArchive'
 
   target 'StoryBoardTestTests' do
     inherit! :search_paths
