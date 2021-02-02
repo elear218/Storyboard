@@ -13,6 +13,7 @@ typedef void (^LongPressActionBlock)(UILongPressGestureRecognizer *gestureRecogi
 
 @interface UIView (WHView)
 
+/*
 @property (nonatomic, assign) CGFloat x;
 @property (nonatomic, assign) CGFloat y;
 @property (nonatomic, assign) CGFloat width;
@@ -20,6 +21,7 @@ typedef void (^LongPressActionBlock)(UILongPressGestureRecognizer *gestureRecogi
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGFloat centerX;
 @property (nonatomic, assign) CGFloat centerY;
+*/
 
 
 //截取成图片

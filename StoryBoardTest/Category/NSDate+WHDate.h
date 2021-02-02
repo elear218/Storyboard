@@ -162,7 +162,7 @@
  *
  *  @return Return if self is today
  */
-- (BOOL)isToday;
+//- (BOOL)isToday;
 
 /**
  *  Add days to self
@@ -170,7 +170,7 @@
  *  @param days The number of days to add
  *  @return Return self by adding the gived days number
  */
-- (NSDate *)dateByAddingDays:(NSUInteger)days;
+//- (NSDate *)dateByAddingDays:(NSUInteger)days;
 
 /**
  *  Get the month as a localized string from the given month number

@@ -74,13 +74,13 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
 }
 
 #pragma mark - String Properties
-- (NSString *) stringWithFormat: (NSString *) format
-{
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    //    formatter.locale = [NSLocale currentLocale]; // Necessary?
-    formatter.dateFormat = format;
-    return [formatter stringFromDate:self];
-}
+//- (NSString *) stringWithFormat: (NSString *) format
+//{
+//    NSDateFormatter *formatter = [NSDateFormatter new];
+//    //    formatter.locale = [NSLocale currentLocale]; // Necessary?
+//    formatter.dateFormat = format;
+//    return [formatter stringFromDate:self];
+//}
 + (NSString *)dateStringWithTimeStamp:(NSTimeInterval)timeStamp
 {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp/1000];
@@ -441,6 +441,7 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
     return components.hour;
 }
 
+/*
 - (NSInteger) hour
 {
     NSDateComponents *components = [[NSDate currentCalendar] components:componentFlags fromDate:self];
@@ -470,6 +471,7 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
     NSDateComponents *components = [[NSDate currentCalendar] components:componentFlags fromDate:self];
     return components.month;
 }
+*/
 
 - (NSInteger) week
 {
@@ -477,11 +479,11 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
     return components.weekOfMonth;
 }
 
-- (NSInteger) weekday
-{
-    NSDateComponents *components = [[NSDate currentCalendar] components:componentFlags fromDate:self];
-    return components.weekday;
-}
+//- (NSInteger) weekday
+//{
+//    NSDateComponents *components = [[NSDate currentCalendar] components:componentFlags fromDate:self];
+//    return components.weekday;
+//}
 
 - (NSInteger) nthWeekday // e.g. 2nd Tuesday of the month is 2
 {
@@ -489,11 +491,11 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
     return components.weekdayOrdinal;
 }
 
-- (NSInteger) year
-{
-    NSDateComponents *components = [[NSDate currentCalendar] components:componentFlags fromDate:self];
-    return components.year;
-}
+//- (NSInteger) year
+//{
+//    NSDateComponents *components = [[NSDate currentCalendar] components:componentFlags fromDate:self];
+//    return components.year;
+//}
 
 + (NSDate *)date:(NSString *)datestr WithFormat:(NSString *)format
 {

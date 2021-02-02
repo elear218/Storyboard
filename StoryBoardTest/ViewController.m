@@ -33,7 +33,14 @@
 
 - (void)dismiss:(UIButton *)sender {
     if (self.view.tag != 5201314 && self.parentViewController.view.tag != 5201314) {
-        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
+        if (self.presentingViewController) {
+            //present方式
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else {
+            //push方式
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         return;
     }
     [self cw_dismissViewController];

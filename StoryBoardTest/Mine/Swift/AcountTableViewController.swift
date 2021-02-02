@@ -20,6 +20,7 @@ enum ActionIdentifier: String {
     case ModifyLanguage
 }
 
+//swift5相关特性：https://www.oceanickang.com/amp/1033.html
 class AcountTableViewController: UITableViewController {
 
     @IBOutlet weak var versionLabel: UILabel!

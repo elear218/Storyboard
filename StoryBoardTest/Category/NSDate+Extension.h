@@ -31,7 +31,7 @@
 
 // Short string utilities
 - (NSString *) stringWithDateStyle: (NSDateFormatterStyle) dateStyle timeStyle: (NSDateFormatterStyle) timeStyle;
-- (NSString *) stringWithFormat: (NSString *) format;
+//- (NSString *) stringWithFormat: (NSString *) format;
 + (NSString *)dateStringWithTimeStamp:(NSTimeInterval)timeStamp;
 @property (nonatomic, readonly) NSString *shortString;
 @property (nonatomic, readonly) NSString *shortDateString;
@@ -102,15 +102,15 @@
 
 // Decomposing dates
 @property (readonly) NSInteger nearestHour;
-@property (readonly) NSInteger hour;
-@property (readonly) NSInteger minute;
-@property (readonly) NSInteger seconds;
-@property (readonly) NSInteger day;
-@property (readonly) NSInteger month;
+//@property (readonly) NSInteger hour;
+//@property (readonly) NSInteger minute;
+//@property (readonly) NSInteger seconds;
+//@property (readonly) NSInteger day;
+//@property (readonly) NSInteger month;
 @property (readonly) NSInteger week;
-@property (readonly) NSInteger weekday;
+//@property (readonly) NSInteger weekday;
 @property (readonly) NSInteger nthWeekday; // e.g. 2nd Tuesday of the month == 2
-@property (readonly) NSInteger year;
+//@property (readonly) NSInteger year;
 
 - (NSDate *)dateWithYMD;
 - (NSDate *)dateWithFormatter:(NSString *)formatter;

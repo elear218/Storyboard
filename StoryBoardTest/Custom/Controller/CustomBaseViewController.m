@@ -13,6 +13,106 @@
 
 @end
 
+@implementation CustomBaseViewController (HUD)
+
+- (void)initHUD {
+    self.mbp = (MBProgressHUD *)[self.view viewWithTag:99999];
+    if (!self.mbp) {
+        self.mbp = [[MBProgressHUD alloc] initWithView:self.view];
+//        self.mbp.opacity = 0.6f;
+        self.mbp.bezelView.alpha = 0.6;
+        self.mbp.tag = 99999;
+        [self.view addSubview:self.mbp];
+    }
+}
+
+- (void)toast:(NSString *)text {
+    self.mbp.mode = MBProgressHUDModeText;
+    self.mbp.detailsLabel.text = text;
+    self.mbp.label.text = @"";
+    self.mbp.margin = 15.f;
+    self.mbp.detailsLabel.font = kFontSystem(16);
+    self.mbp.userInteractionEnabled = YES;
+    self.mbp.minShowTime = 2.0;
+    [self.mbp removeFromSuperview];
+    [[APPDELEGATE window] addSubview:self.mbp];
+    [[APPDELEGATE window] bringSubviewToFront:self.mbp];
+    
+    [self.mbp showAnimated:YES];
+    [self.mbp hideAnimated:YES afterDelay:1];
+}
+
+- (void)toast:(NSString *)text withImg:(UIImage *)image {
+    self.mbp.mode = MBProgressHUDModeCustomView;
+    MKBToastView *toastView = loadNib(@"MKBToastView");
+    toastView.imgView.image = image;
+    toastView.textLabel.text = text;
+    self.mbp.customView = toastView;
+    
+    self.mbp.detailsLabel.text = @"";
+    self.mbp.label.text = @"";
+    self.mbp.margin = 15.f;
+
+    self.mbp.detailsLabel.font = kFontSystem(16);
+    self.mbp.userInteractionEnabled = YES;
+    self.mbp.minShowTime = 2.0;
+    [self.mbp removeFromSuperview];
+    [[APPDELEGATE window] addSubview:self.mbp];
+    [[APPDELEGATE window] bringSubviewToFront:self.mbp];
+
+    [self.mbp showAnimated:YES];
+    [self.mbp hideAnimated:YES afterDelay:1];
+}
+
+- (void)showLoading:(NSString *)text {
+    self.mbp.detailsLabel.text = @"";
+    self.mbp.mode = MBProgressHUDModeIndeterminate;
+    if (text) {
+        self.mbp.label.text = text;
+    }else{
+        self.mbp.label.text = @"";
+    }
+    self.mbp.margin = 20.f;
+    self.mbp.userInteractionEnabled = YES;
+    self.mbp.detailsLabel.font = kFontSystem(16);
+    self.mbp.minShowTime = 0;
+    [self.mbp removeFromSuperview];
+    [self.view addSubview:self.mbp];
+    [self.view bringSubviewToFront:self.mbp];
+    
+    [self.mbp showAnimated:YES];
+}
+
+- (void)hideLoading {
+    [self.mbp hideAnimated:YES afterDelay:0];
+}
+
+@end
+
+@implementation CustomBaseViewController (Action)
+
+// 默认左边按钮为返回功能，若其他功能，子类中重写此段代码
+- (void)leftButtonPress {
+    WeakSelf(self);
+    if (self.navigationController.topViewController == self) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            StrongSelf(self);
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+    }else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            StrongSelf(self);
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
+    }
+}
+
+- (void)rightButtonPress {
+    
+}
+
+@end
+
 @implementation CustomBaseViewController
 
 + (instancetype)loadNibVc {
@@ -44,14 +144,15 @@
     self.view.height = ScreenHeight;
     [self.view layoutIfNeeded];
     
-    _mbp = (MBProgressHUD *)[self.view viewWithTag:99999];
-    if (!_mbp) {
-        _mbp = [[MBProgressHUD alloc] initWithView:self.view];
-//        _mbp.opacity = 0.6f;
-        _mbp.bezelView.alpha = 0.6;
-        _mbp.tag = 99999;
-        [self.view addSubview:_mbp];
-    }
+//    _mbp = (MBProgressHUD *)[self.view viewWithTag:99999];
+//    if (!_mbp) {
+//        _mbp = [[MBProgressHUD alloc] initWithView:self.view];
+////        _mbp.opacity = 0.6f;
+//        _mbp.bezelView.alpha = 0.6;
+//        _mbp.tag = 99999;
+//        [self.view addSubview:_mbp];
+//    }
+    [self initHUD];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popToRoot) name:@"popToRoot" object:nil];
 }
 
@@ -59,6 +160,7 @@
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
+/*
 - (void)toast:(NSString *)text {
     _mbp.mode = MBProgressHUDModeText;
     _mbp.detailsLabel.text = text;
@@ -119,6 +221,7 @@
 - (void)hideLoading {
     [_mbp hideAnimated:YES afterDelay:0];
 }
+*/
 
 - (void)initTopBarWithTitle:(NSString *)title {
     [self.titleLabel setText:title];
@@ -189,26 +292,6 @@
     button.frame = CGRectMake(ScreenWidth-90, STATUSBAR_HEIGHT, 100, 44);
     [button addTarget:self action:@selector(rightButtonPress) forControlEvents:UIControlEventTouchUpInside];
     [self.topBar addSubview:button];
-    
-}
-
-// 默认左边按钮为返回功能，若其他功能，子类中重写此段代码
-- (void)leftButtonPress {
-    WeakSelf(self);
-    if (self.navigationController.topViewController == self) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            StrongSelf(self);
-            [self.navigationController popViewControllerAnimated:YES];
-        });
-    }else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            StrongSelf(self);
-            [self dismissViewControllerAnimated:YES completion:nil];
-        });
-    }
-}
-
-- (void)rightButtonPress {
     
 }
 

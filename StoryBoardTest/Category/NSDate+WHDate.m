@@ -296,15 +296,15 @@
             && [components1 day] == [components2 day]);
 }
 
-- (BOOL)isToday {
-    return [self isSameDay:[NSDate date]];
-}
+//- (BOOL)isToday {
+//    return [self isSameDay:[NSDate date]];
+//}
 
-- (NSDate *)dateByAddingDays:(NSUInteger)days {
-    NSDateComponents *c = [[NSDateComponents alloc] init];
-    c.day = days;
-    return [[NSCalendar currentCalendar] dateByAddingComponents:c toDate:self options:0];
-}
+//- (NSDate *)dateByAddingDays:(NSUInteger)days {
+//    NSDateComponents *c = [[NSDateComponents alloc] init];
+//    c.day = days;
+//    return [[NSCalendar currentCalendar] dateByAddingComponents:c toDate:self options:0];
+//}
 
 /**
  *  Get the month as a localized string from the given month number

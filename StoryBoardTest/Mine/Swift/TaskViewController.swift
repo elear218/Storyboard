@@ -27,8 +27,9 @@ class TaskViewController: UIViewController {
     @IBAction func back(_ sender: UIButton) {
         
         self.navigationController?.popViewController(animated: true)
-        if (self.backValueClosure != nil) {
-            self.backValueClosure!("123456")
+        weak var weakSelf = self
+        if (weakSelf!.backValueClosure != nil) {
+            weakSelf!.backValueClosure!("123456")
         }
     }
     

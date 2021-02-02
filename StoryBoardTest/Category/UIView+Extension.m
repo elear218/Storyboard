@@ -9,6 +9,7 @@
 #import "UIView+Extension.h"
 
 @implementation UIView (Extension)
+/*
 #pragma mark - frame
 - (void)setX:(CGFloat)x {
     CGRect frame = self.frame;
@@ -131,6 +132,7 @@
     frame.origin.x = right - frame.size.width;
     self.frame = frame;
 }
+*/
 
 #pragma mark - layer
 - (void)rounded:(CGFloat)cornerRadius {

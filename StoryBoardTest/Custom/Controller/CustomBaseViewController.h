@@ -31,9 +31,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addRightButtonText:(NSString *)rightButtonText;
 - (void)addRightButton:(UIButton *)button;
 - (void)setupUI;
-//点击左侧返回 子类可重写
-- (void)leftButtonPress;
-- (void)rightButtonPress;
+
+//截取当前屏幕
+- (UIImage *)imageWithScreenshot;
+
++ (instancetype)loadNibVc;
+
+@end
+
+@interface CustomBaseViewController (HUD)
+
 //弹出指示器
 - (void)toast:(NSString *)text;
 - (void)toast:(NSString *)text withImg:(UIImage *)image;
@@ -41,10 +48,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)showLoading:(NSString *)text;
 //隐藏指示器
 - (void)hideLoading;
-//截取当前屏幕
-- (UIImage *)imageWithScreenshot;
 
-+ (instancetype)loadNibVc;
+@end
+
+@interface CustomBaseViewController (Action)
+
+//点击左侧返回 子类可重写
+- (void)leftButtonPress;
+- (void)rightButtonPress;
 
 @end
 
