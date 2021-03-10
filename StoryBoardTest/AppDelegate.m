@@ -108,7 +108,56 @@
     //随机引导页方式
     arc4random() % 2 ? [self controllerGuide] : [self viewGuide];
     
+    [self URLTest];
+    
+    NSMutableArray *arr = [@[@"a", @"b", @"c", @"d", @"e"] mutableCopy];
+    [@[@"1", @"1", @"1", @"2", @"2", @"2", @"3", @"4", @"5"] enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isEqualToString:@"1"]) {
+            NSUInteger index = [arr indexOfObject:@"a"];
+            [arr insertObject:obj atIndex:index + 1];
+        }else if ([obj isEqualToString:@"2"]) {
+            NSUInteger index = [arr indexOfObject:@"c"];
+            [arr insertObject:obj atIndex:index + 1];
+        }else if ([obj isEqualToString:@"3"]) {
+            NSUInteger index = [arr indexOfObject:@"d"];
+            [arr insertObject:obj atIndex:index + 1];
+        }else if ([obj isEqualToString:@"4"]) {
+            NSUInteger index = [arr indexOfObject:@"b"];
+            [arr insertObject:obj atIndex:index + 1];
+        }else if ([obj isEqualToString:@"5"]) {
+            NSUInteger index = [arr indexOfObject:@"e"];
+            [arr insertObject:obj atIndex:index + 1];
+        }
+    }];
+    NSLog(@"newArr === %@", arr);
+    
     return YES;
+}
+
+- (void)URLTest {
+//    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com:8080/share?username=123456&password=888888&errormsg=%E8%8E%B7%E5%8F%96%E5%95%86%E6%88%B7%E4%BF%A1%E6%81%AF%E5%BC%82%E5%B8%B8%5BBC2133%5D&errorcode=BC2133#page"];
+    
+    //[NSCharacterSet URLQueryAllowedCharacterSet]会将#转义，导致获取fragment为null
+//    NSURL *url = [NSURL URLWithString:[@"https://www.baidu.com:8080/share?username=123456&password=888888&sex=男&errormsg=%E8%8E%B7%E5%8F%96%E5%95%86%E6%88%B7%E4%BF%A1%E6%81%AF%E5%BC%82%E5%B8%B8%5BBC2133%5D&errorcode=BC2133#page" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+    
+    NSURL *url = [NSURL URLWithString:[@"https://www.baidu.com:8080/share?username=123456&password=888888&sex=男&errormsg=%E8%8E%B7%E5%8F%96%E5%95%86%E6%88%B7%E4%BF%A1%E6%81%AF%E5%BC%82%E5%B8%B8%5BBC2133%5D&errorcode=BC2133#page" stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet characterSetWithCharactersInString:@""] invertedSet]]];
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:url.absoluteString];
+    
+    NSLog(@"scheme=%@",urlComponents.scheme);
+    NSLog(@"user=%@",urlComponents.user);
+    NSLog(@"password=%@",urlComponents.password);
+    NSLog(@"host=%@",urlComponents.host);
+    NSLog(@"port=%@",urlComponents.port);
+    NSLog(@"query=%@",urlComponents.query);
+    NSLog(@"fragment=%@",urlComponents.fragment);
+
+    //包含query的各个参数
+    NSLog(@"queryItems=%@",urlComponents.queryItems);
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [urlComponents.queryItems enumerateObjectsUsingBlock:^(NSURLQueryItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [dic setObject:[obj.value stringByRemovingPercentEncoding] forKey:obj.name];
+    }];
+    NSLog(@"newQueryItems=%@",dic);
 }
 
 - (void)controllerGuide {
