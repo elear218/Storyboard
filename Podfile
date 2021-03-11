@@ -13,6 +13,8 @@ target 'StoryBoardTest' do
 #  pod 'AFNetworking', :subspecs => ['Reachability', 'Serialization', 'Security', 'NSURLSession']
   pod 'ELBaseService'
 #  pod 'ELLog'
+#  pod 'ELUnionPayment'
+  pod 'ELUnionPayment', :subspecs => ['Bestpay', 'CCB']
   pod 'MJRefresh'
 #  pod 'YYModel'
   pod 'Masonry'

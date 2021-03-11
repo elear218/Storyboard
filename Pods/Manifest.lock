@@ -22,15 +22,19 @@ PODS:
     - MBProgressHUD (~> 1.2.0)
     - YYModel
   - ELLog (1.0.1)
+  - ELUnionPayment/Bestpay (1.0.0):
+    - ELUnionPayment/Bestpay/openssl (= 1.0.0)
+  - ELUnionPayment/Bestpay/openssl (1.0.0)
+  - ELUnionPayment/CCB (1.0.0)
   - IQKeyboardManager (6.5.6)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.5.0)
   - SDCycleScrollView (1.82):
     - SDWebImage (>= 5.0.0)
-  - SDWebImage (5.10.2):
-    - SDWebImage/Core (= 5.10.2)
-  - SDWebImage/Core (5.10.2)
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
   - SSZipArchive (2.2.3)
   - TTGTagCollectionView (1.11.1)
   - TZImagePickerController (3.5.8)
@@ -41,6 +45,8 @@ DEPENDENCIES:
   - Aspects
   - CWLateralSlide
   - ELBaseService
+  - ELUnionPayment/Bestpay
+  - ELUnionPayment/CCB
   - IQKeyboardManager
   - Masonry
   - MJRefresh
@@ -55,6 +61,7 @@ SPEC REPOS:
   https://github.com/elear218/ELPods.git:
     - ELBaseService
     - ELLog
+    - ELUnionPayment
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - AFNetworking
     - Aspects
@@ -77,18 +84,19 @@ SPEC CHECKSUMS:
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
   ELBaseService: 406750781cfda33016a0a79b5f02b4adb4e99cf5
   ELLog: f940ad2c208b087cbed98cbf4ff67a51b9cd88cf
+  ELUnionPayment: ec4eb93204a4494d21df2e1a19cc72aba97c4cf0
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
-  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
   TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 7cc72fcd2bcb115e5bf1b56f3b46e325c67c4602
+PODFILE CHECKSUM: b4a3690c6f4459080ce999596db26c5591be8fe3
 
 COCOAPODS: 1.10.0
