@@ -228,6 +228,15 @@
     [self.topBar addSubview:self.titleLabel];
     
     [self.view addSubview:self.topBar];
+    [self.topBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(isIPhoneX?118:94);
+    }];
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(15);
+        make.top.mas_equalTo(isIPhoneX?88:64);
+        make.size.mas_equalTo(CGSizeMake(ScreenWidth - 30, 30));
+    }];
     if (self.navigationController.childViewControllers.count > 1) {
         [self addLeftButtonWithImage:[kImageNamed(@"back_white") colorizewithColor:kBlackColor]];
     }
@@ -253,6 +262,11 @@
     [_leftButton.titleLabel setFont:kFontSystem(16.f)];
     
     [self.topBar addSubview:_leftButton];
+    [_leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(6);
+        make.top.mas_equalTo(isIPhoneX?44:20);
+        make.size.mas_equalTo(CGSizeMake(56, 44));
+    }];
 }
 - (void)addRightButtonWithImage:(UIImage *)rightButtonImage;
 {
@@ -270,6 +284,11 @@
     [_rightButton addTarget:self action:@selector(rightButtonPress) forControlEvents:UIControlEventTouchUpInside];
     
     [self.topBar addSubview:_rightButton];
+    [_rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(0);
+        make.top.mas_equalTo(STATUSBAR_HEIGHT);
+        make.size.mas_equalTo(CGSizeMake(56, 46));
+    }];
 }
 
 - (void)addRightButtonText:(NSString *)rightButtonText {
@@ -286,13 +305,22 @@
     [_rightButton addTarget:self action:@selector(rightButtonPress) forControlEvents:UIControlEventTouchUpInside];
     
     [self.topBar addSubview:_rightButton];
+    [_rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(0);
+        make.top.mas_equalTo(STATUSBAR_HEIGHT);
+        make.size.mas_equalTo(CGSizeMake(100, 44));
+    }];
 }
 
 - (void)addRightButton:(UIButton *)button {
     button.frame = CGRectMake(ScreenWidth-90, STATUSBAR_HEIGHT, 100, 44);
     [button addTarget:self action:@selector(rightButtonPress) forControlEvents:UIControlEventTouchUpInside];
     [self.topBar addSubview:button];
-    
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(0);
+        make.top.mas_equalTo(STATUSBAR_HEIGHT);
+        make.size.mas_equalTo(CGSizeMake(100, 44));
+    }];
 }
 
 #pragma mark -

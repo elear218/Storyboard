@@ -10,6 +10,8 @@
 
 @interface CustomNaviViewController ()<UIGestureRecognizerDelegate>
 
+@property (assign, nonatomic) BOOL isLight;
+
 @end
 
 @implementation CustomNaviViewController
@@ -30,7 +32,7 @@
     [naviBar setTintColor:[UIColor whiteColor]];
     
     //标题属性
-    [naviBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont systemFontOfSize:18.f weight:UIFontWeightBold]}];
+//    [naviBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont systemFontOfSize:18.f weight:UIFontWeightBold]}];
     
     //导航栏文字属性
     //    NSMutableDictionary *barAttrs = [NSMutableDictionary dictionary];
@@ -41,32 +43,40 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    if (@available(iOS 11, *)) { // xcode9新特性 可以这样判断，xcode9以下只能用UIDevice systemVersion 来判断
+    CGFloat statusH = 0;
+    if (@available(iOS 13.0, *)) {
+        UIStatusBarManager *statusBarManager = [UIApplication sharedApplication].keyWindow.windowScene.statusBarManager;
+        statusH = CGRectGetHeight(statusBarManager.statusBarFrame);
+    }else if (@available(iOS 11, *)) { // xcode9新特性 可以这样判断，xcode9以下只能用UIDevice systemVersion 来判断
         UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-        CGFloat statusH = CGRectGetHeight(statusBar.frame);
-        for (UIView *view in self.navigationBar.subviews) {
-            if ([NSStringFromClass([view class]) isEqualToString:@"_UIBarBackground"]) {
-                NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:44 + statusH];
-                heightConstraint.priority = UILayoutPriorityDefaultHigh;
-                [view addConstraint:heightConstraint];
-            }
+        statusH = CGRectGetHeight(statusBar.frame);
+    }
+    for (UIView *view in self.navigationBar.subviews) {
+        if ([NSStringFromClass([view class]) isEqualToString:@"_UIBarBackground"]) {
+            NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:44 + statusH];
+            heightConstraint.priority = UILayoutPriorityDefaultHigh;
+            [view addConstraint:heightConstraint];
         }
     }
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    if (@available(iOS 11, *)) { // xcode9新特性 可以这样判断，xcode9以下只能用UIDevice systemVersion 来判断
+    CGFloat statusH = 0;
+    if (@available(iOS 13.0, *)) {
+        UIStatusBarManager *statusBarManager = [UIApplication sharedApplication].keyWindow.windowScene.statusBarManager;
+        statusH = CGRectGetHeight(statusBarManager.statusBarFrame);
+    }else if (@available(iOS 11, *)) { // xcode9新特性 可以这样判断，xcode9以下只能用UIDevice systemVersion 来判断
         UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-        CGFloat statusH = CGRectGetHeight(statusBar.frame);
-        for (UIView *view in self.navigationBar.subviews) {
-            // 通过遍历获取到_UIBarBackground图层
-            if ([NSStringFromClass([view class]) isEqualToString:@"_UIBarBackground"]) {
-                CGRect frame = view.frame;
-                frame.size.height = 44 + statusH;
-                frame.origin.y = -statusH;
-                view.frame = frame;
-            }
+        statusH = CGRectGetHeight(statusBar.frame);
+    }
+    for (UIView *view in self.navigationBar.subviews) {
+        // 通过遍历获取到_UIBarBackground图层
+        if ([NSStringFromClass([view class]) isEqualToString:@"_UIBarBackground"]) {
+            CGRect frame = view.frame;
+            frame.size.height = 44 + statusH;
+            frame.origin.y = -statusH;
+            view.frame = frame;
         }
     }
 }
@@ -74,11 +84,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.isLight = YES;
+    
+    //导航栏标题文字属性
+    NSMutableDictionary *barAttrs = [NSMutableDictionary dictionary];
+    [barAttrs setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    [barAttrs setObject:[UIFont systemFontOfSize:18.f weight:UIFontWeightBold] forKey:NSFontAttributeName];
+    
     //导航条前景色
-    [[UINavigationBar appearance] setBarTintColor:[ThemeConfig themeColor]];
+    if (@available(iOS 15.0, *)) {
+        UINavigationBarAppearance *barApp = [UINavigationBarAppearance new];
+        barApp.titleTextAttributes = barAttrs;
+        barApp.backgroundColor = [ThemeConfig themeColor];
+        barApp.shadowColor = [UIColor clearColor]; //设置导航栏下面的分割线颜色
+        [UINavigationBar appearance].scrollEdgeAppearance = barApp;
+        [UINavigationBar appearance].standardAppearance = barApp;
+    }else {
+        [[UINavigationBar appearance] setBarTintColor:[ThemeConfig themeColor]];
+        [UINavigationBar appearance].titleTextAttributes = barAttrs;
+    }
     
     // 手势代理
     self.interactivePopGestureRecognizer.delegate = self;
+//    [self setStatusBarBackgroundColor:[UIColor redColor]];
+}
+
+- (void)setStatusBarBackgroundColor:(UIColor *)color {
+    if (@available(iOS 13.0, *)) {
+        UIView *statusBar = [[UIView alloc]initWithFrame:[UIApplication sharedApplication].keyWindow.windowScene.statusBarManager.statusBarFrame] ;
+        statusBar.backgroundColor = color;
+        [[UIApplication sharedApplication].keyWindow addSubview:statusBar];
+    }else {
+        UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+        if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+            statusBar.backgroundColor = color;
+        }
+    }
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -99,6 +140,18 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     //排除根控制器，其他所有子控制器都要触发手势
     return self.viewControllers.count > 1;
+}
+
+#pragma mark - 状态栏文字颜色
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    if (self.isLight) {
+        return UIStatusBarStyleLightContent;
+    }
+    // 黑色
+    if (@available(iOS 13.0, *)) {
+        return UIStatusBarStyleDarkContent;
+    }else
+        return UIStatusBarStyleDefault;
 }
 
 - (void)didReceiveMemoryWarning {

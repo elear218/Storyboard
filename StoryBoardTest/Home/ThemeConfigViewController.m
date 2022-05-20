@@ -66,9 +66,18 @@
     
     self.bottomBtn.backgroundColor = themeColor;
     
-    [self.navigationController.navigationBar setBarTintColor:themeColor];
+//    [self.navigationController.navigationBar setBarTintColor:themeColor];
+//    //导航条前景色
+//    [[UINavigationBar appearance] setBarTintColor:themeColor];
     //导航条前景色
-    [[UINavigationBar appearance] setBarTintColor:themeColor];
+    if (@available(iOS 15.0, *)) {
+//        [UINavigationBar appearance].scrollEdgeAppearance.backgroundColor = themeColor;
+//        [UINavigationBar appearance].standardAppearance.backgroundColor = themeColor;
+        self.navigationController.navigationBar.scrollEdgeAppearance.backgroundColor = themeColor;
+        self.navigationController.navigationBar.standardAppearance.backgroundColor = themeColor;
+    }else {
+        [[UINavigationBar appearance] setBarTintColor:themeColor];
+    }
 }
 
 - (IBAction)topThemeBtnClick:(UIButton *)sender {

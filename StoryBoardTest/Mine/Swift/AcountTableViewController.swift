@@ -30,6 +30,10 @@ class AcountTableViewController: UITableViewController {
 
         self.contentInsetAdjustment()
         
+        if #available(iOS 13.0, *) {
+            tableView = UITableView.init(frame: CGRect.zero, style: .insetGrouped)
+        }
+        
         tableView.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 18));
         tableView.tableFooterView = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0.1));
         versionLabel.text = "v".appending(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)

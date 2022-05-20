@@ -47,6 +47,11 @@
     }];
     self.tableView.mj_header = header;
     
+    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+    NSString *appName = infoDic[@"CFBundleDisplayName"];
+    NSString *appVersion = infoDic[@"CFBundleShortVersionString"];
+    NSString *appBuild = infoDic[@"CFBundleVersion"];
+    
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 60)];
 //    footerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.0f];
     
@@ -56,7 +61,7 @@
     copyRightLab.textAlignment = NSTextAlignmentCenter;
     copyRightLab.font = [UIFont systemFontOfSize:13.f];
     copyRightLab.numberOfLines = 0;
-    copyRightLab.text = @"Storyboard\niOS版 v1.0.0\n©2018-2020 elear.com\n";
+    copyRightLab.text = [NSString stringWithFormat:@"%@\niOS版 v%@_build%@\n©2018-2020 elear.com\n", appName, appVersion, appBuild];
     [footerView addSubview:copyRightLab];
 //    copyRightLab.center = footerView.center;
     

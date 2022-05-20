@@ -152,7 +152,7 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark - Table view data source
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return tableView.sectionHeaderHeight;
 }
 

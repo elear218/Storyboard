@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [UITabBar appearance].backgroundColor = [UIColor whiteColor];
     self.tabBar.translucent = NO;
     
     //创建并将Storyboard添加到TabBarController中

@@ -42,6 +42,11 @@
         [NSBundle setLanguage:[[NSUserDefaults standardUserDefaults] objectForKey:LANGUAGEKEY]];
     }
     
+    //适配iOS15tableview，新增了sectionHeaderTopPadding属性，默认值是UITableViewAutomaticDimension
+    if (@available(iOS 15.0, *)) {
+        [UITableView appearance].sectionHeaderTopPadding = .0f;
+    }
+    
     //配置网络请求基本信息
     [ELBaseService addBaseUrl:@"https://can.mankebao.cn/"];
     [ELBaseService addHeader:@"USER:157_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMDAzMTgxMDE3MDA3MDExMSIsImlhdCI6MTYxMTEwNjkzM30.WePX-kGzYsG6oUT66Ppkp-8s0pTWRg4-WI6Cvan2Tts" forKey:@"Authorization"];
@@ -130,6 +135,8 @@
         }
     }];
     NSLog(@"newArr === %@", arr);
+    
+    [self createShortcutItems];
     
     return YES;
 }
@@ -243,6 +250,28 @@
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"allComplete");
     });
+}
+
+- (void)createShortcutItems {
+    NSMutableArray *arrShortcutItem = (NSMutableArray *)[UIApplication sharedApplication].shortcutItems;
+    
+    //这里要注意  不清空arrShortcutItem的话每次都会增加 但是最多只显示前4个（包括静态注册的）
+    //arrShortcutItem不包括静态注册的item
+    if (arrShortcutItem.count) {
+        [arrShortcutItem removeAllObjects];
+    }
+    UIApplicationShortcutItem *shoreItem1 = [[UIApplicationShortcutItem alloc] initWithType:@"elear.search" localizedTitle:NSLocalizedString(@"搜索", nil) localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeSearch] userInfo:nil];
+    [arrShortcutItem addObject:shoreItem1];
+        
+    UIApplicationShortcutItem *shoreItem2 = [[UIApplicationShortcutItem alloc] initWithType:@"elear.custom" localizedTitle:NSLocalizedString(@"自定义图标", nil) localizedSubtitle:NSLocalizedString(@"副标题", nil) icon:[UIApplicationShortcutIcon iconWithTemplateImageName:@"shortcut_custom"] userInfo:@{@"name" : @"this is name", @"content" : @1}];
+    [arrShortcutItem addObject:shoreItem2];
+        
+    [UIApplication sharedApplication].shortcutItems = arrShortcutItem;
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    //不管APP在后台还是进程被杀死，只要通过主屏快捷操作进来的，都会调用这个方法
+    NSLog(@"shortcutItem === %@", [shortcutItem yy_modelToJSONString]);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
