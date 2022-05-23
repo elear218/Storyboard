@@ -1,1 +1,1 @@
-../../../TTGTagCollectionView/TTGTagCollectionView/Classes/TTGTagCollectionView.h
+../../../TTGTagCollectionView/Sources/TTGTagCollectionView.h

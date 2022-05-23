@@ -18,26 +18,52 @@
     CGFloat tagViewHeight;
 }
 
-@property (nonatomic, strong) TTGTextTagConfig *config;
+//@property (nonatomic, strong) TTGTextTagConfig *config;
+@property (nonatomic, copy) TTGTextTagStyle *normalStyle;
+@property (nonatomic, copy) TTGTextTagStyle *selectedStyle;
 
 @end
 
 @implementation FoldTagTableViewCell
 
-- (TTGTextTagConfig *)config {
-    if (!_config) {
-        _config = [[TTGTextTagConfig alloc] init];
-        _config.textColor = [UIColor blackColor];
-        _config.selectedTextColor = [UIColor whiteColor];
-        _config.backgroundColor = [UIColor whiteColor];
-        _config.selectedBackgroundColor = [UIColor purpleColor];
-        _config.cornerRadius = _config.selectedCornerRadius = 12.5f;
-        _config.borderWidth = _config.selectedBorderWidth = 2.f;
-        _config.borderColor = [UIColor blackColor];
-        _config.selectedBorderColor = [UIColor whiteColor];
-        _config.extraSpace = CGSizeMake(20, 10);
+//- (TTGTextTagConfig *)config {
+//    if (!_config) {
+//        _config = [[TTGTextTagConfig alloc] init];
+//        _config.textColor = [UIColor blackColor];
+//        _config.selectedTextColor = [UIColor whiteColor];
+//        _config.backgroundColor = [UIColor whiteColor];
+//        _config.selectedBackgroundColor = [UIColor purpleColor];
+//        _config.cornerRadius = _config.selectedCornerRadius = 12.5f;
+//        _config.borderWidth = _config.selectedBorderWidth = 2.f;
+//        _config.borderColor = [UIColor blackColor];
+//        _config.selectedBorderColor = [UIColor whiteColor];
+//        _config.extraSpace = CGSizeMake(20, 10);
+//    }
+//    return _config;
+//}
+
+- (TTGTextTagStyle *)normalStyle {
+    if (!_normalStyle) {
+        _normalStyle = [TTGTextTagStyle new];
+        _normalStyle.backgroundColor = [UIColor whiteColor];
+        _normalStyle.cornerRadius = 12.5f;
+        _normalStyle.borderWidth = 2.f;
+        _normalStyle.borderColor = [UIColor blackColor];
+        _normalStyle.extraSpace = CGSizeMake(20, 10);
     }
-    return _config;
+    return _normalStyle;
+}
+
+- (TTGTextTagStyle *)selectedStyle {
+    if (!_selectedStyle) {
+        _selectedStyle = [TTGTextTagStyle new];
+        _selectedStyle.backgroundColor = [UIColor purpleColor];
+        _selectedStyle.cornerRadius = 12.5f;
+        _selectedStyle.borderWidth = 2.f;
+        _selectedStyle.borderColor = [UIColor whiteColor];
+        _selectedStyle.extraSpace = CGSizeMake(20, 10);
+    }
+    return _selectedStyle;
 }
 
 - (void)awakeFromNib {
@@ -67,11 +93,21 @@
 
 - (void)setTagsArr:(NSArray<NSString *> *)tagsArr foldState:(BOOL)isFold{
     [_tagView removeAllTags];
-    [_tagView addTags:tagsArr withConfig:self.config];
+    NSMutableArray<TTGTextTag *> *tags = [NSMutableArray arrayWithCapacity:tagsArr.count];
+    [tagsArr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        TTGTextTag *tag = [TTGTextTag tagWithContent:[self tagStringContent:obj isSelected:NO] style:self.normalStyle selectedContent:[self tagStringContent:obj isSelected:YES] selectedStyle:self.selectedStyle];
+        [tags addObject:tag];
+    }];
+//    [_tagView addTags:tagsArr withConfig:self.config];
+    [_tagView addTags:tags];
     
     tagViewTopCons.constant = isFold ? 15.f : 10.f;
     tagViewBottomCons.constant = isFold ? -tagViewHeight : 20.f;
     
+}
+
+- (TTGTextTagStringContent *)tagStringContent:(NSString *)content isSelected:(BOOL)isSelected {
+    return [TTGTextTagStringContent contentWithText:content textFont:[UIFont systemFontOfSize:15.f] textColor:isSelected ? [UIColor whiteColor] : [UIColor blackColor]];
 }
 
 - (void)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView updateContentSize:(CGSize)contentSize {
