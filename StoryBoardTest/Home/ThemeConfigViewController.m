@@ -25,6 +25,28 @@
 
 @implementation ThemeConfigViewController
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    //避免当横屏状态跳转下一界面时仍然横屏的问题
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+        [self changeToPortrait];
+    }
+}
+
+- (void)customBack {
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+        //横屏时返回按钮事件为切换回竖屏
+        [self changeToPortrait];
+    }else
+        [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"customBack");
+}
+
+- (void)changeToPortrait {
+    NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+    [[UIDevice currentDevice] setValue:orientationTarget forKey:@"orientation"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -35,6 +57,9 @@
     [self reloadThemeViews];
     
     NSLog(@"testArr:%@", self.testArr);
+    
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_white"] style:UIBarButtonItemStylePlain target:self action:@selector(customBack)];
+    self.navigationItem.leftBarButtonItem = back;
 }
 
 - (void)reloadThemeViews {
@@ -111,6 +136,18 @@
 
 - (void)dealloc {
     NSLog(@"%s",__func__);
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    NSLog(@"size: %@", NSStringFromCGSize(size));
+    
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+        NSLog(@"横屏");
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }else {
+        NSLog(@"竖屏");
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    }
 }
 
 @end

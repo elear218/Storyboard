@@ -18,6 +18,9 @@
 
 #import <SSZipArchive/SSZipArchive.h>
 
+#import "ThemeConfigViewController.h"
+#import "MKBNewFunctionController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -112,6 +115,7 @@
     
     //随机引导页方式
     arc4random() % 2 ? [self controllerGuide] : [self viewGuide];
+//    [self controllerGuide];
     
     [self URLTest];
     
@@ -267,6 +271,13 @@
     [arrShortcutItem addObject:shoreItem2];
         
     [UIApplication sharedApplication].shortcutItems = arrShortcutItem;
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    if ([[ELControllerUtil getTopVC] isKindOfClass:[ThemeConfigViewController class]]) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {

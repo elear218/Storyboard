@@ -56,6 +56,8 @@
 		5FD0EA34257F5C7A00539F9B /* MKBToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0EA2F257F5C7900539F9B /* MKBToastView.m */; };
 		5FD0EA35257F5C7A00539F9B /* JZBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0EA32257F5C7A00539F9B /* JZBaseTableViewCell.m */; };
 		5FE3A27125949C4D004C6ECE /* UIImage+Extenssion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE3A27025949C4D004C6ECE /* UIImage+Extenssion.m */; };
+		6D4820302844A81200CE2C91 /* StrokeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D48202F2844A81200CE2C91 /* StrokeLabel.m */; };
+		6DD2235F283E1D8200CA7356 /* ELControllerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD2235E283E1D8200CA7356 /* ELControllerUtil.m */; };
 		AD00C11920577CCF00F6C4A0 /* Fold.json in Resources */ = {isa = PBXBuildFile; fileRef = AD00C11820577CCF00F6C4A0 /* Fold.json */; };
 		AD00C11C20577E1C00F6C4A0 /* FoldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00C11B20577E1C00F6C4A0 /* FoldModel.m */; };
 		AD01B33D2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD01B33B2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout.m */; };
@@ -266,6 +268,10 @@
 		5FD0EA32257F5C7A00539F9B /* JZBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZBaseTableViewCell.m; sourceTree = "<group>"; };
 		5FE3A26F25949C4D004C6ECE /* UIImage+Extenssion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extenssion.h"; sourceTree = "<group>"; };
 		5FE3A27025949C4D004C6ECE /* UIImage+Extenssion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extenssion.m"; sourceTree = "<group>"; };
+		6D48202E2844A81200CE2C91 /* StrokeLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StrokeLabel.h; sourceTree = "<group>"; };
+		6D48202F2844A81200CE2C91 /* StrokeLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StrokeLabel.m; sourceTree = "<group>"; };
+		6DD2235D283E1D8200CA7356 /* ELControllerUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELControllerUtil.h; sourceTree = "<group>"; };
+		6DD2235E283E1D8200CA7356 /* ELControllerUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELControllerUtil.m; sourceTree = "<group>"; };
 		AD00C11820577CCF00F6C4A0 /* Fold.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Fold.json; sourceTree = "<group>"; };
 		AD00C11A20577E1C00F6C4A0 /* FoldModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldModel.h; sourceTree = "<group>"; };
 		AD00C11B20577E1C00F6C4A0 /* FoldModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldModel.m; sourceTree = "<group>"; };
@@ -897,6 +903,10 @@
 				AD01B33A2094222900CCFC3E /* PDKTStickySectionHeadersCollectionViewLayout */,
 				AD01B33E2094223500CCFC3E /* LxGridViewFlowLayout */,
 				AD82D9F520590BA2004D08C7 /* YYFPSLabel */,
+				6DD2235D283E1D8200CA7356 /* ELControllerUtil.h */,
+				6DD2235E283E1D8200CA7356 /* ELControllerUtil.m */,
+				6D48202E2844A81200CE2C91 /* StrokeLabel.h */,
+				6D48202F2844A81200CE2C91 /* StrokeLabel.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1084,7 +1094,7 @@
 					AD37BE09204552BF002D59CD = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					AD37BE21204552BF002D59CD = {
 						CreatedOnToolsVersion = 9.2;
@@ -1322,6 +1332,7 @@
 				ADF46582207E0C4100933BF2 /* GuideViewController.m in Sources */,
 				AD70DC4D206E09B400561710 /* ImageSectionHeaderReusableView.m in Sources */,
 				ADD9247D205A6765000636F9 /* SlideViewController.m in Sources */,
+				6DD2235F283E1D8200CA7356 /* ELControllerUtil.m in Sources */,
 				AD995FB7204FBF5100B74D28 /* CustomXibView.m in Sources */,
 				AD4E4BCA20493B3B00027C7B /* LinePushViewController.m in Sources */,
 				5FD0EA1F257F4C2400539F9B /* UIView+Extension.m in Sources */,
@@ -1371,6 +1382,7 @@
 				5FD0EA06257F0F2100539F9B /* CustomPrint.swift in Sources */,
 				AD70DC44206E095400561710 /* InputTFCell.m in Sources */,
 				AD37BE5B2046352A002D59CD /* HomeViewController.m in Sources */,
+				6D4820302844A81200CE2C91 /* StrokeLabel.m in Sources */,
 				AD1A08C52084928E0067CC88 /* CustomCycleCollectionCell.m in Sources */,
 				AD37BE5E2046356F002D59CD /* MessageViewController.m in Sources */,
 				AD70DC47206E096500561710 /* InputTVCell.m in Sources */,
@@ -1601,8 +1613,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D823HQW486;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1632,7 +1645,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = D823HQW486;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
