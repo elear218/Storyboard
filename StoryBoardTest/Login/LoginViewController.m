@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 
+#import "StrokeLabel.h"
+
 @interface LoginViewController ()
 
 @end
@@ -18,6 +20,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    StrokeLabel *label = [StrokeLabel new];
+    label.font = [UIFont systemFontOfSize:18.f];
+    label.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(100);
+        make.height.mas_equalTo(45);
+    }];
+    label.text = @"这是一个文字带描边的label";
+    
+    UIView *bgView = [UIView new];
+    bgView.backgroundColor = [UIColor redColor];
+    [self.view insertSubview:bgView belowSubview:label];
+    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.height.mas_equalTo(label);
+        make.width.mas_equalTo(120);
+    }];
 }
 
 - (IBAction)back:(UIButton *)sender {
